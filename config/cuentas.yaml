@@ -1,36 +1,45 @@
 # ==========================================================
 #  CONFIGURACIÓN DE TUS CUENTAS DE CLIPS
-#  Aquí es donde, más adelante, añadirás cuentas y streamers.
+#  Aquí es donde añadirás cuentas, categorías y streamers.
 # ==========================================================
 
 cuentas:
   - nombre: "Clips de streamers"
     activa: true
 
-    # Streamers de los que sacar clips
+    # ----- DE DÓNDE SACAR LOS CLIPS -----
+    # Categorías de Twitch (nombre exacto, como sale en Twitch).
+    # Se buscan los clips más vistos de CUALQUIER streamer en ese idioma.
+    categorias:
+      - "Just Chatting"
+      - "Grand Theft Auto V"
+      - "Fortnite"
+      - "Minecraft"
+      - "IRL"
+
+    # Streamers concretos que quieres vigilar siempre (opcional).
     streamers:
-      - plataforma: twitch
-        usuario: ibai
+      - ibai
+      - auronplay
+      - elxokas
+      - illojuan
 
-    # Idioma principal de los directos (es = español)
-    idioma: es
+    idioma: es            # solo clips en español
+    horas_atras: 36       # buscar clips creados en las últimas X horas
+    vistas_minimas: 300   # ignorar clips con menos visualizaciones
 
-    # Cuántos clips como máximo sacar de cada directo
-    clips_por_directo: 4
-
-    # Nota mínima (de 1 a 10) para que un clip se acepte
-    puntuacion_minima: 7
-
-    # Duración de cada clip, en segundos
-    duracion_min: 15
+    # ----- CALIDAD -----
+    clips_por_ejecucion: 3   # máximo de clips que te llegan cada vez
+    candidatos_a_revisar: 15 # cuántos clips populares analiza la IA cada vez
+    puntuacion_minima: 8     # nota mínima (1-10) para mandártelo
+    duracion_min: 12
     duracion_max: 58
 
-    # Estilo de edición
+    # ----- ESTILO DE EDICIÓN -----
     estilo:
-      zoom: 1.25                 # cuánto se acerca la imagen central (1 = sin zoom)
-      color_subtitulos: amarillo # amarillo, blanco o verde
+      zoom: 1.25
+      color_subtitulos: amarillo   # amarillo, blanco o verde
       palabras_por_subtitulo: 3
       titulo_en_pantalla: true
 
-    # Hashtags que se añaden siempre
     hashtags_fijos: ["#shorts", "#twitch", "#streamer"]
