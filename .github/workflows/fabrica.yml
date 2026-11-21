@@ -1,0 +1,52 @@
+name: Fabrica de clips
+
+on:
+  workflow_dispatch:
+    inputs:
+      enlace:
+        description: "Enlace de un directo de Twitch (déjalo vacío para buscar el último)"
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+
+concurrency:
+  group: fabrica
+  cancel-in-progress: false
+
+jobs:
+  fabrica:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    steps:
+      - name: Descargar el proyecto
+        uses: actions/checkout@v4
+
+      - name: Preparar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Instalar programas de vídeo
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg fonts-dejavu-core
+
+      - name: Instalar librerías
+        run: pip install -q -r requirements.txt
+
+      - name: Ejecutar la fábrica
+        env:
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          ENLACE: ${{ inputs.enlace }}
+        run: python -m fabrica.main
+
+      - name: Guardar el registro de directos procesados
+        if: always()
+        run: |
+          git config user.name "fabrica-bot"
+          git config user.email "fabrica-bot@users.noreply.github.com"
+          git add estado/
+          git diff --cached --quiet || (git commit -m "Registro actualizado" && git push)
