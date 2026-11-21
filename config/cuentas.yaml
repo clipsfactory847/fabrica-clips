@@ -1,0 +1,36 @@
+# ==========================================================
+#  CONFIGURACIÓN DE TUS CUENTAS DE CLIPS
+#  Aquí es donde, más adelante, añadirás cuentas y streamers.
+# ==========================================================
+
+cuentas:
+  - nombre: "Clips de streamers"
+    activa: true
+
+    # Streamers de los que sacar clips
+    streamers:
+      - plataforma: twitch
+        usuario: ibai
+
+    # Idioma principal de los directos (es = español)
+    idioma: es
+
+    # Cuántos clips como máximo sacar de cada directo
+    clips_por_directo: 4
+
+    # Nota mínima (de 1 a 10) para que un clip se acepte
+    puntuacion_minima: 7
+
+    # Duración de cada clip, en segundos
+    duracion_min: 15
+    duracion_max: 58
+
+    # Estilo de edición
+    estilo:
+      zoom: 1.25                 # cuánto se acerca la imagen central (1 = sin zoom)
+      color_subtitulos: amarillo # amarillo, blanco o verde
+      palabras_por_subtitulo: 3
+      titulo_en_pantalla: true
+
+    # Hashtags que se añaden siempre
+    hashtags_fijos: ["#shorts", "#twitch", "#streamer"]
