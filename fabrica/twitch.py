@@ -65,6 +65,21 @@ def descargar_audio(enlace: str, carpeta: Path) -> Path:
     return archivos[0]
 
 
+def descargar_clip(clip: dict, destino: Path) -> Path:
+    """Descarga un clip de Twitch. Si falla, lo saca del directo original (si existe)."""
+    try:
+        ejecutar(YTDLP + ["-f", "best[height<=1080]/best", "-o", str(destino), clip["url"]])
+        if destino.exists():
+            return destino
+    except RuntimeError as e:
+        log(f"No se pudo descargar el clip directamente ({str(e)[:120]}). Pruebo desde el directo...")
+    if clip.get("video_id") and clip.get("vod_offset") is not None:
+        ini = max(0, float(clip["vod_offset"]))
+        return descargar_trozo(f"https://www.twitch.tv/videos/{clip['video_id']}",
+                               ini, ini + float(clip.get("duration", 30)), destino)
+    raise RuntimeError("No se pudo descargar el clip.")
+
+
 def descargar_trozo(enlace: str, inicio: float, fin: float, destino: Path) -> Path:
     """Descarga solo el trozo de vídeo que necesitamos, en la mejor calidad hasta 1080p."""
     ejecutar(YTDLP + [
