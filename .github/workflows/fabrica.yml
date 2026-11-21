@@ -1,10 +1,12 @@
 name: Fabrica de clips
 
 on:
+  schedule:
+    - cron: "23 */6 * * *"   # cada 6 horas, solo
   workflow_dispatch:
     inputs:
       enlace:
-        description: "Enlace de un directo de Twitch (déjalo vacío para buscar el último)"
+        description: "Opcional: enlace de un directo de Twitch para analizarlo entero (vacío = buscar clips populares)"
         required: false
         default: ""
 
@@ -40,13 +42,24 @@ jobs:
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          TWITCH_CLIENT_ID: ${{ secrets.TWITCH_CLIENT_ID }}
+          TWITCH_CLIENT_SECRET: ${{ secrets.TWITCH_CLIENT_SECRET }}
           ENLACE: ${{ inputs.enlace }}
         run: python -m fabrica.main
 
-      - name: Guardar el registro de directos procesados
+      - name: Guardar copia de los clips (7 días)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: clips-${{ github.run_number }}
+          path: salida/
+          retention-days: 7
+          if-no-files-found: ignore
+
+      - name: Guardar el registro de lo procesado
         if: always()
         run: |
           git config user.name "fabrica-bot"
           git config user.email "fabrica-bot@users.noreply.github.com"
           git add estado/
-          git diff --cached --quiet || (git commit -m "Registro actualizado" && git push)
+          git diff --cached --quiet || (git commit -m "Registro actualizado" && git pull --rebase -q && git push)
