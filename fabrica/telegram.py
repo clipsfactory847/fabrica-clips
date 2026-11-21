@@ -1,5 +1,6 @@
-"""Envía mensajes y vídeos a tu Telegram."""
+"""Envía mensajes y vídeos a tu Telegram y recoge tus respuestas (Aprobar / Descartar)."""
 import html
+import json
 from pathlib import Path
 
 import requests
@@ -11,12 +12,19 @@ def _api(metodo: str) -> str:
     return f"https://api.telegram.org/bot{secreto('TELEGRAM_TOKEN')}/{metodo}"
 
 
-def mensaje(texto: str) -> None:
+def esc(texto) -> str:
+    return html.escape(str(texto))
+
+
+def mensaje(texto: str, botones: list = None) -> None:
+    datos = {
+        "chat_id": secreto("TELEGRAM_CHAT_ID"), "text": texto[:4000],
+        "parse_mode": "HTML", "disable_web_page_preview": "true",
+    }
+    if botones:
+        datos["reply_markup"] = json.dumps({"inline_keyboard": botones})
     try:
-        r = requests.post(_api("sendMessage"), data={
-            "chat_id": secreto("TELEGRAM_CHAT_ID"), "text": texto[:4000],
-            "parse_mode": "HTML", "disable_web_page_preview": "true",
-        }, timeout=60)
+        r = requests.post(_api("sendMessage"), data=datos, timeout=60)
         if r.status_code != 200:
             log(f"Telegram no aceptó el mensaje: {r.text[:300]}")
     except Exception as e:  # un fallo de aviso nunca debe parar el sistema
@@ -34,5 +42,48 @@ def video(ruta: Path, pie: str) -> None:
         raise RuntimeError(f"Telegram no aceptó el vídeo: {r.text[:300]}")
 
 
-def esc(texto) -> str:
-    return html.escape(str(texto))
+def botones_decision(clave: str) -> list:
+    return [[
+        {"text": "✅ Aprobar", "callback_data": f"ok:{clave}"[:64]},
+        {"text": "❌ Descartar", "callback_data": f"no:{clave}"[:64]},
+    ]]
+
+
+def recoger_decisiones(estado) -> int:
+    """Lee los botones que has pulsado desde la última vez y los apunta."""
+    try:
+        r = requests.get(_api("getUpdates"), params={
+            "offset": estado.datos.get("telegram_offset", 0) + 1 if estado.datos.get("telegram_offset") else None,
+            "timeout": 0, "allowed_updates": json.dumps(["callback_query"]),
+        }, timeout=60)
+        updates = r.json().get("result", []) if r.status_code == 200 else []
+    except Exception as e:
+        log(f"No pude leer tus respuestas de Telegram: {e}")
+        return 0
+
+    contador = 0
+    for u in updates:
+        estado.datos["telegram_offset"] = u["update_id"]
+        q = u.get("callback_query")
+        if not q or ":" not in q.get("data", ""):
+            continue
+        accion, clave = q["data"].split(":", 1)
+        if accion not in ("ok", "no"):
+            continue
+        aprobado = accion == "ok"
+        estado.marcar_clip(clave, decision="aprobado" if aprobado else "descartado")
+        contador += 1
+        texto = "✅ Aprobado. ¡Súbelo a YouTube con el texto de arriba!" if aprobado else "❌ Descartado. Apuntado para mejorar."
+        try:
+            requests.post(_api("answerCallbackQuery"), data={"callback_query_id": q["id"], "text": texto[:190]}, timeout=30)
+            if q.get("message"):
+                requests.post(_api("editMessageReplyMarkup"), data={
+                    "chat_id": q["message"]["chat"]["id"], "message_id": q["message"]["message_id"],
+                    "reply_markup": json.dumps({"inline_keyboard": [[{"text": texto[:60], "callback_data": "hecho:0"}]]}),
+                }, timeout=30)
+        except Exception:
+            pass
+    estado.guardar()
+    if contador:
+        log(f"Apuntadas {contador} decisiones tuyas de Telegram.")
+    return contador
