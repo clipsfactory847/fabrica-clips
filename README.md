@@ -1,8 +1,45 @@
-# Fábrica de clips
+# 🎬 Clipéalo · Panel de control
 
-Sistema automático que busca directos de Twitch, encuentra los mejores momentos con IA,
-los edita en formato vertical con subtítulos y los envía a Telegram para aprobarlos.
+_Actualizado: 22/11/2026 10:31 UTC · se actualiza solo cada pocos minutos_
 
-- `config/cuentas.yaml` → tus cuentas, streamers y estilo de edición.
-- `estado/procesados.json` → registro de directos ya procesados (se actualiza solo).
-- `fabrica/` → el código del sistema.
+## Resumen
+
+| | Últimas 24 h | Últimos 7 días |
+|---|---|---|
+| 🔎 Clips revisados por la IA | 44 | 44 |
+| 📩 Enviados a tu Telegram | 5 | 5 |
+| ✅ Aprobados | 0 | 0 |
+| ❌ Descartados | 0 | 0 |
+| 🚀 Enviados a publicar | 0 | 0 |
+
+**Pendientes de revisar en Telegram:** 5
+
+## Últimas rondas automáticas
+
+| Estado | Cuándo (UTC) | Detalle |
+|---|---|---|
+| ✅ | 2026-11-22 09:54 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/45009807557) |
+| ❌ | 2026-11-22 09:45 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/45009096598) |
+| ✅ | 2026-11-22 09:08 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/45006062665) |
+| ✅ | 2026-11-22 05:20 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/44988997311) |
+| ✅ | 2026-11-22 01:39 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/44972495974) |
+| ✅ | 2026-11-22 00:04 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/44964863383) |
+
+## Últimos clips enviados
+
+| Fecha (UTC) | Streamer | Título | Nota | Vistas Twitch | Estado |
+|---|---|---|---|---|---|
+| 2026-11-22 05:25 | juansguarnizo | GTA VI, HOY EMPEZAMOS EL CAPÍTULO 2 😎 | 8/10 | 396 | ⏳ pendiente |
+| 2026-11-22 01:45 | auronplay | Joder | 8/10 | 364 | ⏳ pendiente |
+| 2026-11-22 00:10 | auronplay | Defensor de las Girls | 8/10 | 1483 | ⏳ pendiente |
+| 2026-11-22 00:10 | IlloJuan | vaya trickshot | 8/10 | 654 | ⏳ pendiente |
+| 2026-11-22 00:10 | IlloJuan | multita fresh | 8/10 | 450 | ⏳ pendiente |
+
+## Configuración actual
+
+- **Categorías:** Just Chatting, Grand Theft Auto V, Fortnite, Minecraft, IRL
+- **Streamers vigilados:** ibai, auronplay, elxokas, illojuan, thegrefg, rubius, elspreen, rivers_gg, juansguarnizo, sezar_blue, mayichi
+- **Nota mínima:** 8 · **Clips por ronda:** 5 · **Rondas:** cada 4 horas
+- **Publicación:** Buffer → YouTube (automático) y TikTok (aviso al móvil)
+
+_Para cambiar la configuración, edita `config/cuentas.yaml`._
