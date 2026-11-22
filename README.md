@@ -1,6 +1,6 @@
 # 🎬 Clipéalo · Panel de control
 
-_Actualizado: 22/11/2026 20:10 UTC · se actualiza solo cada pocos minutos_
+_Actualizado: 22/11/2026 20:14 UTC · se actualiza solo cada pocos minutos_
 
 ## Resumen
 
@@ -8,11 +8,11 @@ _Actualizado: 22/11/2026 20:10 UTC · se actualiza solo cada pocos minutos_
 |---|---|---|
 | 🔎 Clips revisados por la IA | 65 | 65 |
 | 📩 Enviados a tu Telegram | 11 | 11 |
-| ✅ Aprobados | 2 | 2 |
-| ❌ Descartados | 0 | 0 |
-| 🚀 Enviados a publicar | 2 | 2 |
+| ✅ Aprobados | 5 | 5 |
+| ❌ Descartados | 1 | 1 |
+| 🚀 Enviados a publicar | 5 | 5 |
 
-**Pendientes de revisar en Telegram:** 9
+**Pendientes de revisar en Telegram:** 5
 
 ## Últimas rondas automáticas
 
@@ -29,10 +29,10 @@ _Actualizado: 22/11/2026 20:10 UTC · se actualiza solo cada pocos minutos_
 
 | Fecha (UTC) | Streamer | Título | Nota | Vistas Twitch | Estado |
 |---|---|---|---|---|---|
-| 2026-11-22 20:05 | DjMaRiiO | ¡DjMaRiiO se cae de la forma más tonta! 😂 GTA VI | 9/10 | 1133 | ⏳ pendiente |
-| 2026-11-22 20:05 | DjMaRiiO | DjMaRiiO no entiende NADA en GTA VI 🤣 | 7/10 | 1072 | ⏳ pendiente |
-| 2026-11-22 20:05 | DjMaRiiO | ¡Aparece un COCODRILO de la nada! 🐊 DjMaRiiO en GTA VI | 10/10 | 737 | ⏳ pendiente |
-| 2026-11-22 20:05 | DjMaRiiO | El diálogo más RARO de GTA VI con DjMaRiiO 💀 | 7/10 | 319 | ⏳ pendiente |
+| 2026-11-22 20:05 | DjMaRiiO | ¡DjMaRiiO se cae de la forma más tonta! 😂 GTA VI | 9/10 | 1133 | 🚀 publicado |
+| 2026-11-22 20:05 | DjMaRiiO | DjMaRiiO no entiende NADA en GTA VI 🤣 | 7/10 | 1072 | 🚀 publicado |
+| 2026-11-22 20:05 | DjMaRiiO | ¡Aparece un COCODRILO de la nada! 🐊 DjMaRiiO en GTA VI | 10/10 | 737 | ❌ descartado |
+| 2026-11-22 20:05 | DjMaRiiO | El diálogo más RARO de GTA VI con DjMaRiiO 💀 | 7/10 | 319 | 🚀 publicado |
 | 2026-11-22 16:38 | NAKOO_Fn | El fail mas tonto de NAKOO en Fortnite 💀 | 9/10 | 311 | 🚀 publicado |
 | 2026-11-22 12:53 | elxokas | El Xokas pide disculpas de la forma más inesperada 😂 | 8/10 | 333 | 🚀 publicado |
 | 2026-11-22 05:25 | juansguarnizo | GTA VI, HOY EMPEZAMOS EL CAPÍTULO 2 😎 | 8/10 | 396 | ⏳ pendiente |
