@@ -105,6 +105,10 @@ PRIORIDAD MÁXIMA: el HUMOR. Lo que mejor funciona en esta cuenta son momentos G
 situaciones locas en GTA (GTA VI, GTA V, roleplay), caídas y fails, bromas, frases inesperadas, reacciones
 exageradas del streamer, sustos, cosas que salen fatal. Un clip gracioso y corto (15-35 s) vale más que uno
 "interesante" pero serio. Si dudas entre dos, elige el que haga reír.
+USA LAS TENDENCIAS: más abajo tienes los clips en español que se están haciendo MÁS virales en Twitch
+en las últimas horas. Fíjate en qué streamers, juegos y tipos de momentos están petándolo ahora mismo y
+sube la nota a los clips que encajen con esa ola (mismo streamer, mismo juego, mismo tipo de humor o situación),
+porque son los que la gente está buscando hoy. Las "vistas/hora" indican lo rápido que se está viralizando un clip.
 Puntúa BAJO (1-5): conversaciones de nicho, temas de esports o metajuego que solo entienden expertos, chistes internos,
 lectura de donaciones, publicidad, momentos que necesitan haber visto el directo, audio sin gracia, clips donde no pasa nada.
 
@@ -123,22 +127,30 @@ Para cada clip devuelve:
 
 Responde SOLO con JSON: {{"clips": [{{"id": "", "puntuacion": 0, "inicio": 0, "fin": 0, "titulo_pantalla": "", "titulo": "", "descripcion": "", "hashtags": [], "motivo": ""}}]}}
 
-CLIPS:
+LO MÁS VIRAL EN TWITCH EN ESPAÑOL AHORA MISMO (para orientarte):
+{tendencias}
+
+CLIPS A PUNTUAR:
 {lista}
 """
 
 
-def evaluar_clips_twitch(candidatos: list, cuenta: dict) -> list:
+ULTIMO_MEJOR = None  # el mejor clip de la ronda aunque no llegue a la nota mínima
+
+
+def evaluar_clips_twitch(candidatos: list, cuenta: dict, tendencias: str = "") -> list:
+    global ULTIMO_MEJOR
+    ULTIMO_MEJOR = None
     """candidatos: [{'id','streamer','categoria','titulo','vistas','duracion','frases':[...]}]"""
     partes = []
     for c in candidatos:
         partes.append(f"\n### id={c['id']} | streamer: {c['streamer']} | categoría: {c['categoria']} | "
-                      f"título: \"{c['titulo']}\" | {c['vistas']} visualizaciones | dura {c['duracion']:.0f} s")
+                      f"título: \"{c['titulo']}\" | {c['vistas']} visualizaciones ({c.get('por_hora', '?')} vistas/hora) | dura {c['duracion']:.0f} s")
         if c["frases"]:
             partes.extend(f"[{s['t0']:.0f}] {s['texto']}" for s in c["frases"])
         else:
             partes.append("(no se entiende lo que se dice o no hay voz)")
-    respuesta = _llamar_gemini(CRITERIO_CLIPS.format(lista="\n".join(partes)))
+    respuesta = _llamar_gemini(CRITERIO_CLIPS.format(lista="\n".join(partes), tendencias=tendencias or "(sin datos)"))
     propuestos = respuesta.get("clips", []) if isinstance(respuesta, dict) else []
 
     por_id = {c["id"]: c for c in candidatos}
@@ -152,7 +164,7 @@ def evaluar_clips_twitch(candidatos: list, cuenta: dict) -> list:
             fin = min(float(p.get("fin", c["duracion"])), c["duracion"]) if c else 0
         except (TypeError, ValueError):
             continue
-        if not c or nota < cuenta.get("puntuacion_minima", 8):
+        if not c:
             continue
         if fin - ini < dmin:  # si el recorte es demasiado corto, usamos el clip entero
             ini, fin = 0.0, c["duracion"]
@@ -160,7 +172,10 @@ def evaluar_clips_twitch(candidatos: list, cuenta: dict) -> list:
         if fin - ini < dmin:
             continue
         p.update(id=c["id"], puntuacion=nota, inicio=ini, fin=fin)
-        validos.append(p)
+        if ULTIMO_MEJOR is None or nota > ULTIMO_MEJOR["puntuacion"]:
+            ULTIMO_MEJOR = p
+        if nota >= cuenta.get("puntuacion_minima", 8):
+            validos.append(p)
     validos.sort(key=lambda p: p["puntuacion"], reverse=True)
     log(f"La IA ha puntuado {len(propuestos)} clips; {len(validos)} superan la nota mínima.")
     return validos
