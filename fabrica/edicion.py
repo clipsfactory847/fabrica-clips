@@ -2,6 +2,7 @@
 fondo desenfocado, imagen central ampliada, título arriba y subtítulos grandes."""
 from pathlib import Path
 
+from . import disposicion
 from .util import duracion_video, ejecutar, log
 
 ANCHO, ALTO = 1080, 1920
@@ -37,7 +38,8 @@ def _grupos_de_palabras(palabras: list, por_grupo: int) -> list:
     return grupos
 
 
-def crear_subtitulos(palabras: list, titulo: str, duracion: float, estilo: dict, destino: Path) -> Path:
+def crear_subtitulos(palabras: list, titulo: str, duracion: float, estilo: dict, destino: Path,
+                     y_sub: int = 1430, y_titulo: int = 260) -> Path:
     color = COLORES.get(estilo.get("color_subtitulos", "amarillo"), COLORES["amarillo"])
     lineas = [
         "[Script Info]", "ScriptType: v4.00+", f"PlayResX: {ANCHO}", f"PlayResY: {ALTO}",
@@ -52,7 +54,8 @@ def crear_subtitulos(palabras: list, titulo: str, duracion: float, estilo: dict,
         "Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text",
     ]
     if titulo and estilo.get("titulo_en_pantalla", True):
-        lineas.append(f"Dialogue: 1,{_tiempo_ass(0)},{_tiempo_ass(duracion)},Titulo,,0,0,0,,{_limpiar(titulo)}")
+        lineas.append(f"Dialogue: 1,{_tiempo_ass(0)},{_tiempo_ass(duracion)},Titulo,,0,0,0,,"
+                      f"{{\\an5\\pos(540,{y_titulo})}}{_limpiar(titulo)}")
 
     grupos = _grupos_de_palabras(palabras, int(estilo.get("palabras_por_subtitulo", 3)))
     for i, g in enumerate(grupos):
@@ -65,7 +68,7 @@ def crear_subtitulos(palabras: list, titulo: str, duracion: float, estilo: dict,
             break
         texto = _limpiar(" ".join(w["w"] for w in g)).upper()
         # pequeño efecto de "salto" al aparecer cada subtítulo
-        efecto = r"{\pos(540,1430)\fscx85\fscy85\t(0,90,\fscx100\fscy100)}"
+        efecto = "{\\pos(540,%d)\\fscx85\\fscy85\\t(0,90,\\fscx100\\fscy100)}" % y_sub
         lineas.append(f"Dialogue: 0,{_tiempo_ass(inicio)},{_tiempo_ass(fin)},Sub,,0,0,0,,{efecto}{texto}")
 
     destino.write_text("\n".join(lineas) + "\n", encoding="utf-8")
@@ -80,17 +83,14 @@ def editar_clip(entrada: Path, salida: Path, desfase: float, duracion: float,
     desfase = max(0.0, min(desfase, max(0.0, real - 1)))
     duracion = min(duracion, real - desfase)
 
-    subs = crear_subtitulos(palabras_relativas, titulo, duracion, estilo, carpeta / f"{salida.stem}.ass")
-    zoom = float(estilo.get("zoom", 1.25))
-    ancho_central = int(ANCHO * zoom) // 2 * 2
-
-    filtro = (
-        f"[0:v]split=2[a][b];"
-        f"[a]scale={ANCHO}:{ALTO}:force_original_aspect_ratio=increase,crop={ANCHO}:{ALTO},"
-        f"scale=270:480,boxblur=10:2,scale={ANCHO}:{ALTO},eq=brightness=-0.12[fondo];"
-        f"[b]scale={ancho_central}:-2,crop={ANCHO}:ih[centro];"
-        f"[fondo][centro]overlay=(W-w)/2:(H-h)/2,ass={subs.name},fps=30[v]"
-    )
+    try:
+        disp = disposicion.detectar(entrada, desfase, duracion) if estilo.get("formato_auto", True) else {"tipo": "clasica"}
+    except Exception as e:
+        log(f"No pude analizar la imagen ({e}); uso el formato clásico.")
+        disp = {"tipo": "clasica"}
+    nombre_subs = f"{salida.stem}.ass"
+    filtro, y_sub, y_titulo = disposicion.filtro_video(disp, ANCHO, ALTO, float(estilo.get("zoom", 1.25)), nombre_subs)
+    crear_subtitulos(palabras_relativas, titulo, duracion, estilo, carpeta / nombre_subs, y_sub, y_titulo)
 
     def codificar(calidad: int):
         ejecutar([
