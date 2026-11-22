@@ -36,11 +36,15 @@ cuentas:
     idioma: es            # solo clips en español
     horas_atras: 36       # buscar clips creados en las últimas X horas
     vistas_minimas: 300   # ignorar clips con menos visualizaciones
+    seguir_tendencias: true  # mirar también los directos en español más vistos AHORA (lo que está de moda)
+    directos_tendencia: 60   # cuántos directos en vivo revisar
+    horas_tendencia: 12      # ventana para calcular lo más viral
 
     # ----- CALIDAD -----
     clips_por_ejecucion: 5   # máximo de clips que te llegan cada vez
     candidatos_a_revisar: 30 # cuántos clips populares analiza la IA cada vez
-    puntuacion_minima: 8     # nota mínima (1-10) para mandártelo
+    puntuacion_minima: 7     # nota mínima (1-10) para mandártelo
+    nota_rescate: 6          # si ninguno llega, te mando el mejor de la ronda si tiene al menos esta nota
     duracion_min: 12
     duracion_max: 58
 
