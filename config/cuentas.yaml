@@ -50,3 +50,14 @@ cuentas:
       titulo_en_pantalla: true
 
     hashtags_fijos: ["#shorts", "#twitch", "#streamer"]
+
+# ==========================================================
+#  PUBLICACIÓN (vía Buffer) — al pulsar ✅ Aprobar en Telegram
+# ==========================================================
+publicacion:
+  # addToQueue = se publica en el siguiente hueco de tu horario de Buffer (recomendado)
+  # shareNow   = se publica en cuanto lo apruebas
+  modo: addToQueue
+  # Redes donde Buffer te manda un aviso al móvil para terminar tú la publicación
+  # (TikTok, porque tu cuenta es personal)
+  con_aviso: [tiktok]
