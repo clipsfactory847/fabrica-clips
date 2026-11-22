@@ -48,6 +48,8 @@ def datos_panel() -> dict:
             c["revisados"] += 1
             if v.get("resultado") == "enviado":
                 c["enviados"] += 1
+            if v.get("decision") and k not in dec:  # decisiones antiguas
+                c["aprobados" if v["decision"] == "aprobado" else "descartados"] += 1
         for k, v in dec.items():
             f = _fecha(v.get("fecha"))
             if not f or f < desde:
@@ -64,7 +66,7 @@ def datos_panel() -> dict:
                       key=lambda kv: kv[1].get("fecha", ""), reverse=True)[:15]
     ultimos = []
     for k, v in enviados:
-        d = dec.get(k, {})
+        d = dec.get(k) or {"decision": v.get("decision")}  # decisiones antiguas
         estado = "🚀 publicado" if d.get("publicado") else {
             "aprobado": "✅ aprobado", "descartado": "❌ descartado"}.get(d.get("decision"), "⏳ pendiente")
         ultimos.append({"fecha": v.get("fecha", ""), "streamer": v.get("streamer", ""),
