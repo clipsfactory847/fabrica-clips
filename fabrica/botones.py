@@ -3,7 +3,7 @@ y publica los clips aprobados."""
 import sys
 import traceback
 
-from . import publicar, telegram
+from . import panel, publicar, telegram
 from .estado import Decisiones, Estado
 from .telegram import esc
 from .util import cargar_config, log
@@ -28,8 +28,13 @@ def al_aprobar(clave: str, estado: Estado, decisiones: Decisiones) -> str:
 def main() -> int:
     estado = Estado()          # solo lectura: datos de los clips enviados
     decisiones = Decisiones()  # aquí se guardan tus decisiones
-    n = telegram.recoger_decisiones(decisiones, al_aprobar=lambda clave: al_aprobar(clave, estado, decisiones))
+    n = telegram.recoger_decisiones(decisiones, al_aprobar=lambda clave: al_aprobar(clave, estado, decisiones),
+                                    al_panel=panel.texto_telegram)
     log(f"Decisiones procesadas: {n}")
+    try:
+        panel.escribir_readme()
+    except Exception as e:
+        log(f"No pude actualizar el panel: {e}")
     return 0
 
 
