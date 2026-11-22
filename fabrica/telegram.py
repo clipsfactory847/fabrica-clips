@@ -49,8 +49,9 @@ def botones_decision(clave: str) -> list:
     ]]
 
 
-def recoger_decisiones(estado) -> int:
-    """Lee los botones que has pulsado desde la última vez y los apunta."""
+def recoger_decisiones(estado, al_aprobar=None) -> int:
+    """Lee los botones que has pulsado desde la última vez, los apunta y,
+    si se indica, publica los aprobados (al_aprobar devuelve el texto del resultado)."""
     try:
         r = requests.get(_api("getUpdates"), params={
             "offset": estado.datos.get("telegram_offset", 0) + 1 if estado.datos.get("telegram_offset") else None,
@@ -70,10 +71,20 @@ def recoger_decisiones(estado) -> int:
         accion, clave = q["data"].split(":", 1)
         if accion not in ("ok", "no"):
             continue
+        if str(q.get("from", {}).get("id")) != secreto("TELEGRAM_CHAT_ID"):
+            continue  # solo cuentan tus pulsaciones
         aprobado = accion == "ok"
         estado.marcar_clip(clave, decision="aprobado" if aprobado else "descartado")
         contador += 1
-        texto = "✅ Aprobado. ¡Súbelo a YouTube con el texto de arriba!" if aprobado else "❌ Descartado. Apuntado para mejorar."
+        texto = "✅ Aprobado" if aprobado else "❌ Descartado. Apuntado para mejorar."
+        if aprobado and al_aprobar:
+            try:
+                resultado = al_aprobar(clave)
+            except Exception as e:
+                resultado = f"❌ No se pudo publicar: {str(e)[:300]}"
+            mensaje(f"<b>Clip aprobado</b>\n{esc(resultado)}")
+            if any(x in resultado for x in ("✅", "🗓", "📲")):
+                texto = "✅ Aprobado y enviado a publicar"
         try:
             requests.post(_api("answerCallbackQuery"), data={"callback_query_id": q["id"], "text": texto[:190]}, timeout=30)
             if q.get("message"):
