@@ -1,0 +1,45 @@
+name: Botones de Telegram
+
+on:
+  schedule:
+    - cron: "*/10 * * * *"   # cada 10 minutos mira si has pulsado Aprobar/Descartar
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: botones
+  cancel-in-progress: false
+
+jobs:
+  botones:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Descargar el proyecto
+        uses: actions/checkout@v4
+
+      - name: Preparar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Instalar librerías
+        run: pip install -q requests pyyaml
+
+      - name: Leer botones y publicar aprobados
+        env:
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python -m fabrica.botones
+
+      - name: Guardar el registro
+        if: always()
+        run: |
+          git config user.name "fabrica-bot"
+          git config user.email "fabrica-bot@users.noreply.github.com"
+          git add estado/
+          git diff --cached --quiet || (git commit -m "Decisiones de Telegram" && git pull --rebase -q && git push)
