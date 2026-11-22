@@ -30,6 +30,7 @@ jobs:
 
       - name: Leer botones y publicar aprobados
         env:
+          GITHUB_REPOSITORY: ${{ github.repository }}
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
@@ -41,5 +42,5 @@ jobs:
         run: |
           git config user.name "fabrica-bot"
           git config user.email "fabrica-bot@users.noreply.github.com"
-          git add estado/
+          git add estado/ README.md
           git diff --cached --quiet || (git commit -m "Decisiones de Telegram" && git pull --rebase -q && git push)
