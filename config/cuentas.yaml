@@ -11,6 +11,7 @@ cuentas:
     # Categorías de Twitch (nombre exacto, como sale en Twitch).
     # Se buscan los clips más vistos de CUALQUIER streamer en ese idioma.
     categorias:
+      - "Grand Theft Auto VI"
       - "Just Chatting"
       - "Grand Theft Auto V"
       - "Fortnite"
@@ -30,6 +31,7 @@ cuentas:
       - juansguarnizo
       - sezar_blue
       - mayichi
+      - danirep
 
     idioma: es            # solo clips en español
     horas_atras: 36       # buscar clips creados en las últimas X horas
@@ -37,7 +39,7 @@ cuentas:
 
     # ----- CALIDAD -----
     clips_por_ejecucion: 5   # máximo de clips que te llegan cada vez
-    candidatos_a_revisar: 25 # cuántos clips populares analiza la IA cada vez
+    candidatos_a_revisar: 30 # cuántos clips populares analiza la IA cada vez
     puntuacion_minima: 8     # nota mínima (1-10) para mandártelo
     duracion_min: 12
     duracion_max: 58
@@ -48,6 +50,7 @@ cuentas:
       color_subtitulos: amarillo   # amarillo, blanco o verde
       palabras_por_subtitulo: 3
       titulo_en_pantalla: true
+      formato_auto: true          # pantalla dividida (cara arriba, juego abajo) cuando se detecta la cámara
 
     hashtags_fijos: ["#shorts", "#twitch", "#streamer"]
 
