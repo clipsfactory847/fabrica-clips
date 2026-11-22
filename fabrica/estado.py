@@ -8,9 +8,11 @@ ARCHIVO = RAIZ / "estado" / "procesados.json"
 
 
 class Estado:
+    archivo = ARCHIVO
+
     def __init__(self):
-        if ARCHIVO.exists():
-            self.datos = json.loads(ARCHIVO.read_text(encoding="utf-8"))
+        if self.archivo.exists():
+            self.datos = json.loads(self.archivo.read_text(encoding="utf-8"))
         else:
             self.datos = {}
         self.datos.setdefault("procesados", {})   # directos completos
@@ -46,5 +48,11 @@ class Estado:
                 del clips[k]
 
     def guardar(self) -> None:
-        ARCHIVO.parent.mkdir(exist_ok=True)
-        ARCHIVO.write_text(json.dumps(self.datos, ensure_ascii=False, indent=2), encoding="utf-8")
+        self.archivo.parent.mkdir(exist_ok=True)
+        self.archivo.write_text(json.dumps(self.datos, ensure_ascii=False, indent=2), encoding="utf-8")
+
+
+class Decisiones(Estado):
+    """Lo que decides en Telegram (aprobar/descartar) y lo ya publicado.
+    Va en un archivo aparte para no chocar con el proceso que crea los clips."""
+    archivo = RAIZ / "estado" / "decisiones.json"
