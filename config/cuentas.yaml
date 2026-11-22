@@ -23,14 +23,21 @@ cuentas:
       - auronplay
       - elxokas
       - illojuan
+      - thegrefg
+      - rubius
+      - elspreen
+      - rivers_gg
+      - juansguarnizo
+      - sezar_blue
+      - mayichi
 
     idioma: es            # solo clips en español
     horas_atras: 36       # buscar clips creados en las últimas X horas
     vistas_minimas: 300   # ignorar clips con menos visualizaciones
 
     # ----- CALIDAD -----
-    clips_por_ejecucion: 3   # máximo de clips que te llegan cada vez
-    candidatos_a_revisar: 15 # cuántos clips populares analiza la IA cada vez
+    clips_por_ejecucion: 5   # máximo de clips que te llegan cada vez
+    candidatos_a_revisar: 25 # cuántos clips populares analiza la IA cada vez
     puntuacion_minima: 8     # nota mínima (1-10) para mandártelo
     duracion_min: 12
     duracion_max: 58
