@@ -8,7 +8,7 @@ import tempfile
 import traceback
 from pathlib import Path
 
-from . import analisis, edicion, ia, telegram, transcripcion, twitch, twitch_api
+from . import analisis, edicion, ia, publicar, telegram, transcripcion, twitch, twitch_api
 from .estado import Estado
 from .telegram import esc
 from .util import RAIZ, cargar_config, formato_tiempo, log
@@ -20,8 +20,18 @@ MARGEN = 1.0
 # ----------------------------------------------------------------------
 #  ENVIAR UN CLIP TERMINADO
 # ----------------------------------------------------------------------
-def enviar_clip(final: Path, info: dict, cuenta: dict, clave: str, n: int, total: int, extra: str = "") -> None:
+def enviar_clip(final: Path, info: dict, cuenta: dict, clave: str, n: int, total: int,
+                extra: str = "", estado: Estado = None) -> None:
     hashtags = list(dict.fromkeys(list(info.get("hashtags", [])) + cuenta.get("hashtags_fijos", [])))
+    # Guardamos el vídeo en una dirección pública para poder publicarlo al aprobarlo
+    if estado is not None:
+        try:
+            url = publicar.alojar_video(final, clave)
+            estado.marcar_clip(clave, publicar={
+                "titulo": info.get("titulo", ""), "descripcion": info.get("descripcion", ""),
+                "hashtags": hashtags, "video_url": url})
+        except Exception as e:
+            log(f"No pude preparar el clip para publicar: {e}")
     pie = (f"🎬 <b>Clip {n} de {total}</b> · nota {info['puntuacion']:.0f}/10\n"
            f"💡 {esc(info.get('motivo', ''))}{extra}")
     telegram.video(final, pie)
@@ -124,7 +134,7 @@ def procesar_clips_populares(cuenta: dict, estado: Estado) -> int:
                                        f"\n\n🎥 Clip del directo de {p['streamer']}: twitch.tv/{login}")
                 extra = (f"\n👀 {p['vistas']} vistas en Twitch · {esc(p['streamer'])}"
                          f"{' · ' + esc(p['categoria']) if p['categoria'] else ''}")
-                enviar_clip(final, info, cuenta, p["id"], enviados + 1, min(maximo, len(notas)), extra)
+                enviar_clip(final, info, cuenta, p["id"], enviados + 1, min(maximo, len(notas)), extra, estado)
                 estado.marcar_clip(p["id"], resultado="enviado")
                 enviados += 1
             except Exception as e:
@@ -138,7 +148,7 @@ def procesar_clips_populares(cuenta: dict, estado: Estado) -> int:
 # ----------------------------------------------------------------------
 #  MODO MANUAL: ANALIZAR UN DIRECTO COMPLETO (cuando pegas un enlace)
 # ----------------------------------------------------------------------
-def procesar_directo(d: dict, cuenta: dict) -> int:
+def procesar_directo(d: dict, cuenta: dict, estado: Estado) -> int:
     streamer = d.get("streamer") or "el streamer"
     carpeta = Path(tempfile.mkdtemp(prefix="fabrica_"))
     telegram.mensaje(f"🔎 Empiezo a analizar un directo de <b>{esc(streamer)}</b>:\n{esc(d['titulo'])}")
@@ -166,7 +176,7 @@ def procesar_directo(d: dict, cuenta: dict) -> int:
                                             rel, c.get("titulo_pantalla", ""), cuenta.get("estilo", {}))
                 clave = f"{d['id']}_{int(c['inicio'])}"
                 enviar_clip(final, c, cuenta, clave, n, len(clips),
-                            f"\n⏱ Minuto {formato_tiempo(c['inicio'])} del directo")
+                            f"\n⏱ Minuto {formato_tiempo(c['inicio'])} del directo", estado)
                 enviados += 1
             except Exception as e:
                 telegram.mensaje(f"⚠️ No pude preparar el clip {n}: {esc(str(e)[:300])}")
@@ -179,7 +189,6 @@ def procesar_directo(d: dict, cuenta: dict) -> int:
 def main() -> int:
     config = cargar_config()
     estado = Estado()
-    telegram.recoger_decisiones(estado)
 
     cuentas = [c for c in config.get("cuentas", []) if c.get("activa", True)]
     if not cuentas:
@@ -189,7 +198,7 @@ def main() -> int:
     enlace = os.environ.get("ENLACE", "").strip()
     if enlace:
         d = twitch.info_directo(enlace)
-        n = procesar_directo(d, cuentas[0])
+        n = procesar_directo(d, cuentas[0], estado)
         estado.marcar(d["id"], d.get("streamer", ""), d["titulo"], n)
         telegram.mensaje(f"✅ Directo analizado. Te he enviado <b>{n}</b> clip(s).")
         return 0
