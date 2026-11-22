@@ -1,16 +1,16 @@
 # 🎬 Clipéalo · Panel de control
 
-_Actualizado: 22/11/2026 12:43 UTC · se actualiza solo cada pocos minutos_
+_Actualizado: 22/11/2026 12:59 UTC · se actualiza solo cada pocos minutos_
 
 ## Resumen
 
 | | Últimas 24 h | Últimos 7 días |
 |---|---|---|
-| 🔎 Clips revisados por la IA | 44 | 44 |
-| 📩 Enviados a tu Telegram | 5 | 5 |
-| ✅ Aprobados | 0 | 0 |
+| 🔎 Clips revisados por la IA | 48 | 48 |
+| 📩 Enviados a tu Telegram | 6 | 6 |
+| ✅ Aprobados | 1 | 1 |
 | ❌ Descartados | 0 | 0 |
-| 🚀 Enviados a publicar | 0 | 0 |
+| 🚀 Enviados a publicar | 1 | 1 |
 
 **Pendientes de revisar en Telegram:** 5
 
@@ -18,17 +18,18 @@ _Actualizado: 22/11/2026 12:43 UTC · se actualiza solo cada pocos minutos_
 
 | Estado | Cuándo (UTC) | Detalle |
 |---|---|---|
+| ✅ | 2026-11-22 12:44 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/45023832442) |
 | ✅ | 2026-11-22 09:54 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/45009807557) |
 | ❌ | 2026-11-22 09:45 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/45009096598) |
 | ✅ | 2026-11-22 09:08 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/45006062665) |
 | ✅ | 2026-11-22 05:20 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/44988997311) |
 | ✅ | 2026-11-22 01:39 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/44972495974) |
-| ✅ | 2026-11-22 00:04 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/44964863383) |
 
 ## Últimos clips enviados
 
 | Fecha (UTC) | Streamer | Título | Nota | Vistas Twitch | Estado |
 |---|---|---|---|---|---|
+| 2026-11-22 12:53 | elxokas | El Xokas pide disculpas de la forma más inesperada 😂 | 8/10 | 333 | 🚀 publicado |
 | 2026-11-22 05:25 | juansguarnizo | GTA VI, HOY EMPEZAMOS EL CAPÍTULO 2 😎 | 8/10 | 396 | ⏳ pendiente |
 | 2026-11-22 01:45 | auronplay | Joder | 8/10 | 364 | ⏳ pendiente |
 | 2026-11-22 00:10 | auronplay | Defensor de las Girls | 8/10 | 1483 | ⏳ pendiente |

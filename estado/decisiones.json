@@ -1,5 +1,11 @@
 {
   "procesados": {},
-  "clips": {},
-  "telegram_offset": 495937811
+  "clips": {
+    "MoldyTriangularSowRedCoat-arY7HDvRWKTLAU1i": {
+      "decision": "aprobado",
+      "fecha": "2026-11-22 12:59",
+      "publicado": true
+    }
+  },
+  "telegram_offset": 495937817
 }
