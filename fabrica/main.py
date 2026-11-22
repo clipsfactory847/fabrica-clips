@@ -3,6 +3,7 @@ Busca los clips de Twitch que más se están viendo → la IA elige los que más
 los edita en vertical con subtítulos → te los manda a Telegram para aprobarlos."""
 import os
 import shutil
+from datetime import datetime, timezone
 import sys
 import tempfile
 import traceback
@@ -48,7 +49,40 @@ def enviar_clip(final: Path, info: dict, cuenta: dict, clave: str, n: int, total
 # ----------------------------------------------------------------------
 #  MODO PRINCIPAL: CLIPS POPULARES DE TWITCH
 # ----------------------------------------------------------------------
-def buscar_clips_populares(cuenta: dict, estado: Estado) -> list:
+def _horas_desde(c: dict) -> float:
+    try:
+        creado = datetime.strptime(c["created_at"], "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=timezone.utc)
+        return max(1.0, (datetime.now(timezone.utc) - creado).total_seconds() / 3600)
+    except Exception:
+        return 24.0
+
+
+def _viralidad(c: dict) -> float:
+    """Visualizaciones por hora desde que se creó el clip: mide lo rápido que se está haciendo viral."""
+    return c.get("view_count", 0) / _horas_desde(c)
+
+
+def resumen_tendencias(clips: list, cuantos: int = 20) -> str:
+    """Texto con los clips más virales de las últimas horas, para que la IA sepa qué está funcionando."""
+    top = sorted(clips, key=_viralidad, reverse=True)[:cuantos]
+    if not top:
+        return "(no hay datos de tendencias)"
+    lineas = [f"- {c['broadcaster_name']} | {c.get('categoria') or c.get('game_name') or '?'} | "
+              f"\"{c['title']}\" | {c['view_count']} vistas en {_horas_desde(c):.0f} h" for c in top]
+    juegos, streamers = {}, {}
+    for c in top:
+        j = c.get("categoria") or c.get("game_name") or ""
+        if j:
+            juegos[j] = juegos.get(j, 0) + 1
+        streamers[c["broadcaster_name"]] = streamers.get(c["broadcaster_name"], 0) + 1
+    lineas.append("Juegos/categorías que más se repiten: " +
+                  ", ".join(f"{k} ({v})" for k, v in sorted(juegos.items(), key=lambda x: -x[1])[:6]))
+    lineas.append("Streamers más virales ahora: " +
+                  ", ".join(f"{k} ({v})" for k, v in sorted(streamers.items(), key=lambda x: -x[1])[:8]))
+    return "\n".join(lineas)
+
+
+def buscar_clips_populares(cuenta: dict, estado: Estado) -> tuple:
     idioma = cuenta.get("idioma", "es")
     horas = int(cuenta.get("horas_atras", 36))
     categorias = twitch_api.ids_de_categorias(cuenta.get("categorias", []))
@@ -62,15 +96,39 @@ def buscar_clips_populares(cuenta: dict, estado: Estado) -> list:
     for login, uid in streamers.items():
         for c in twitch_api.clips_populares({"broadcaster_id": uid}, horas, idioma):
             todos[c["id"]] = c
+
+    # TENDENCIAS: los streamers en español con más espectadores ahora mismo (grandes o pequeños que estén petándolo)
+    juego_de = {}
+    if cuenta.get("seguir_tendencias", True):
+        try:
+            vivos = twitch_api.directos_en_vivo(idioma, int(cuenta.get("directos_tendencia", 60)))
+            ya = set(streamers.values())
+            nuevos = 0
+            for d in vivos:
+                juego_de[d["user_id"]] = d.get("game_name", "")
+                if d["user_id"] in ya:
+                    continue
+                for c in twitch_api.clips_populares({"broadcaster_id": d["user_id"]}, horas, idioma):
+                    todos.setdefault(c["id"], c)
+                    nuevos += 1
+            log(f"Tendencias: revisados {len(vivos)} directos en vivo en español ({nuevos} clips suyos).")
+        except Exception as e:
+            log(f"⚠️ No pude mirar las tendencias: {str(e)[:200]}")
+    for c in todos.values():
+        c["categoria"] = nombre_categoria.get(c.get("game_id")) or juego_de.get(c.get("broadcaster_id"), "")
     log(f"Encontrados {len(todos)} clips en español de las últimas {horas} h.")
+
+    recientes = [c for c in todos.values() if _horas_desde(c) <= int(cuenta.get("horas_tendencia", 12))]
+    tendencias = resumen_tendencias(recientes or list(todos.values()))
+    log("Lo más viral ahora:\n" + tendencias)
 
     minimas = int(cuenta.get("vistas_minimas", 300))
     candidatos = [c for c in todos.values()
                   if not estado.clip_visto(c["id"]) and c.get("view_count", 0) >= minimas
                   and float(c.get("duration", 0)) >= cuenta.get("duracion_min", 12)]
 
-    # Quitar clips repetidos del mismo momento (varios espectadores clipean lo mismo)
-    candidatos.sort(key=lambda c: c.get("view_count", 0), reverse=True)
+    # Primero los que se están haciendo virales MÁS RÁPIDO (vistas por hora), no solo los que más vistas tienen
+    candidatos.sort(key=_viralidad, reverse=True)
     elegidos = []
     for c in candidatos:
         repetido = any(
@@ -81,13 +139,12 @@ def buscar_clips_populares(cuenta: dict, estado: Estado) -> list:
         if repetido:
             estado.marcar_clip(c["id"], resultado="repetido")
         else:
-            c["categoria"] = nombre_categoria.get(c.get("game_id"), "")
             elegidos.append(c)
-    return elegidos[: int(cuenta.get("candidatos_a_revisar", 15))]
+    return elegidos[: int(cuenta.get("candidatos_a_revisar", 15))], tendencias
 
 
 def procesar_clips_populares(cuenta: dict, estado: Estado) -> int:
-    candidatos = buscar_clips_populares(cuenta, estado)
+    candidatos, tendencias = buscar_clips_populares(cuenta, estado)
     if not candidatos:
         log("No hay clips nuevos que superen el mínimo de visualizaciones.")
         return 0
@@ -104,6 +161,7 @@ def procesar_clips_populares(cuenta: dict, estado: Estado) -> int:
                 preparados.append({
                     "id": c["id"], "streamer": c["broadcaster_name"], "categoria": c.get("categoria", ""),
                     "titulo": c["title"], "vistas": c["view_count"], "duracion": duracion,
+                    "por_hora": round(_viralidad(c)),
                     "frases": t["frases"], "palabras": t["palabras"], "archivo": archivo, "datos": c,
                 })
             except Exception as e:
@@ -112,7 +170,7 @@ def procesar_clips_populares(cuenta: dict, estado: Estado) -> int:
 
         if not preparados:
             return 0
-        notas = ia.evaluar_clips_twitch(preparados, cuenta)
+        notas = ia.evaluar_clips_twitch(preparados, cuenta, tendencias)
         por_id = {p["id"]: p for p in preparados}
         for p in preparados:  # apuntamos todos como vistos para no repetirlos
             nota = next((x["puntuacion"] for x in notas if x["id"] == p["id"]), None)
@@ -120,6 +178,9 @@ def procesar_clips_populares(cuenta: dict, estado: Estado) -> int:
                                vistas=p["vistas"], nota=nota, resultado="revisado")
 
         maximo = int(cuenta.get("clips_por_ejecucion", 3))
+        if not notas and ia.ULTIMO_MEJOR and ia.ULTIMO_MEJOR["puntuacion"] >= cuenta.get("nota_rescate", 6):
+            log(f"Ninguno llega a la nota mínima; te mando el mejor de la ronda ({ia.ULTIMO_MEJOR['puntuacion']}/10).")
+            notas = [ia.ULTIMO_MEJOR]
         enviados = 0
         for info in notas[:maximo]:
             p = por_id[info["id"]]
