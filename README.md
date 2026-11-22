@@ -1,34 +1,35 @@
 # 🎬 Clipéalo · Panel de control
 
-_Actualizado: 22/11/2026 16:30 UTC · se actualiza solo cada pocos minutos_
+_Actualizado: 22/11/2026 16:40 UTC · se actualiza solo cada pocos minutos_
 
 ## Resumen
 
 | | Últimas 24 h | Últimos 7 días |
 |---|---|---|
-| 🔎 Clips revisados por la IA | 49 | 49 |
-| 📩 Enviados a tu Telegram | 6 | 6 |
+| 🔎 Clips revisados por la IA | 54 | 54 |
+| 📩 Enviados a tu Telegram | 7 | 7 |
 | ✅ Aprobados | 1 | 1 |
 | ❌ Descartados | 0 | 0 |
 | 🚀 Enviados a publicar | 1 | 1 |
 
-**Pendientes de revisar en Telegram:** 5
+**Pendientes de revisar en Telegram:** 6
 
 ## Últimas rondas automáticas
 
 | Estado | Cuándo (UTC) | Detalle |
 |---|---|---|
+| ✅ | 2026-11-22 16:33 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/45044476851) |
 | ✅ | 2026-11-22 13:23 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/45027252184) |
 | ✅ | 2026-11-22 12:44 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/45023832442) |
 | ✅ | 2026-11-22 09:54 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/45009807557) |
 | ❌ | 2026-11-22 09:45 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/45009096598) |
 | ✅ | 2026-11-22 09:08 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/45006062665) |
-| ✅ | 2026-11-22 05:20 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/44988997311) |
 
 ## Últimos clips enviados
 
 | Fecha (UTC) | Streamer | Título | Nota | Vistas Twitch | Estado |
 |---|---|---|---|---|---|
+| 2026-11-22 16:38 | NAKOO_Fn | El fail mas tonto de NAKOO en Fortnite 💀 | 9/10 | 311 | ⏳ pendiente |
 | 2026-11-22 12:53 | elxokas | El Xokas pide disculpas de la forma más inesperada 😂 | 8/10 | 333 | 🚀 publicado |
 | 2026-11-22 05:25 | juansguarnizo | GTA VI, HOY EMPEZAMOS EL CAPÍTULO 2 😎 | 8/10 | 396 | ⏳ pendiente |
 | 2026-11-22 01:45 | auronplay | Joder | 8/10 | 364 | ⏳ pendiente |
@@ -38,8 +39,8 @@ _Actualizado: 22/11/2026 16:30 UTC · se actualiza solo cada pocos minutos_
 
 ## Configuración actual
 
-- **Categorías:** Just Chatting, Grand Theft Auto V, Fortnite, Minecraft, IRL
-- **Streamers vigilados:** ibai, auronplay, elxokas, illojuan, thegrefg, rubius, elspreen, rivers_gg, juansguarnizo, sezar_blue, mayichi
+- **Categorías:** Grand Theft Auto VI, Just Chatting, Grand Theft Auto V, Fortnite, Minecraft, IRL
+- **Streamers vigilados:** ibai, auronplay, elxokas, illojuan, thegrefg, rubius, elspreen, rivers_gg, juansguarnizo, sezar_blue, mayichi, danirep
 - **Nota mínima:** 8 · **Clips por ronda:** 5 · **Rondas:** cada 4 horas
 - **Publicación:** Buffer → YouTube (automático) y TikTok (aviso al móvil)
 
