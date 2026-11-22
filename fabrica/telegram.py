@@ -49,13 +49,13 @@ def botones_decision(clave: str) -> list:
     ]]
 
 
-def recoger_decisiones(estado, al_aprobar=None) -> int:
+def recoger_decisiones(estado, al_aprobar=None, al_panel=None) -> int:
     """Lee los botones que has pulsado desde la última vez, los apunta y,
     si se indica, publica los aprobados (al_aprobar devuelve el texto del resultado)."""
     try:
         r = requests.get(_api("getUpdates"), params={
             "offset": estado.datos.get("telegram_offset", 0) + 1 if estado.datos.get("telegram_offset") else None,
-            "timeout": 0, "allowed_updates": json.dumps(["callback_query"]),
+            "timeout": 0, "allowed_updates": json.dumps(["callback_query", "message"]),
         }, timeout=60)
         updates = r.json().get("result", []) if r.status_code == 200 else []
     except Exception as e:
@@ -65,6 +65,18 @@ def recoger_decisiones(estado, al_aprobar=None) -> int:
     contador = 0
     for u in updates:
         estado.datos["telegram_offset"] = u["update_id"]
+        m = u.get("message")
+        if m and al_panel and str(m.get("from", {}).get("id")) == secreto("TELEGRAM_CHAT_ID"):
+            texto_m = (m.get("text") or "").strip().lower()
+            if texto_m.startswith(("/panel", "/estado", "panel")):
+                try:
+                    mensaje(al_panel())
+                except Exception as e:
+                    mensaje(f"No pude preparar el panel: {esc(str(e)[:200])}")
+            elif texto_m.startswith(("/start", "/ayuda", "/help")):
+                mensaje("👋 Soy el bot de Clipéalo.\n\nTe mando los clips para aprobar con ✅ o descartar con ❌.\n"
+                        "Escribe /panel para ver el resumen. (Respondo en unos minutos.)")
+            continue
         q = u.get("callback_query")
         if not q or ":" not in q.get("data", ""):
             continue
