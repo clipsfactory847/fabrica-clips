@@ -65,6 +65,11 @@ def clips_populares(filtro: dict, horas: int, idioma: str, cuantos: int = 100) -
     return clips
 
 
+def directos_en_vivo(idioma: str, cuantos: int = 60) -> list:
+    """Los directos con más espectadores AHORA MISMO en ese idioma (sirve para descubrir lo que está de moda)."""
+    return _get("streams", {"language": idioma, "first": min(cuantos, 100), "type": "live"})
+
+
 def directos_guardados(user_id: str, cuantos: int = 5) -> list:
     return _get("videos", {"user_id": user_id, "type": "archive", "first": cuantos})
 
