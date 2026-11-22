@@ -57,15 +57,21 @@ def _llamar_gemini(prompt: str) -> dict:
     ultimo_error = ""
     for modelo in MODELOS:
         for intento in range(4):
-            r = requests.post(
-                URL.format(modelo=modelo),
-                params={"key": clave},
-                json={
-                    "contents": [{"role": "user", "parts": [{"text": prompt}]}],
-                    "generationConfig": {"temperature": 0.4, "responseMimeType": "application/json"},
-                },
-                timeout=300,
-            )
+            try:
+                r = requests.post(
+                    URL.format(modelo=modelo),
+                    params={"key": clave},
+                    json={
+                        "contents": [{"role": "user", "parts": [{"text": prompt}]}],
+                        "generationConfig": {"temperature": 0.4, "responseMimeType": "application/json"},
+                    },
+                    timeout=180,
+                )
+            except requests.RequestException as e:
+                ultimo_error = f"{modelo} no respondió a tiempo ({type(e).__name__})"
+                log(f"Gemini no responde ({type(e).__name__}). Espero 30 s y lo reintento...")
+                time.sleep(30)
+                continue
             if r.status_code == 200:
                 try:
                     texto = r.json()["candidates"][0]["content"]["parts"][0]["text"]
