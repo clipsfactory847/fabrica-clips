@@ -1,8 +1,7 @@
 name: Fabrica de clips
 
 on:
-  schedule:
-    - cron: "23 */4 * * *"   # cada 4 horas, solo
+  # Las rondas las lanza cron-job.org a la 1, 5, 9, 13, 17 y 21 h (hora de Madrid)
   workflow_dispatch:
     inputs:
       enlace:
