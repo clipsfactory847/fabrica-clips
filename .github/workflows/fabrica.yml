@@ -2,7 +2,7 @@ name: Fabrica de clips
 
 on:
   schedule:
-    - cron: "23 */6 * * *"   # cada 6 horas, solo
+    - cron: "23 */4 * * *"   # cada 4 horas, solo
   workflow_dispatch:
     inputs:
       enlace:
