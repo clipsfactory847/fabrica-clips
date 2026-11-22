@@ -101,6 +101,10 @@ Un clip merece 8-10 solo si cumple casi todo esto:
 - Tiene un remate o final claro que hace que la gente lo vea entero o lo repita.
 - Funciona para cualquiera: jugadas espectaculares, fails épicos, situaciones locas en GTA/IRL, reacciones exageradas,
   bromas, sustos, momentos que se compartirían con amigos.
+PRIORIDAD MÁXIMA: el HUMOR. Lo que mejor funciona en esta cuenta son momentos GRACIOSOS y absurdos:
+situaciones locas en GTA (GTA VI, GTA V, roleplay), caídas y fails, bromas, frases inesperadas, reacciones
+exageradas del streamer, sustos, cosas que salen fatal. Un clip gracioso y corto (15-35 s) vale más que uno
+"interesante" pero serio. Si dudas entre dos, elige el que haga reír.
 Puntúa BAJO (1-5): conversaciones de nicho, temas de esports o metajuego que solo entienden expertos, chistes internos,
 lectura de donaciones, publicidad, momentos que necesitan haber visto el directo, audio sin gracia, clips donde no pasa nada.
 
