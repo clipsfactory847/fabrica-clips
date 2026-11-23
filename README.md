@@ -1,13 +1,13 @@
 # 🎬 Clipéalo · Panel de control
 
-_Actualizado: 23/11/2026 04:01 UTC · se actualiza solo cada pocos minutos_
+_Actualizado: 23/11/2026 04:10 UTC · se actualiza solo cada pocos minutos_
 
 ## Resumen
 
 | | Últimas 24 h | Últimos 7 días |
 |---|---|---|
-| 🔎 Clips revisados por la IA | 44 | 78 |
-| 📩 Enviados a tu Telegram | 12 | 16 |
+| 🔎 Clips revisados por la IA | 53 | 87 |
+| 📩 Enviados a tu Telegram | 14 | 18 |
 | ✅ Aprobados | 5 | 5 |
 | ❌ Descartados | 1 | 1 |
 | 🚀 Enviados a publicar | 5 | 5 |
@@ -18,7 +18,7 @@ _Actualizado: 23/11/2026 04:01 UTC · se actualiza solo cada pocos minutos_
 
 | Estado | Cuándo (UTC) | Detalle |
 |---|---|---|
-| ⏳ | 2026-11-23 04:00 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/45109272127) |
+| ✅ | 2026-11-23 04:00 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/45109272127) |
 | ✅ | 2026-11-23 00:00 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/45086295790) |
 | ✅ | 2026-11-22 20:00 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/45063978074) |
 | ✅ | 2026-11-22 16:33 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/45044476851) |
@@ -29,6 +29,8 @@ _Actualizado: 23/11/2026 04:01 UTC · se actualiza solo cada pocos minutos_
 
 | Fecha (UTC) | Streamer | Título | Nota | Vistas Twitch | Estado |
 |---|---|---|---|---|---|
+| 2026-11-23 04:08 | Shadoune666 | ¡SHADOUNE666 SE LA JUEGA CON ESTE WATER DROP! 💧 | 7/10 | 1335 | ⏳ pendiente |
+| 2026-11-23 04:08 | IlloJuan | ¡A ILLOJUAN LE SALE CARO EL REALISMO EN GTA VI! 😱 | 9/10 | 475 | ⏳ pendiente |
 | 2026-11-23 00:05 | IlloJuan | ¡IlloJuan encuentra un secreto turbio en GTA VI! 🦀 | 7/10 | 519 | ⏳ pendiente |
 | 2026-11-23 00:05 | auronplay | ¿Está bien Lucía? Auronplay alucina con GTA VI 😲 | 8/10 | 1626 | ⏳ pendiente |
 | 2026-11-23 00:05 | auronplay | Auronplay no soporta la moda de GTA VI 😂 | 8/10 | 1114 | ⏳ pendiente |
@@ -42,8 +44,6 @@ _Actualizado: 23/11/2026 04:01 UTC · se actualiza solo cada pocos minutos_
 | 2026-11-22 12:53 | elxokas | El Xokas pide disculpas de la forma más inesperada 😂 | 8/10 | 333 | 🚀 publicado |
 | 2026-11-22 05:25 | juansguarnizo | GTA VI, HOY EMPEZAMOS EL CAPÍTULO 2 😎 | 8/10 | 396 | ⏳ pendiente |
 | 2026-11-22 01:45 | auronplay | Joder | 8/10 | 364 | ⏳ pendiente |
-| 2026-11-22 00:10 | auronplay | Defensor de las Girls | 8/10 | 1483 | ⏳ pendiente |
-| 2026-11-22 00:10 | IlloJuan | vaya trickshot | 8/10 | 654 | ⏳ pendiente |
 
 ## Configuración actual
 
