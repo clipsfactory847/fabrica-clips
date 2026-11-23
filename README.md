@@ -1,24 +1,24 @@
 # 🎬 Clipéalo · Panel de control
 
-_Actualizado: 23/11/2026 00:01 UTC · se actualiza solo cada pocos minutos_
+_Actualizado: 23/11/2026 00:10 UTC · se actualiza solo cada pocos minutos_
 
 ## Resumen
 
 | | Últimas 24 h | Últimos 7 días |
 |---|---|---|
-| 🔎 Clips revisados por la IA | 65 | 65 |
-| 📩 Enviados a tu Telegram | 11 | 11 |
+| 🔎 Clips revisados por la IA | 62 | 78 |
+| 📩 Enviados a tu Telegram | 13 | 16 |
 | ✅ Aprobados | 5 | 5 |
 | ❌ Descartados | 1 | 1 |
 | 🚀 Enviados a publicar | 5 | 5 |
 
-**Pendientes de revisar en Telegram:** 5
+**Pendientes de revisar en Telegram:** 9
 
 ## Últimas rondas automáticas
 
 | Estado | Cuándo (UTC) | Detalle |
 |---|---|---|
-| ⏳ | 2026-11-23 00:00 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/45086295790) |
+| ✅ | 2026-11-23 00:00 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/45086295790) |
 | ✅ | 2026-11-22 20:00 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/45063978074) |
 | ✅ | 2026-11-22 16:33 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/45044476851) |
 | ✅ | 2026-11-22 13:23 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/45027252184) |
@@ -29,6 +29,11 @@ _Actualizado: 23/11/2026 00:01 UTC · se actualiza solo cada pocos minutos_
 
 | Fecha (UTC) | Streamer | Título | Nota | Vistas Twitch | Estado |
 |---|---|---|---|---|---|
+| 2026-11-23 00:05 | IlloJuan | ¡IlloJuan encuentra un secreto turbio en GTA VI! 🦀 | 7/10 | 519 | ⏳ pendiente |
+| 2026-11-23 00:05 | auronplay | ¿Está bien Lucía? Auronplay alucina con GTA VI 😲 | 8/10 | 1626 | ⏳ pendiente |
+| 2026-11-23 00:05 | auronplay | Auronplay no soporta la moda de GTA VI 😂 | 8/10 | 1114 | ⏳ pendiente |
+| 2026-11-23 00:05 | aldo_geo | ¡Pánico total de Aldo Geo en GTA VI! 🌊 | 7/10 | 491 | ⏳ pendiente |
+| 2026-11-23 00:05 | Rubius | ¡El momento más tenso de Rubius en GTA VI! 😱 | 9/10 | 331 | ⏳ pendiente |
 | 2026-11-22 20:05 | DjMaRiiO | ¡DjMaRiiO se cae de la forma más tonta! 😂 GTA VI | 9/10 | 1133 | 🚀 publicado |
 | 2026-11-22 20:05 | DjMaRiiO | DjMaRiiO no entiende NADA en GTA VI 🤣 | 7/10 | 1072 | 🚀 publicado |
 | 2026-11-22 20:05 | DjMaRiiO | ¡Aparece un COCODRILO de la nada! 🐊 DjMaRiiO en GTA VI | 10/10 | 737 | ❌ descartado |
@@ -39,7 +44,6 @@ _Actualizado: 23/11/2026 00:01 UTC · se actualiza solo cada pocos minutos_
 | 2026-11-22 01:45 | auronplay | Joder | 8/10 | 364 | ⏳ pendiente |
 | 2026-11-22 00:10 | auronplay | Defensor de las Girls | 8/10 | 1483 | ⏳ pendiente |
 | 2026-11-22 00:10 | IlloJuan | vaya trickshot | 8/10 | 654 | ⏳ pendiente |
-| 2026-11-22 00:10 | IlloJuan | multita fresh | 8/10 | 450 | ⏳ pendiente |
 
 ## Configuración actual
 
