@@ -196,7 +196,7 @@ def _es_limite_diario(error: str) -> bool:
 
 
 def publicar_en_buffer(info: dict, config_pub: dict, registro: list = None, solo: list = None,
-                       canales: list = None) -> dict:
+                       canales: list = None, registro_otras: list = None) -> dict:
     """Programa el clip en Buffer. Devuelve {"lineas": [...], "fallidas": [redes que fallaron]}.
     registro: lista (se modifica) con las horas ya programadas en YouTube, para no pasar del límite.
     solo: limitar a ciertas redes, p. ej. ["youtube"]."""
@@ -234,9 +234,14 @@ def publicar_en_buffer(info: dict, config_pub: dict, registro: list = None, solo
             fallidas.append("youtube")
             cuando = None
 
-    # 2) El resto de redes, a la misma hora que YouTube (o en el próximo hueco si YouTube no se pudo)
+    # 2) El resto de redes, a la misma hora que YouTube. Si esta vez no va a YouTube,
+    #    usamos su propio calendario (mismas reglas: 2 al día, separados) para no amontonarlos.
+    otras = [c for c in canales if c["service"].lower() != "youtube"]
+    if cuando is None and otras:
+        propio = registro_otras if registro_otras is not None else registro
+        cuando = hueco_youtube(propio, config_pub)
     if cuando is None:
-        cuando = hueco_youtube(registro, config_pub)
+        return {"lineas": lineas, "fallidas": fallidas}
     hora = cuando.astimezone(MADRID).strftime("%d/%m a las %H:%M")
     for c in canales:
         servicio = c["service"].lower()
@@ -245,6 +250,8 @@ def publicar_en_buffer(info: dict, config_pub: dict, registro: list = None, solo
         entrada = _entrada(servicio, c["id"], info, cuando, avisos)
         try:
             _crear_post(entrada)
+            if servicio == "instagram" and registro_otras is not None:
+                registro_otras.append(_iso(cuando))
             if entrada["schedulingType"] == "notification":
                 lineas.append(f"📲 {NOMBRES[servicio]}: el {hora} te llegará un aviso de Buffer para terminarlo")
             else:
@@ -256,4 +263,6 @@ def publicar_en_buffer(info: dict, config_pub: dict, registro: list = None, solo
     # guardamos solo lo de los últimos días (las horas futuras se quedan)
     limite = datetime.now(timezone.utc) - timedelta(days=3)
     registro[:] = sorted(x for x in registro if _leer(x) > limite)
+    if registro_otras is not None:
+        registro_otras[:] = sorted(set(x for x in registro_otras if _leer(x) > limite))
     return {"lineas": lineas, "fallidas": fallidas}
