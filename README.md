@@ -1,24 +1,24 @@
 # 🎬 Clipéalo · Panel de control
 
-_Actualizado: 23/11/2026 20:00 UTC · se actualiza solo cada pocos minutos_
+_Actualizado: 23/11/2026 20:10 UTC · se actualiza solo cada pocos minutos_
 
 ## Resumen
 
 | | Últimas 24 h | Últimos 7 días |
 |---|---|---|
-| 🔎 Clips revisados por la IA | 50 | 104 |
-| 📩 Enviados a tu Telegram | 16 | 23 |
+| 🔎 Clips revisados por la IA | 44 | 109 |
+| 📩 Enviados a tu Telegram | 14 | 25 |
 | ✅ Aprobados | 9 | 11 |
 | ❌ Descartados | 4 | 4 |
 | 🚀 Enviados a publicar | 8 | 10 |
 
-**Pendientes de revisar en Telegram:** 4
+**Pendientes de revisar en Telegram:** 6
 
 ## Últimas rondas automáticas
 
 | Estado | Cuándo (UTC) | Detalle |
 |---|---|---|
-| ⏳ | 2026-11-23 20:00 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/45254872248) |
+| ✅ | 2026-11-23 20:00 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/45254872248) |
 | ✅ | 2026-11-23 18:15 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/45236388208) |
 | ❌ | 2026-11-23 16:57 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/45222261750) |
 | ✅ | 2026-11-23 16:43 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/45219664770) |
@@ -29,6 +29,8 @@ _Actualizado: 23/11/2026 20:00 UTC · se actualiza solo cada pocos minutos_
 
 | Fecha (UTC) | Streamer | Título | Nota | Vistas Twitch | Estado |
 |---|---|---|---|---|---|
+| 2026-11-23 20:03 | Rubius | Rubius y su momento mas loco en GTA VI 😂 | 9/10 | 312 | ⏳ pendiente |
+| 2026-11-23 20:03 | marinaifx | La indirecta mas inesperada de marinaifx 😳 | 7/10 | 314 | ⏳ pendiente |
 | 2026-11-23 18:21 | IlloJuan | IlloJuan se encuentra con un caimán en GTA VI 😱 | 8/10 | 348 | ⏳ pendiente |
 | 2026-11-23 08:04 | Rubius | El momento más tierno de Rubius en GTA VI 🐶 | 7/10 | 374 | 🚀 publicado |
 | 2026-11-23 08:04 | IlloJuan | El FAIL de IlloJuan con su bici en GTA VI 😂 | 9/10 | 329 | 🚀 publicado |
@@ -42,8 +44,6 @@ _Actualizado: 23/11/2026 20:00 UTC · se actualiza solo cada pocos minutos_
 | 2026-11-23 00:05 | aldo_geo | ¡Pánico total de Aldo Geo en GTA VI! 🌊 | 7/10 | 491 | ❌ descartado |
 | 2026-11-23 00:05 | Rubius | ¡El momento más tenso de Rubius en GTA VI! 😱 | 9/10 | 331 | ⏳ pendiente |
 | 2026-11-22 20:05 | DjMaRiiO | ¡DjMaRiiO se cae de la forma más tonta! 😂 GTA VI | 9/10 | 1133 | 🚀 publicado |
-| 2026-11-22 20:05 | DjMaRiiO | DjMaRiiO no entiende NADA en GTA VI 🤣 | 7/10 | 1072 | 🚀 publicado |
-| 2026-11-22 20:05 | DjMaRiiO | ¡Aparece un COCODRILO de la nada! 🐊 DjMaRiiO en GTA VI | 10/10 | 737 | ❌ descartado |
 
 ## Configuración actual
 
