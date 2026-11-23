@@ -70,9 +70,18 @@
     "StupidShyLadiesVoHiYo-3jkgrV8saQOsMobZ": {
       "decision": "aprobado",
       "fecha": "2026-11-23 18:01"
+    },
+    "VenomousMuddyCurryKevinTurtle-3zrf4I3H63XhLoOL": {
+      "decision": "descartado",
+      "fecha": "2026-11-23 21:28"
+    },
+    "ClumsyStrangeTrayBatChest-W7qMsEgOSRHq1EcT": {
+      "decision": "aprobado",
+      "fecha": "2026-11-23 21:28",
+      "publicado": true
     }
   },
-  "telegram_offset": 495937855,
+  "telegram_offset": 495937862,
   "reintentados": [
     "DeafComfortablePizzaPraiseIt-dLNZKryPccdzHwer",
     "PreciousVenomousKoupreyPipeHype-fYIqv-_bI91THlDG",
@@ -99,7 +108,8 @@
     "2026-11-25T17:10:00.000Z",
     "2026-11-25T20:40:00.000Z",
     "2026-11-26T17:20:00.000Z",
-    "2026-11-26T20:50:00.000Z"
+    "2026-11-26T20:50:00.000Z",
+    "2026-11-27T17:30:00.000Z"
   ],
   "pendientes": {},
   "otras_programadas": [
@@ -110,6 +120,7 @@
     "2026-11-25T17:20:00.000Z",
     "2026-11-25T20:40:00.000Z",
     "2026-11-26T17:30:00.000Z",
-    "2026-11-26T20:50:00.000Z"
+    "2026-11-26T20:50:00.000Z",
+    "2026-11-27T17:30:00.000Z"
   ]
 }
