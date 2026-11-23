@@ -1,6 +1,6 @@
 # 🎬 Clipéalo · Panel de control
 
-_Actualizado: 23/11/2026 21:40 UTC · se actualiza solo cada pocos minutos_
+_Actualizado: 23/11/2026 21:50 UTC · se actualiza solo cada pocos minutos_
 
 ## Resumen
 
@@ -8,11 +8,11 @@ _Actualizado: 23/11/2026 21:40 UTC · se actualiza solo cada pocos minutos_
 |---|---|---|
 | 🔎 Clips revisados por la IA | 44 | 109 |
 | 📩 Enviados a tu Telegram | 14 | 25 |
-| ✅ Aprobados | 7 | 12 |
+| ✅ Aprobados | 9 | 14 |
 | ❌ Descartados | 4 | 5 |
-| 🚀 Enviados a publicar | 6 | 11 |
+| 🚀 Enviados a publicar | 7 | 12 |
 
-**Pendientes de revisar en Telegram:** 4
+**Pendientes de revisar en Telegram:** 3
 
 ## Últimas rondas automáticas
 
@@ -31,7 +31,7 @@ _Actualizado: 23/11/2026 21:40 UTC · se actualiza solo cada pocos minutos_
 |---|---|---|---|---|---|
 | 2026-11-23 20:03 | Rubius | Rubius y su momento mas loco en GTA VI 😂 | 9/10 | 312 | 🚀 publicado |
 | 2026-11-23 20:03 | marinaifx | La indirecta mas inesperada de marinaifx 😳 | 7/10 | 314 | ❌ descartado |
-| 2026-11-23 18:21 | IlloJuan | IlloJuan se encuentra con un caimán en GTA VI 😱 | 8/10 | 348 | ⏳ pendiente |
+| 2026-11-23 18:21 | IlloJuan | IlloJuan se encuentra con un caimán en GTA VI 😱 | 8/10 | 348 | 🚀 publicado |
 | 2026-11-23 08:04 | Rubius | El momento más tierno de Rubius en GTA VI 🐶 | 7/10 | 374 | 🚀 publicado |
 | 2026-11-23 08:04 | IlloJuan | El FAIL de IlloJuan con su bici en GTA VI 😂 | 9/10 | 329 | 🚀 publicado |
 | 2026-11-23 08:04 | iaaraS2 | La razón definitiva para ir al gimnasio 💀 | 8/10 | 470 | 🚀 publicado |
