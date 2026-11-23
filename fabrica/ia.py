@@ -83,12 +83,12 @@ def _llamar_gemini(prompt: str) -> dict:
     clave = secreto("GEMINI_API_KEY")
     ultimo_error = ""
     saturado = False
-    for vuelta in range(2):  # si todo está saturado, esperamos un poco y damos otra vuelta
+    for vuelta in range(1):  # si todo está saturado, pasamos a la IA de reserva (Groq)
         if vuelta:
             log("Gemini está saturado. Espero 2 minutos y lo intento otra vez con todos los modelos...")
             time.sleep(120)
         for modelo in _modelos_disponibles(clave):
-            for intento, espera in enumerate((20, 40, 60)):
+            for intento, espera in enumerate((15, 30)):
                 try:
                     r = requests.post(
                         URL.format(modelo=modelo),
@@ -129,6 +129,77 @@ def _llamar_gemini(prompt: str) -> dict:
     if saturado:
         raise GeminiSaturado(f"Gemini saturado. Último error: {ultimo_error}")
     raise RuntimeError(f"No se pudo usar Gemini. Último error: {ultimo_error}")
+
+
+# ---------------------------------------------------------------------------
+#  IA DE RESERVA: Groq (gratis, misma clave que los subtítulos)
+# ---------------------------------------------------------------------------
+GROQ_CHAT = "https://api.groq.com/openai/v1/chat/completions"
+GROQ_MODELOS_URL = "https://api.groq.com/openai/v1/models"
+GROQ_PREFERIDOS = ["openai/gpt-oss-120b", "qwen/qwen3.8-27b", "llama-3.3-70b-versatile", "openai/gpt-oss-20b"]
+
+
+def _modelos_groq(clave: str) -> list:
+    activos = []
+    try:
+        r = requests.get(GROQ_MODELOS_URL, headers={"Authorization": f"Bearer {clave}"}, timeout=30)
+        if r.status_code == 200:
+            activos = [m["id"] for m in r.json().get("data", []) if m.get("active", True)
+                       and not any(x in m["id"] for x in ("whisper", "guard", "tts", "playai", "orpheus", "compound"))]
+    except requests.RequestException:
+        pass
+    orden = [m for m in GROQ_PREFERIDOS if not activos or m in activos]
+    return orden + [m for m in activos if m not in orden][:3]
+
+
+def _llamar_groq(prompt: str) -> dict:
+    clave = secreto("GROQ_API_KEY")
+    ultimo = ""
+    for modelo in _modelos_groq(clave):
+        cuerpo = {"model": modelo, "temperature": 0.4, "max_completion_tokens": 3000,
+                  "response_format": {"type": "json_object"},
+                  "messages": [{"role": "user", "content": prompt}]}
+        if modelo.startswith("openai/gpt-oss"):
+            cuerpo["reasoning_effort"] = "low"
+        for intento in range(5):
+            try:
+                r = requests.post(GROQ_CHAT, headers={"Authorization": f"Bearer {clave}"}, json=cuerpo, timeout=120)
+            except requests.RequestException as e:
+                ultimo = f"{modelo}: {type(e).__name__}"
+                time.sleep(15)
+                continue
+            if r.status_code == 200:
+                try:
+                    texto = r.json()["choices"][0]["message"]["content"]
+                    return json.loads(texto[texto.find("{"): texto.rfind("}") + 1])
+                except (KeyError, IndexError, ValueError) as e:
+                    ultimo = f"respuesta rara de {modelo}: {e}"
+                    break
+            if r.status_code in (429, 500, 502, 503):
+                try:
+                    espera = min(65, float(r.headers.get("retry-after", 20)) + 2)
+                except ValueError:
+                    espera = 20
+                ultimo = f"{modelo} → {r.status_code}"
+                log(f"Groq ({modelo}) ocupado o límite por minuto ({r.status_code}). Espero {espera:.0f} s...")
+                time.sleep(espera)
+                continue
+            ultimo = f"{modelo} → {r.status_code}: {r.text[:200]}"
+            break
+    raise GeminiSaturado(f"Tampoco responde la IA de reserva (Groq). Último error: {ultimo}")
+
+
+def _evaluar_con_groq(bloques: list, tendencias: str, por_tanda: int = 4) -> dict:
+    """Groq gratis admite textos más cortos: valoramos los clips en tandas pequeñas."""
+    tend = "\n".join((tendencias or "(sin datos)").splitlines()[:12])
+    clips = []
+    for i in range(0, len(bloques), por_tanda):
+        tanda = bloques[i:i + por_tanda]
+        prompt = CRITERIO_CLIPS.format(lista="\n".join(tanda), tendencias=tend)
+        res = _llamar_groq(prompt)
+        clips.extend(res.get("clips", []) if isinstance(res, dict) else [])
+    log(f"La IA de reserva (Groq) ha valorado {len(bloques)} clips.")
+    return {"clips": clips}
 
 
 CRITERIO_CLIPS = """Eres el editor jefe de un canal de YouTube Shorts en español de España que quiere MUCHAS visualizaciones.
@@ -184,15 +255,20 @@ def evaluar_clips_twitch(candidatos: list, cuenta: dict, tendencias: str = "") -
     global ULTIMO_MEJOR
     ULTIMO_MEJOR = None
     """candidatos: [{'id','streamer','categoria','titulo','vistas','duracion','frases':[...]}]"""
-    partes = []
+    bloques = []
     for c in candidatos:
-        partes.append(f"\n### id={c['id']} | streamer: {c['streamer']} | categoría: {c['categoria']} | "
-                      f"título: \"{c['titulo']}\" | {c['vistas']} visualizaciones ({c.get('por_hora', '?')} vistas/hora) | dura {c['duracion']:.0f} s")
+        b = [f"\n### id={c['id']} | streamer: {c['streamer']} | categoría: {c['categoria']} | "
+             f"título: \"{c['titulo']}\" | {c['vistas']} visualizaciones ({c.get('por_hora', '?')} vistas/hora) | dura {c['duracion']:.0f} s"]
         if c["frases"]:
-            partes.extend(f"[{s['t0']:.0f}] {s['texto']}" for s in c["frases"])
+            b.extend(f"[{s['t0']:.0f}] {s['texto']}" for s in c["frases"])
         else:
-            partes.append("(no se entiende lo que se dice o no hay voz)")
-    respuesta = _llamar_gemini(CRITERIO_CLIPS.format(lista="\n".join(partes), tendencias=tendencias or "(sin datos)"))
+            b.append("(no se entiende lo que se dice o no hay voz)")
+        bloques.append("\n".join(b))
+    try:
+        respuesta = _llamar_gemini(CRITERIO_CLIPS.format(lista="\n".join(bloques), tendencias=tendencias or "(sin datos)"))
+    except GeminiSaturado as e:
+        log(f"{e}. Paso a la IA de reserva (Groq)...")
+        respuesta = _evaluar_con_groq(bloques, tendencias)
     propuestos = respuesta.get("clips", []) if isinstance(respuesta, dict) else []
 
     por_id = {c["id"]: c for c in candidatos}
@@ -230,7 +306,11 @@ def elegir_clips(fragmentos: list, streamer: str, titulo: str, cuenta: dict) -> 
         streamer=streamer, titulo=titulo, dmin=dmin, dmax=dmax,
         maximo=maximo + 2, fragmentos=_texto_fragmentos(fragmentos),
     )
-    respuesta = _llamar_gemini(prompt)
+    try:
+        respuesta = _llamar_gemini(prompt)
+    except GeminiSaturado as e:
+        log(f"{e}. Paso a la IA de reserva (Groq)...")
+        respuesta = _llamar_groq(prompt)
     propuestos = respuesta.get("clips", []) if isinstance(respuesta, dict) else []
 
     # Comprobamos que lo que propone la IA tiene sentido.
