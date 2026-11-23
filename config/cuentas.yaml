@@ -65,9 +65,10 @@ publicacion:
   # Cada clip aprobado se programa a una hora fija. YouTube solo deja subir unos pocos vídeos
   # al día en canales nuevos, así que el bot nunca programa más de "youtube_max_24h"
   # en 24 horas y deja al menos "horas_entre_videos" entre uno y otro.
-  horas_youtube: ["13:30", "21:30"]   # horas preferidas (hora de Madrid)
-  youtube_max_24h: 2                  # súbelo a 3-4 cuando el canal crezca
-  horas_entre_videos: 5
+  horas_youtube: ["13:30", "18:00", "21:30"]   # horas preferidas (hora de Madrid)
+  youtube_max_24h: 2                  # Buffer gratis: máximo 2 en YouTube cada 24 h (de pago: 5 o más)
+  margen_minutos: 5                   # margen de seguridad sobre las 24 h de YouTube
+  horas_entre_videos: 3
   # Redes donde Buffer te manda un aviso al móvil para terminar tú la publicación
   # (TikTok, porque tu cuenta es personal)
   con_aviso: [tiktok]
