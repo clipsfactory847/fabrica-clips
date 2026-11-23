@@ -7,9 +7,36 @@ import requests
 
 from .util import formato_tiempo, log, secreto
 
-# Se prueban en orden; si Google retira uno, se usa el siguiente.
-MODELOS = ["gemini-flash-latest", "gemini-3-flash-preview", "gemini-2.5-flash", "gemini-flash-lite-latest"]
+# Preferidos, en orden. Además, el bot pregunta a Google qué modelos "flash" hay disponibles
+# hoy, así que si Google retira uno o saca uno nuevo, se adapta solo.
+PREFERIDOS = ["gemini-flash-latest", "gemini-3.8-flash", "gemini-3-flash-preview", "gemini-flash-lite-latest"]
 URL = "https://generativelanguage.googleapis.com/v1beta/models/{modelo}:generateContent"
+URL_LISTA = "https://generativelanguage.googleapis.com/v1beta/models"
+_RETIRADOS = set()  # modelos que Google ha dicho que ya no existen (en esta ronda)
+
+
+class GeminiSaturado(RuntimeError):
+    """Gemini no ha respondido (saturado o límite gratuito). Se reintenta en la siguiente ronda."""
+
+
+def _modelos_disponibles(clave: str) -> list:
+    """Preferidos primero; luego cualquier otro modelo 'flash' de texto que Google tenga activo."""
+    lista = []
+    try:
+        r = requests.get(URL_LISTA, params={"key": clave, "pageSize": 200}, timeout=30)
+        if r.status_code == 200:
+            for m in r.json().get("models", []):
+                nombre = m.get("name", "").split("/")[-1]
+                if ("generateContent" in m.get("supportedGenerationMethods", []) and "flash" in nombre
+                        and not any(x in nombre for x in ("tts", "image", "audio", "live", "embedding", "exp"))):
+                    lista.append(nombre)
+    except requests.RequestException:
+        pass
+    activos = set(lista)
+    orden = [m for m in PREFERIDOS if not activos or m in activos]
+    # el resto, de más nuevo a más viejo
+    extra = sorted((m for m in lista if m not in orden), reverse=True)
+    return [m for m in orden + extra if m not in _RETIRADOS][:6]
 
 INSTRUCCIONES = """Eres el editor jefe de un canal de YouTube Shorts en español de España que publica los mejores momentos de streamers.
 Te paso la transcripción de varios fragmentos de un directo de {streamer} (título del directo: "{titulo}").
@@ -55,37 +82,52 @@ def _texto_fragmentos(fragmentos: list) -> str:
 def _llamar_gemini(prompt: str) -> dict:
     clave = secreto("GEMINI_API_KEY")
     ultimo_error = ""
-    for modelo in MODELOS:
-        for intento in range(4):
-            try:
-                r = requests.post(
-                    URL.format(modelo=modelo),
-                    params={"key": clave},
-                    json={
-                        "contents": [{"role": "user", "parts": [{"text": prompt}]}],
-                        "generationConfig": {"temperature": 0.4, "responseMimeType": "application/json"},
-                    },
-                    timeout=180,
-                )
-            except requests.RequestException as e:
-                ultimo_error = f"{modelo} no respondió a tiempo ({type(e).__name__})"
-                log(f"Gemini no responde ({type(e).__name__}). Espero 30 s y lo reintento...")
-                time.sleep(30)
-                continue
-            if r.status_code == 200:
+    saturado = False
+    for vuelta in range(2):  # si todo está saturado, esperamos un poco y damos otra vuelta
+        if vuelta:
+            log("Gemini está saturado. Espero 2 minutos y lo intento otra vez con todos los modelos...")
+            time.sleep(120)
+        for modelo in _modelos_disponibles(clave):
+            for intento, espera in enumerate((20, 40, 60)):
                 try:
-                    texto = r.json()["candidates"][0]["content"]["parts"][0]["text"]
-                    log(f"Gemini ({modelo}) ha respondido.")
-                    return json.loads(texto)
-                except (KeyError, IndexError, ValueError) as e:
-                    ultimo_error = f"respuesta rara de {modelo}: {e}"
-                    break
-            if r.status_code in (429, 500, 503):
-                log(f"Gemini ocupado o límite gratuito alcanzado ({r.status_code}). Espero 40 s...")
-                time.sleep(40)
-                continue
-            ultimo_error = f"{modelo} → {r.status_code}: {r.text[:300]}"
-            break  # probamos el siguiente modelo
+                    r = requests.post(
+                        URL.format(modelo=modelo),
+                        params={"key": clave},
+                        json={
+                            "contents": [{"role": "user", "parts": [{"text": prompt}]}],
+                            "generationConfig": {"temperature": 0.4, "responseMimeType": "application/json"},
+                        },
+                        timeout=180,
+                    )
+                except requests.RequestException as e:
+                    ultimo_error = f"{modelo} no respondió a tiempo ({type(e).__name__})"
+                    saturado = True
+                    log(f"Gemini ({modelo}) no responde. Espero {espera} s...")
+                    time.sleep(espera)
+                    continue
+                if r.status_code == 200:
+                    try:
+                        texto = r.json()["candidates"][0]["content"]["parts"][0]["text"]
+                        log(f"Gemini ({modelo}) ha respondido.")
+                        return json.loads(texto)
+                    except (KeyError, IndexError, ValueError) as e:
+                        ultimo_error = f"respuesta rara de {modelo}: {e}"
+                        break
+                if r.status_code in (429, 500, 503, 504):
+                    ultimo_error = f"{modelo} → {r.status_code} (saturado o límite gratuito)"
+                    saturado = True
+                    log(f"Gemini ({modelo}) ocupado ({r.status_code}). Espero {espera} s...")
+                    time.sleep(espera)
+                    continue
+                if r.status_code == 404:
+                    _RETIRADOS.add(modelo)
+                    log(f"El modelo {modelo} ya no existe; paso al siguiente.")
+                ultimo_error = f"{modelo} → {r.status_code}: {r.text[:200]}"
+                break  # probamos el siguiente modelo
+        if not saturado:
+            break
+    if saturado:
+        raise GeminiSaturado(f"Gemini saturado. Último error: {ultimo_error}")
     raise RuntimeError(f"No se pudo usar Gemini. Último error: {ultimo_error}")
 
 
