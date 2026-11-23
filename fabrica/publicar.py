@@ -123,7 +123,7 @@ def hueco_youtube(registro: list, config_pub: dict, ahora: datetime = None) -> d
     ahora = ahora or datetime.now(timezone.utc)
     horas = config_pub.get("horas_youtube", ["13:30", "21:30"])
     maximo = int(config_pub.get("youtube_max_24h", 2))
-    ventana = timedelta(hours=24, minutes=45)
+    ventana = timedelta(hours=24, minutes=int(config_pub.get("margen_minutos", 15)))
     separacion = timedelta(hours=float(config_pub.get("horas_entre_videos", 5)))
     ocupados = sorted(_leer(x) for x in registro)
 
@@ -131,7 +131,9 @@ def hueco_youtube(registro: list, config_pub: dict, ahora: datetime = None) -> d
         todos = sorted(ocupados + [t])
         if any(abs(t - o) < separacion for o in ocupados):
             return False
-        return all(sum(1 for y in todos if x - ventana < y <= x) <= maximo for x in todos)
+        # solo miramos los periodos de 24 h que incluyen la hora nueva
+        return all(sum(1 for y in todos if x - ventana < y <= x) <= maximo
+                   for x in todos if t <= x < t + ventana)
 
     hoy = ahora.astimezone(MADRID).date()
     for dia in range(0, 30):
@@ -139,8 +141,8 @@ def hueco_youtube(registro: list, config_pub: dict, ahora: datetime = None) -> d
         for h in horas:
             hh, mm = (int(v) for v in h.split(":"))
             base = datetime(fecha.year, fecha.month, fecha.day, hh, mm, tzinfo=MADRID)
-            # si la hora justa no cabe, probamos a retrasarla un poco (hasta 2 h)
-            for extra in range(0, 121, 30):
+            # si la hora justa no cabe, probamos a retrasarla un poco (hasta 3 h)
+            for extra in range(0, 181, 10):
                 t = (base + timedelta(minutes=extra)).astimezone(timezone.utc)
                 if t >= ahora + timedelta(minutes=15) and cabe(t):
                     return t
