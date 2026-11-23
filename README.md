@@ -1,6 +1,6 @@
 # 🎬 Clipéalo · Panel de control
 
-_Actualizado: 23/11/2026 15:10 UTC · se actualiza solo cada pocos minutos_
+_Actualizado: 23/11/2026 15:20 UTC · se actualiza solo cada pocos minutos_
 
 ## Resumen
 
@@ -8,11 +8,11 @@ _Actualizado: 23/11/2026 15:10 UTC · se actualiza solo cada pocos minutos_
 |---|---|---|
 | 🔎 Clips revisados por la IA | 44 | 93 |
 | 📩 Enviados a tu Telegram | 16 | 22 |
-| ✅ Aprobados | 5 | 6 |
+| ✅ Aprobados | 9 | 10 |
 | ❌ Descartados | 4 | 4 |
-| 🚀 Enviados a publicar | 5 | 6 |
+| 🚀 Enviados a publicar | 9 | 10 |
 
-**Pendientes de revisar en Telegram:** 7
+**Pendientes de revisar en Telegram:** 3
 
 ## Últimas rondas automáticas
 
@@ -29,10 +29,10 @@ _Actualizado: 23/11/2026 15:10 UTC · se actualiza solo cada pocos minutos_
 
 | Fecha (UTC) | Streamer | Título | Nota | Vistas Twitch | Estado |
 |---|---|---|---|---|---|
-| 2026-11-23 08:04 | Rubius | El momento más tierno de Rubius en GTA VI 🐶 | 7/10 | 374 | ⏳ pendiente |
-| 2026-11-23 08:04 | IlloJuan | El FAIL de IlloJuan con su bici en GTA VI 😂 | 9/10 | 329 | ⏳ pendiente |
-| 2026-11-23 08:04 | iaaraS2 | La razón definitiva para ir al gimnasio 💀 | 8/10 | 470 | ⏳ pendiente |
-| 2026-11-23 08:04 | Esluki_ | Casi acaba en la cárcel en pleno directo 👮‍♂️ | 8/10 | 457 | ⏳ pendiente |
+| 2026-11-23 08:04 | Rubius | El momento más tierno de Rubius en GTA VI 🐶 | 7/10 | 374 | 🚀 publicado |
+| 2026-11-23 08:04 | IlloJuan | El FAIL de IlloJuan con su bici en GTA VI 😂 | 9/10 | 329 | 🚀 publicado |
+| 2026-11-23 08:04 | iaaraS2 | La razón definitiva para ir al gimnasio 💀 | 8/10 | 470 | 🚀 publicado |
+| 2026-11-23 08:04 | Esluki_ | Casi acaba en la cárcel en pleno directo 👮‍♂️ | 8/10 | 457 | 🚀 publicado |
 | 2026-11-23 04:08 | Shadoune666 | ¡SHADOUNE666 SE LA JUEGA CON ESTE WATER DROP! 💧 | 7/10 | 1335 | 🚀 publicado |
 | 2026-11-23 04:08 | IlloJuan | ¡A ILLOJUAN LE SALE CARO EL REALISMO EN GTA VI! 😱 | 9/10 | 475 | ❌ descartado |
 | 2026-11-23 00:05 | IlloJuan | ¡IlloJuan encuentra un secreto turbio en GTA VI! 🦀 | 7/10 | 519 | ❌ descartado |
