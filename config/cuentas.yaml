@@ -69,13 +69,17 @@ publicacion:
   youtube_max_24h: 2                  # Buffer gratis: máximo 2 en YouTube cada 24 h (de pago: 5 o más)
   margen_minutos: 5                   # margen de seguridad sobre las 24 h de YouTube
   horas_entre_videos: 3
+  hora_limite: "23:00"                # nunca más tarde de esta hora
   # Redes donde Buffer te manda un aviso al móvil para terminar tú la publicación
   # (TikTok, porque tu cuenta es personal)
   con_aviso: [tiktok]
   # Subidas que ya hizo YouTube (para contar bien el límite al empezar)
   youtube_ya_subidos: ["2026-11-22T15:00:00.000Z", "2026-11-22T18:30:00.000Z", "2026-11-23T18:30:00.000Z"]
-  # Clips que YouTube rechazó por el límite: el bot los vuelve a programar una sola vez
+  # Clips que YouTube rechazó por el límite: el bot los vuelve a programar en YouTube (una vez)
   reintentar_youtube:
     - DeafComfortablePizzaPraiseIt-dLNZKryPccdzHwer
     - PreciousVenomousKoupreyPipeHype-fYIqv-_bI91THlDG
     - RichElatedApplePraiseIt-99NWXeHa20FU1DK_
+    - ThankfulStupidPotatoWTRuck-HEwlLtSzaMSPVLOj
+    - SavoryTenaciousRuffDuDudu-LZU7R5LlVwYcYErc
+    - CalmCrypticOkapiFreakinStinkin-e5h1VtOfGHNdHYY8
