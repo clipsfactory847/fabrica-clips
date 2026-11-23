@@ -29,7 +29,8 @@ def al_aprobar(clave: str, estado: Estado, decisiones: Decisiones) -> str:
         return "Apuntado. (La publicación automática aún no está conectada: súbelo a mano con el texto de arriba.)"
     config = cargar_config().get("publicacion", {})
     try:
-        res = publicar.publicar_en_buffer(info, config, _registro(decisiones, config))
+        res = publicar.publicar_en_buffer(info, config, _registro(decisiones, config),
+                                          registro_otras=decisiones.datos.setdefault("otras_programadas", []))
     except Exception as e:
         # Buffer o internet fallaron: lo dejamos pendiente y el bot lo reintenta solo
         _pendientes(decisiones)[clave] = []
@@ -50,13 +51,18 @@ def reintentar(estado: Estado, decisiones: Decisiones, maximo: int = 4) -> None:
         return
     config = cargar_config().get("publicacion", {})
     pendientes = _pendientes(decisiones)
-    # clips indicados a mano en la configuración (solo YouTube), una sola vez
+    # clips indicados a mano en la configuración, una sola vez:
+    #   reintentar_youtube → solo YouTube;  añadir_instagram → solo Instagram
     hechos = decisiones.datos.setdefault("reintentados", [])
-    for clave in config.get("reintentar_youtube", []) or []:
-        if clave not in hechos and clave not in pendientes:
-            pendientes[clave] = ["youtube"]
-        if clave not in hechos:
-            hechos.append(clave)
+    for red, lista in (("youtube", config.get("reintentar_youtube")), ("instagram", config.get("añadir_instagram"))):
+        for clave in lista or []:
+            marca = clave if red == "youtube" else f"instagram:{clave}"
+            if marca not in hechos:
+                if clave not in pendientes:
+                    pendientes[clave] = [red]
+                elif pendientes[clave] and red not in pendientes[clave]:
+                    pendientes[clave].append(red)
+                hechos.append(marca)
     if not pendientes:
         return
     try:
@@ -65,6 +71,7 @@ def reintentar(estado: Estado, decisiones: Decisiones, maximo: int = 4) -> None:
         log(f"No pude hablar con Buffer para los reintentos: {e}")
         return
     registro = _registro(decisiones, config)
+    registro_otras = decisiones.datos.setdefault("otras_programadas", [])
     for clave in list(pendientes)[:maximo]:
         redes = pendientes[clave]
         info = estado.datos["clips"].get(clave, {}).get("publicar")
@@ -72,7 +79,8 @@ def reintentar(estado: Estado, decisiones: Decisiones, maximo: int = 4) -> None:
             pendientes.pop(clave)
             continue
         try:
-            res = publicar.publicar_en_buffer(info, config, registro, solo=redes or None, canales=canales)
+            res = publicar.publicar_en_buffer(info, config, registro, solo=redes or None, canales=canales,
+                                              registro_otras=registro_otras)
         except Exception as e:
             log(f"Reintento {clave} falló: {e}")
             continue
