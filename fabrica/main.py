@@ -140,7 +140,39 @@ def buscar_clips_populares(cuenta: dict, estado: Estado) -> tuple:
             estado.marcar_clip(c["id"], resultado="repetido")
         else:
             elegidos.append(c)
-    return elegidos[: int(cuenta.get("candidatos_a_revisar", 15))], tendencias
+    # Prioridad a los juegos más vistos (Fortnite y GTA), sin dejar fuera lo más viral del resto
+    total = int(cuenta.get("candidatos_a_revisar", 15))
+    prioritarios = [j.lower() for j in cuenta.get("juegos_prioritarios", [])]
+    if prioritarios:
+        es_prio = lambda c: any(j in (c.get("categoria") or "").lower() for j in prioritarios)
+        cupo = int(total * float(cuenta.get("cuota_prioritarios", 0.7)))
+        prio = [c for c in elegidos if es_prio(c)][:cupo]
+        resto = [c for c in elegidos if c not in prio][: total - len(prio)]
+        log(f"Revisaré {len(prio)} clips de {', '.join(cuenta.get('juegos_prioritarios'))} y {len(resto)} de otros.")
+        elegidos = sorted(prio + resto, key=_viralidad, reverse=True)
+    return elegidos[:total], tendencias
+
+
+def elegir_variados(notas: list, por_id: dict, cuenta: dict, maximo: int) -> list:
+    """De los clips aprobados por la IA (ya ordenados por nota) elige una mezcla variada:
+    como mucho N por streamer y ~70% humor, el resto de otros estilos (jugadas, sustos...)."""
+    max_streamer = int(cuenta.get("max_por_streamer", 2))
+    max_humor = max(1, round(maximo * float(cuenta.get("porcentaje_humor", 0.7))))
+    max_otro = max(1, maximo - max_humor)
+    elegidos, por_streamer, humor, otros = [], {}, 0, 0
+    for info in notas:
+        st = por_id[info["id"]]["streamer"].lower()
+        es_humor = str(info.get("estilo", "humor")).lower().startswith("humor")
+        if por_streamer.get(st, 0) >= max_streamer:
+            continue
+        if (es_humor and humor >= max_humor) or (not es_humor and otros >= max_otro):
+            continue
+        elegidos.append(info)
+        por_streamer[st] = por_streamer.get(st, 0) + 1
+        humor += es_humor
+        otros += not es_humor
+        if len(elegidos) >= maximo:
+            return elegidos
 
 
 def procesar_clips_populares(cuenta: dict, estado: Estado) -> int:
@@ -193,7 +225,8 @@ def procesar_clips_populares(cuenta: dict, estado: Estado) -> int:
             log(f"Ninguno llega a la nota mínima; te mando el mejor de la ronda ({ia.ULTIMO_MEJOR['puntuacion']}/10).")
             notas = [ia.ULTIMO_MEJOR]
         enviados = 0
-        for info in notas[:maximo]:
+        notas = elegir_variados(notas, por_id, cuenta, maximo)
+        for info in notas:
             p = por_id[info["id"]]
             try:
                 rel = [{"t0": w["t0"] - info["inicio"], "t1": w["t1"] - info["inicio"], "w": w["w"]}
