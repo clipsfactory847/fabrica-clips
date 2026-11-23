@@ -62,9 +62,19 @@ cuentas:
 #  PUBLICACIÓN (vía Buffer) — al pulsar ✅ Aprobar en Telegram
 # ==========================================================
 publicacion:
-  # addToQueue = se publica en el siguiente hueco de tu horario de Buffer (recomendado)
-  # shareNow   = se publica en cuanto lo apruebas
-  modo: addToQueue
+  # Cada clip aprobado se programa a una hora fija. YouTube solo deja subir unos pocos vídeos
+  # al día en canales nuevos, así que el bot nunca programa más de "youtube_max_24h"
+  # en 24 horas y deja al menos "horas_entre_videos" entre uno y otro.
+  horas_youtube: ["13:30", "21:30"]   # horas preferidas (hora de Madrid)
+  youtube_max_24h: 2                  # súbelo a 3-4 cuando el canal crezca
+  horas_entre_videos: 5
   # Redes donde Buffer te manda un aviso al móvil para terminar tú la publicación
   # (TikTok, porque tu cuenta es personal)
   con_aviso: [tiktok]
+  # Subidas que ya hizo YouTube (para contar bien el límite al empezar)
+  youtube_ya_subidos: ["2026-11-22T15:00:00.000Z", "2026-11-22T18:30:00.000Z", "2026-11-23T18:30:00.000Z"]
+  # Clips que YouTube rechazó por el límite: el bot los vuelve a programar una sola vez
+  reintentar_youtube:
+    - DeafComfortablePizzaPraiseIt-dLNZKryPccdzHwer
+    - PreciousVenomousKoupreyPipeHype-fYIqv-_bI91THlDG
+    - RichElatedApplePraiseIt-99NWXeHa20FU1DK_
