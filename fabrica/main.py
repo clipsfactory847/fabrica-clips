@@ -173,6 +173,15 @@ def elegir_variados(notas: list, por_id: dict, cuenta: dict, maximo: int) -> lis
         otros += not es_humor
         if len(elegidos) >= maximo:
             return elegidos
+    # si faltan huecos, se rellenan con los mejores que queden (respetando el límite por streamer)
+    for info in notas:
+        if len(elegidos) >= maximo:
+            break
+        st = por_id[info["id"]]["streamer"].lower()
+        if info not in elegidos and por_streamer.get(st, 0) < max_streamer:
+            elegidos.append(info)
+            por_streamer[st] = por_streamer.get(st, 0) + 1
+    return elegidos
 
 
 def procesar_clips_populares(cuenta: dict, estado: Estado) -> int:
