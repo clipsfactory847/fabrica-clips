@@ -117,88 +117,143 @@ def _leer(x: str) -> datetime:
     return datetime.fromisoformat(x.replace("Z", "+00:00"))
 
 
-def hueco_youtube(registro: list, config_pub: dict, ahora: datetime = None) -> datetime:
-    """Busca la próxima hora buena para YouTube respetando el límite de subidas de YouTube
-    (máximo N vídeos en cualquier periodo de 24 h, con margen) y dejando horas entre vídeos."""
+def hueco_youtube(registro: list, config_pub: dict, ahora: datetime = None, dias_llenos: set = None) -> datetime:
+    """Busca la próxima hora buena para YouTube. Reglas (las de Buffer gratis y YouTube):
+    - como mucho N vídeos en el mismo día (hora de Madrid),
+    - como mucho N vídeos en cualquier periodo de 24 h (con margen),
+    - al menos X horas entre un vídeo y otro.
+    dias_llenos: días que Buffer ha dicho que ya están completos (se saltan)."""
     ahora = ahora or datetime.now(timezone.utc)
     horas = config_pub.get("horas_youtube", ["13:30", "21:30"])
     maximo = int(config_pub.get("youtube_max_24h", 2))
     ventana = timedelta(hours=24, minutes=int(config_pub.get("margen_minutos", 15)))
     separacion = timedelta(hours=float(config_pub.get("horas_entre_videos", 5)))
     ocupados = sorted(_leer(x) for x in registro)
+    dias_llenos = dias_llenos or set()
+    lh, lm = (int(v) for v in str(config_pub.get("hora_limite", "23:00")).split(":"))
+
+    def dia(t: datetime):
+        return t.astimezone(MADRID).date()
 
     def cabe(t: datetime) -> bool:
-        todos = sorted(ocupados + [t])
+        if dia(t) in dias_llenos:
+            return False
+        if sum(1 for o in ocupados if dia(o) == dia(t)) >= maximo:
+            return False
         if any(abs(t - o) < separacion for o in ocupados):
             return False
+        todos = sorted(ocupados + [t])
         # solo miramos los periodos de 24 h que incluyen la hora nueva
         return all(sum(1 for y in todos if x - ventana < y <= x) <= maximo
                    for x in todos if t <= x < t + ventana)
 
-    hoy = ahora.astimezone(MADRID).date()
-    for dia in range(0, 30):
-        fecha = hoy + timedelta(days=dia)
+    hoy = dia(ahora)
+    for d in range(0, 60):
+        fecha = hoy + timedelta(days=d)
         for h in horas:
             hh, mm = (int(v) for v in h.split(":"))
             base = datetime(fecha.year, fecha.month, fecha.day, hh, mm, tzinfo=MADRID)
-            # si la hora justa no cabe, probamos a retrasarla un poco (hasta 3 h)
+            # si la hora justa no cabe, probamos a retrasarla un poco (hasta 3 h, sin pasar de medianoche)
             for extra in range(0, 181, 10):
-                t = (base + timedelta(minutes=extra)).astimezone(timezone.utc)
+                local = base + timedelta(minutes=extra)
+                if local.date() != fecha or (local.hour, local.minute) > (lh, lm):
+                    break
+                t = local.astimezone(timezone.utc)
                 if t >= ahora + timedelta(minutes=15) and cabe(t):
                     return t
-    return ahora + timedelta(days=1)
+    raise RuntimeError("No encuentro ningún hueco libre para YouTube en los próximos 60 días")
 
 
-def publicar_en_buffer(info: dict, config_pub: dict, registro: list = None, solo: list = None) -> list:
-    """info = {'titulo','descripcion','hashtags','video_url'}. Devuelve líneas de resultado.
-    registro: lista (se modifica) con las horas ya programadas en YouTube, para no pasar del límite.
-    solo: limitar a ciertas redes, p. ej. ["youtube"]."""
+def _entrada(servicio: str, canal_id: str, info: dict, cuando: datetime, avisos: set) -> dict:
     titulo = info.get("titulo", "")[:100]
     hashtags = " ".join(info.get("hashtags", []))
     descripcion = info.get("descripcion", "")
+    entrada = {
+        "channelId": canal_id,
+        "schedulingType": "notification" if servicio in avisos else "automatic",
+        "mode": "customScheduled",
+        "dueAt": _iso(cuando),
+        "assets": [{"video": {"url": info["video_url"], "metadata": {"thumbnailOffset": 1000}}}],
+    }
+    if servicio == "youtube":
+        entrada["text"] = f"{descripcion}\n\n{hashtags}"
+        entrada["metadata"] = {"youtube": {"title": titulo, "categoryId": CATEGORIA_YOUTUBE,
+                                           "privacy": "public", "madeForKids": False}}
+    elif servicio == "instagram":
+        entrada["text"] = f"{titulo}\n\n{descripcion}\n\n{hashtags}"
+        entrada["metadata"] = {"instagram": {"type": "reel", "shouldShareToFeed": True}}
+    else:  # tiktok
+        entrada["text"] = f"{titulo}\n\n{descripcion}\n\n{hashtags}"[:2200]
+    return entrada
+
+
+NOMBRES = {"youtube": "YouTube", "tiktok": "TikTok", "instagram": "Instagram"}
+
+
+def _es_limite_diario(error: str) -> bool:
+    e = error.lower()
+    return "maximum number of posts" in e or "daily posting limit" in e or "in a day" in e
+
+
+def publicar_en_buffer(info: dict, config_pub: dict, registro: list = None, solo: list = None,
+                       canales: list = None) -> dict:
+    """Programa el clip en Buffer. Devuelve {"lineas": [...], "fallidas": [redes que fallaron]}.
+    registro: lista (se modifica) con las horas ya programadas en YouTube, para no pasar del límite.
+    solo: limitar a ciertas redes, p. ej. ["youtube"]."""
     avisos = set(config_pub.get("con_aviso", ["tiktok"]))  # redes donde terminas tú con un toque
     registro = registro if registro is not None else []
-
-    canales = [c for c in canales_buffer() if c["service"].lower() in ("youtube", "tiktok", "instagram")
+    canales = canales if canales is not None else canales_buffer()
+    canales = [c for c in canales if c["service"].lower() in NOMBRES
                and (not solo or c["service"].lower() in solo)]
-    # Una sola hora para todas las redes, elegida para que YouTube nunca pase de su límite diario
-    cuando = hueco_youtube(registro, config_pub)
+    if not canales:
+        return {"lineas": ["⚠️ No hay redes conectadas en Buffer todavía."], "fallidas": list(solo or [])}
 
-    resultados = []
+    lineas, fallidas = [], []
+    dias_llenos = set()
+    cuando = None
+    # 1) YouTube primero: es la red con límite. Si Buffer dice que ese día está lleno, probamos el siguiente hueco.
+    yt = [c for c in canales if c["service"].lower() == "youtube"]
+    for c in yt:
+        error = ""
+        for _ in range(10):
+            cuando = hueco_youtube(registro, config_pub, dias_llenos=dias_llenos)
+            try:
+                _crear_post(_entrada("youtube", c["id"], info, cuando, avisos))
+                registro.append(_iso(cuando))
+                lineas.append(f"🗓 YouTube: se publicará solo el {cuando.astimezone(MADRID).strftime('%d/%m a las %H:%M')}")
+                error = ""
+                break
+            except Exception as e:
+                error = str(e)
+                if _es_limite_diario(error):
+                    dias_llenos.add(cuando.astimezone(MADRID).date())
+                    continue
+                break
+        if error:
+            lineas.append(f"❌ YouTube: {error[:150]}")
+            fallidas.append("youtube")
+            cuando = None
+
+    # 2) El resto de redes, a la misma hora que YouTube (o en el próximo hueco si YouTube no se pudo)
+    if cuando is None:
+        cuando = hueco_youtube(registro, config_pub)
+    hora = cuando.astimezone(MADRID).strftime("%d/%m a las %H:%M")
     for c in canales:
         servicio = c["service"].lower()
-        entrada = {
-            "channelId": c["id"],
-            "schedulingType": "notification" if servicio in avisos else "automatic",
-            "mode": "customScheduled",
-            "dueAt": _iso(cuando),
-            "assets": [{"video": {"url": info["video_url"], "metadata": {"thumbnailOffset": 1000}}}],
-        }
         if servicio == "youtube":
-            entrada["text"] = f"{descripcion}\n\n{hashtags}"
-            entrada["metadata"] = {"youtube": {"title": titulo, "categoryId": CATEGORIA_YOUTUBE,
-                                               "privacy": "public", "madeForKids": False}}
-        elif servicio == "instagram":
-            entrada["text"] = f"{titulo}\n\n{descripcion}\n\n{hashtags}"
-            entrada["metadata"] = {"instagram": {"type": "reel", "shouldShareToFeed": True}}
-        else:  # tiktok
-            entrada["text"] = f"{titulo}\n\n{descripcion}\n\n{hashtags}"[:2200]
-
-        nombre = {"youtube": "YouTube", "tiktok": "TikTok", "instagram": "Instagram"}[servicio]
-        hora = cuando.astimezone(MADRID).strftime("%d/%m a las %H:%M")
+            continue
+        entrada = _entrada(servicio, c["id"], info, cuando, avisos)
         try:
             _crear_post(entrada)
-            if servicio == "youtube":
-                registro.append(_iso(cuando))
             if entrada["schedulingType"] == "notification":
-                resultados.append(f"📲 {nombre}: el {hora} te llegará un aviso de Buffer para terminarlo")
+                lineas.append(f"📲 {NOMBRES[servicio]}: el {hora} te llegará un aviso de Buffer para terminarlo")
             else:
-                resultados.append(f"🗓 {nombre}: se publicará solo el {hora}")
+                lineas.append(f"🗓 {NOMBRES[servicio]}: se publicará solo el {hora}")
         except Exception as e:
-            resultados.append(f"❌ {nombre}: {str(e)[:150]}")
-    if not resultados:
-        resultados.append("⚠️ No hay redes conectadas en Buffer todavía.")
-    # guardamos solo lo de los últimos días
+            lineas.append(f"❌ {NOMBRES[servicio]}: {str(e)[:150]}")
+            fallidas.append(servicio)
+
+    # guardamos solo lo de los últimos días (las horas futuras se quedan)
     limite = datetime.now(timezone.utc) - timedelta(days=3)
-    registro[:] = [x for x in registro if _leer(x) > limite]
-    return resultados
+    registro[:] = sorted(x for x in registro if _leer(x) > limite)
+    return {"lineas": lineas, "fallidas": fallidas}
