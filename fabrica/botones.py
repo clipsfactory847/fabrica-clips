@@ -9,6 +9,15 @@ from .telegram import esc
 from .util import cargar_config, log
 
 
+def _registro(decisiones: Decisiones, config: dict) -> list:
+    return decisiones.datos.setdefault("youtube_programados", list(config.get("youtube_ya_subidos", [])))
+
+
+def _pendientes(decisiones: Decisiones) -> dict:
+    """Clips aprobados que aún no se han podido programar en alguna red: {clave: [redes]}."""
+    return decisiones.datos.setdefault("pendientes", {})
+
+
 def al_aprobar(clave: str, estado: Estado, decisiones: Decisiones) -> str:
     clip = estado.datos["clips"].get(clave, {})
     info = clip.get("publicar")
@@ -19,32 +28,65 @@ def al_aprobar(clave: str, estado: Estado, decisiones: Decisiones) -> str:
     if not publicar.buffer_configurado():
         return "Apuntado. (La publicación automática aún no está conectada: súbelo a mano con el texto de arriba.)"
     config = cargar_config().get("publicacion", {})
-    registro = decisiones.datos.setdefault("youtube_programados", list(config.get("youtube_ya_subidos", [])))
-    lineas = publicar.publicar_en_buffer(info, config, registro)
+    try:
+        res = publicar.publicar_en_buffer(info, config, _registro(decisiones, config))
+    except Exception as e:
+        # Buffer o internet fallaron: lo dejamos pendiente y el bot lo reintenta solo
+        _pendientes(decisiones)[clave] = []
+        return f"⏳ No he podido programarlo ahora ({str(e)[:120]}). Lo reintento yo solo en unos minutos."
+    lineas = res["lineas"]
     if any(l.startswith(("✅", "🗓", "📲")) for l in lineas):
         decisiones.marcar_clip(clave, publicado=True)
+    if res["fallidas"]:
+        _pendientes(decisiones)[clave] = res["fallidas"]
+        lineas.append("⏳ Lo que ha fallado lo reintento yo solo; no tienes que hacer nada.")
     return "\n".join(lineas)
 
 
-def reintentar_youtube(estado: Estado, decisiones: Decisiones) -> None:
-    """Vuelve a programar en YouTube los clips que YouTube rechazó por su límite diario
-    (se indican una vez en config/cuentas.yaml → publicacion.reintentar_youtube)."""
-    config = cargar_config().get("publicacion", {})
-    hechos = decisiones.datos.setdefault("reintentados", [])
-    pendientes = [c for c in config.get("reintentar_youtube", []) if c not in hechos]
-    if not pendientes or not publicar.buffer_configurado():
+def reintentar(estado: Estado, decisiones: Decisiones, maximo: int = 4) -> None:
+    """Vuelve a intentar programar los clips aprobados que no se pudieron programar
+    (por el límite diario, la cola llena de Buffer o un fallo puntual)."""
+    if not publicar.buffer_configurado():
         return
-    registro = decisiones.datos.setdefault("youtube_programados", list(config.get("youtube_ya_subidos", [])))
-    for clave in pendientes:
+    config = cargar_config().get("publicacion", {})
+    pendientes = _pendientes(decisiones)
+    # clips indicados a mano en la configuración (solo YouTube), una sola vez
+    hechos = decisiones.datos.setdefault("reintentados", [])
+    for clave in config.get("reintentar_youtube", []) or []:
+        if clave not in hechos and clave not in pendientes:
+            pendientes[clave] = ["youtube"]
+        if clave not in hechos:
+            hechos.append(clave)
+    if not pendientes:
+        return
+    try:
+        canales = publicar.canales_buffer()
+    except Exception as e:
+        log(f"No pude hablar con Buffer para los reintentos: {e}")
+        return
+    registro = _registro(decisiones, config)
+    for clave in list(pendientes)[:maximo]:
+        redes = pendientes[clave]
         info = estado.datos["clips"].get(clave, {}).get("publicar")
         if not info or not info.get("video_url"):
-            hechos.append(clave)
+            pendientes.pop(clave)
             continue
-        lineas = publicar.publicar_en_buffer(info, config, registro, solo=["youtube"])
-        log(f"Reintento {clave}: {' | '.join(lineas)}")
-        if not any(l.startswith("❌") for l in lineas):
-            hechos.append(clave)
-            telegram.mensaje(f"🔁 <b>Vídeo reprogramado en YouTube</b>\n{esc(info.get('titulo', ''))}\n{esc(chr(10).join(lineas))}")
+        try:
+            res = publicar.publicar_en_buffer(info, config, registro, solo=redes or None, canales=canales)
+        except Exception as e:
+            log(f"Reintento {clave} falló: {e}")
+            continue
+        log(f"Reintento {clave}: {' | '.join(res['lineas'])}")
+        if res["fallidas"] and set(res["fallidas"]) == set(redes or res["fallidas"]):
+            continue  # sigue igual: se reintentará más tarde sin molestarte
+        bien = [l for l in res["lineas"] if not l.startswith("❌")]
+        if bien:
+            decisiones.marcar_clip(clave, publicado=True)
+            telegram.mensaje(f"🔁 <b>Clip programado</b>\n{esc(info.get('titulo', ''))}\n{esc(chr(10).join(bien))}")
+        if res["fallidas"]:
+            pendientes[clave] = res["fallidas"]
+        else:
+            pendientes.pop(clave)
     decisiones.guardar()
 
 
@@ -54,7 +96,7 @@ def main() -> int:
     n = telegram.recoger_decisiones(decisiones, al_aprobar=lambda clave: al_aprobar(clave, estado, decisiones),
                                     al_panel=panel.texto_telegram)
     log(f"Decisiones procesadas: {n}")
-    reintentar_youtube(estado, decisiones)
+    reintentar(estado, decisiones)
     try:
         panel.escribir_readme()
     except Exception as e:
