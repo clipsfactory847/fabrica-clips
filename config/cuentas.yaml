@@ -43,6 +43,12 @@ cuentas:
     # ----- CALIDAD -----
     clips_por_ejecucion: 5   # máximo de clips que te llegan cada vez
     candidatos_a_revisar: 30 # cuántos clips populares analiza la IA cada vez
+    # Juegos que más se ven: al menos este porcentaje de los clips revisados será de ellos
+    juegos_prioritarios: ["Fortnite", "Grand Theft Auto"]
+    cuota_prioritarios: 0.7
+    # Variedad en lo que te llega cada ronda
+    max_por_streamer: 2      # como mucho 2 clips del mismo streamer por ronda
+    porcentaje_humor: 0.7    # ~70% humor, el resto jugadas épicas, sustos, reacciones...
     puntuacion_minima: 7     # nota mínima (1-10) para mandártelo
     nota_rescate: 6          # si ninguno llega, te mando el mejor de la ronda si tiene al menos esta nota
     duracion_min: 12
