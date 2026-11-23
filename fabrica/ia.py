@@ -218,6 +218,12 @@ PRIORIDAD MÁXIMA: el HUMOR. Lo que mejor funciona en esta cuenta son momentos G
 situaciones locas en GTA (GTA VI, GTA V, roleplay), caídas y fails, bromas, frases inesperadas, reacciones
 exageradas del streamer, sustos, cosas que salen fatal. Un clip gracioso y corto (15-35 s) vale más que uno
 "interesante" pero serio. Si dudas entre dos, elige el que haga reír.
+JUEGOS QUE MÁS SE VEN: Fortnite y GTA (GTA VI, GTA V y roleplay) son lo que más visitas da en esta cuenta.
+A igualdad de calidad, puntúa 1 punto más alto un clip de Fortnite o GTA. Un clip aburrido sigue siendo aburrido
+aunque sea de estos juegos.
+ESTILOS: la mayoría de lo que publicamos es HUMOR, pero también queremos variedad. Indica en "estilo" cuál es:
+"humor" (fails, bromas, situaciones absurdas, frases graciosas), "jugada" (jugada épica, clutch, victoria
+increíble), "susto" (sustos, tensión, momentos de miedo), "reaccion" (reacción exagerada o emotiva) u "otro".
 USA LAS TENDENCIAS: más abajo tienes los clips en español que se están haciendo MÁS virales en Twitch
 en las últimas horas. Fíjate en qué streamers, juegos y tipos de momentos están petándolo ahora mismo y
 sube la nota a los clips que encajen con esa ola (mismo streamer, mismo juego, mismo tipo de humor o situación),
@@ -236,9 +242,10 @@ Para cada clip devuelve:
 - "titulo": título de YouTube de máximo 80 caracteres, llamativo pero sin mentir, puede tener 1 emoji y debe nombrar al streamer.
 - "descripcion": 1-2 frases que expliquen qué pasa, mencionando al streamer y que el clip es de su directo en Twitch.
 - "hashtags": 3-6 hashtags relevantes.
+- "estilo": "humor", "jugada", "susto", "reaccion" u "otro".
 - "motivo": en pocas palabras, por qué engancha (o por qué no).
 
-Responde SOLO con JSON: {{"clips": [{{"id": "", "puntuacion": 0, "inicio": 0, "fin": 0, "titulo_pantalla": "", "titulo": "", "descripcion": "", "hashtags": [], "motivo": ""}}]}}
+Responde SOLO con JSON: {{"clips": [{{"id": "", "puntuacion": 0, "inicio": 0, "fin": 0, "estilo": "", "titulo_pantalla": "", "titulo": "", "descripcion": "", "hashtags": [], "motivo": ""}}]}}
 
 LO MÁS VIRAL EN TWITCH EN ESPAÑOL AHORA MISMO (para orientarte):
 {tendencias}
