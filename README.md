@@ -1,6 +1,6 @@
 # 🎬 Clipéalo · Panel de control
 
-_Actualizado: 23/11/2026 06:20 UTC · se actualiza solo cada pocos minutos_
+_Actualizado: 23/11/2026 06:25 UTC · se actualiza solo cada pocos minutos_
 
 ## Resumen
 
@@ -8,11 +8,11 @@ _Actualizado: 23/11/2026 06:20 UTC · se actualiza solo cada pocos minutos_
 |---|---|---|
 | 🔎 Clips revisados por la IA | 47 | 87 |
 | 📩 Enviados a tu Telegram | 13 | 18 |
-| ✅ Aprobados | 5 | 5 |
-| ❌ Descartados | 1 | 1 |
-| 🚀 Enviados a publicar | 5 | 5 |
+| ✅ Aprobados | 6 | 6 |
+| ❌ Descartados | 4 | 4 |
+| 🚀 Enviados a publicar | 6 | 6 |
 
-**Pendientes de revisar en Telegram:** 9
+**Pendientes de revisar en Telegram:** 5
 
 ## Últimas rondas automáticas
 
@@ -29,12 +29,12 @@ _Actualizado: 23/11/2026 06:20 UTC · se actualiza solo cada pocos minutos_
 
 | Fecha (UTC) | Streamer | Título | Nota | Vistas Twitch | Estado |
 |---|---|---|---|---|---|
-| 2026-11-23 04:08 | Shadoune666 | ¡SHADOUNE666 SE LA JUEGA CON ESTE WATER DROP! 💧 | 7/10 | 1335 | ⏳ pendiente |
-| 2026-11-23 04:08 | IlloJuan | ¡A ILLOJUAN LE SALE CARO EL REALISMO EN GTA VI! 😱 | 9/10 | 475 | ⏳ pendiente |
-| 2026-11-23 00:05 | IlloJuan | ¡IlloJuan encuentra un secreto turbio en GTA VI! 🦀 | 7/10 | 519 | ⏳ pendiente |
+| 2026-11-23 04:08 | Shadoune666 | ¡SHADOUNE666 SE LA JUEGA CON ESTE WATER DROP! 💧 | 7/10 | 1335 | 🚀 publicado |
+| 2026-11-23 04:08 | IlloJuan | ¡A ILLOJUAN LE SALE CARO EL REALISMO EN GTA VI! 😱 | 9/10 | 475 | ❌ descartado |
+| 2026-11-23 00:05 | IlloJuan | ¡IlloJuan encuentra un secreto turbio en GTA VI! 🦀 | 7/10 | 519 | ❌ descartado |
 | 2026-11-23 00:05 | auronplay | ¿Está bien Lucía? Auronplay alucina con GTA VI 😲 | 8/10 | 1626 | ⏳ pendiente |
 | 2026-11-23 00:05 | auronplay | Auronplay no soporta la moda de GTA VI 😂 | 8/10 | 1114 | ⏳ pendiente |
-| 2026-11-23 00:05 | aldo_geo | ¡Pánico total de Aldo Geo en GTA VI! 🌊 | 7/10 | 491 | ⏳ pendiente |
+| 2026-11-23 00:05 | aldo_geo | ¡Pánico total de Aldo Geo en GTA VI! 🌊 | 7/10 | 491 | ❌ descartado |
 | 2026-11-23 00:05 | Rubius | ¡El momento más tenso de Rubius en GTA VI! 😱 | 9/10 | 331 | ⏳ pendiente |
 | 2026-11-22 20:05 | DjMaRiiO | ¡DjMaRiiO se cae de la forma más tonta! 😂 GTA VI | 9/10 | 1133 | 🚀 publicado |
 | 2026-11-22 20:05 | DjMaRiiO | DjMaRiiO no entiende NADA en GTA VI 🤣 | 7/10 | 1072 | 🚀 publicado |
