@@ -19,10 +19,33 @@ def al_aprobar(clave: str, estado: Estado, decisiones: Decisiones) -> str:
     if not publicar.buffer_configurado():
         return "Apuntado. (La publicación automática aún no está conectada: súbelo a mano con el texto de arriba.)"
     config = cargar_config().get("publicacion", {})
-    lineas = publicar.publicar_en_buffer(info, config)
+    registro = decisiones.datos.setdefault("youtube_programados", list(config.get("youtube_ya_subidos", [])))
+    lineas = publicar.publicar_en_buffer(info, config, registro)
     if any(l.startswith(("✅", "🗓", "📲")) for l in lineas):
         decisiones.marcar_clip(clave, publicado=True)
     return "\n".join(lineas)
+
+
+def reintentar_youtube(estado: Estado, decisiones: Decisiones) -> None:
+    """Vuelve a programar en YouTube los clips que YouTube rechazó por su límite diario
+    (se indican una vez en config/cuentas.yaml → publicacion.reintentar_youtube)."""
+    config = cargar_config().get("publicacion", {})
+    hechos = decisiones.datos.setdefault("reintentados", [])
+    pendientes = [c for c in config.get("reintentar_youtube", []) if c not in hechos]
+    if not pendientes or not publicar.buffer_configurado():
+        return
+    registro = decisiones.datos.setdefault("youtube_programados", list(config.get("youtube_ya_subidos", [])))
+    for clave in pendientes:
+        info = estado.datos["clips"].get(clave, {}).get("publicar")
+        if not info or not info.get("video_url"):
+            hechos.append(clave)
+            continue
+        lineas = publicar.publicar_en_buffer(info, config, registro, solo=["youtube"])
+        log(f"Reintento {clave}: {' | '.join(lineas)}")
+        if not any(l.startswith("❌") for l in lineas):
+            hechos.append(clave)
+            telegram.mensaje(f"🔁 <b>Vídeo reprogramado en YouTube</b>\n{esc(info.get('titulo', ''))}\n{esc(chr(10).join(lineas))}")
+    decisiones.guardar()
 
 
 def main() -> int:
@@ -31,6 +54,7 @@ def main() -> int:
     n = telegram.recoger_decisiones(decisiones, al_aprobar=lambda clave: al_aprobar(clave, estado, decisiones),
                                     al_panel=panel.texto_telegram)
     log(f"Decisiones procesadas: {n}")
+    reintentar_youtube(estado, decisiones)
     try:
         panel.escribir_readme()
     except Exception as e:
