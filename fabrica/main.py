@@ -170,7 +170,18 @@ def procesar_clips_populares(cuenta: dict, estado: Estado) -> int:
 
         if not preparados:
             return 0
-        notas = ia.evaluar_clips_twitch(preparados, cuenta, tendencias)
+        try:
+            notas = ia.evaluar_clips_twitch(preparados, cuenta, tendencias)
+            estado.datos["fallos_gemini"] = 0
+        except ia.GeminiSaturado as e:
+            # No marcamos los clips como vistos: se volverán a valorar en la siguiente ronda.
+            fallos = estado.datos.get("fallos_gemini", 0) + 1
+            estado.datos["fallos_gemini"] = fallos
+            log(f"{e}. Lo dejo para la siguiente ronda (fallos seguidos: {fallos}).")
+            if fallos == 3:
+                telegram.mensaje("⚠️ La IA de Google (Gemini) lleva 3 rondas saturada. No hace falta que hagas nada: "
+                                 "seguiré intentándolo en cada ronda y te aviso si no se arregla.")
+            return 0
         por_id = {p["id"]: p for p in preparados}
         for p in preparados:  # apuntamos todos como vistos para no repetirlos
             nota = next((x["puntuacion"] for x in notas if x["id"] == p["id"]), None)
