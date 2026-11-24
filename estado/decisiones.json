@@ -88,9 +88,58 @@
     "PowerfulGentleBasenjiArsonNoSexy-yvjl9HDIrcgMbehd": {
       "decision": "aprobado",
       "fecha": "2026-11-23 21:50"
+    },
+    "SpunkyFamousSharkLitFam-GWjLleM47IHidm22": {
+      "decision": "aprobado",
+      "fecha": "2026-11-24 15:30",
+      "publicado": true
+    },
+    "BitterOddBaconDoritosChip-3R4Xq2FU7ksHYsHu": {
+      "decision": "aprobado",
+      "fecha": "2026-11-24 15:30",
+      "publicado": true
+    },
+    "SquareObservantSpaghettiAMPEnergy-zJFw-ops85IG8t-b": {
+      "decision": "descartado",
+      "fecha": "2026-11-24 15:30"
+    },
+    "RudeBlatantShingleWTRuck-sTQRh6u-FsKevWA0": {
+      "decision": "descartado",
+      "fecha": "2026-11-24 15:31"
+    },
+    "CheerfulNimbleNightingalePJSalt-EH_omPasiUVNVG_U": {
+      "decision": "aprobado",
+      "fecha": "2026-11-24 15:31",
+      "publicado": true
+    },
+    "AggressiveColdOryxMikeHogu-z1KoofWHrmoy-dva": {
+      "decision": "aprobado",
+      "fecha": "2026-11-24 15:31",
+      "publicado": true
+    },
+    "CrepuscularDirtyShieldKevinTurtle-Jd_JdiTZ4K2dgjGX": {
+      "decision": "descartado",
+      "fecha": "2026-11-24 15:31"
+    },
+    "AbnegateResolutePistachioTBTacoLeft-uEAEafAt33qt6nYN": {
+      "decision": "descartado",
+      "fecha": "2026-11-24 15:31"
+    },
+    "ImportantBlitheReindeerStinkyCheese-Rw8YSOs_1KRop6i9": {
+      "decision": "descartado",
+      "fecha": "2026-11-24 15:31"
+    },
+    "MildTolerantShallotWoofer-AMPsut1_InrqEqPi": {
+      "decision": "descartado",
+      "fecha": "2026-11-24 15:31"
+    },
+    "SpicyFinePheasantAliens-idteAyctmeCRdgvd": {
+      "decision": "aprobado",
+      "fecha": "2026-11-24 15:31",
+      "publicado": true
     }
   },
-  "telegram_offset": 495937864,
+  "telegram_offset": 495937895,
   "reintentados": [
     "DeafComfortablePizzaPraiseIt-dLNZKryPccdzHwer",
     "PreciousVenomousKoupreyPipeHype-fYIqv-_bI91THlDG",
@@ -119,9 +168,24 @@
     "2026-11-26T17:20:00.000Z",
     "2026-11-26T20:50:00.000Z",
     "2026-11-27T17:30:00.000Z",
-    "2026-11-27T21:00:00.000Z"
+    "2026-11-27T21:00:00.000Z",
+    "2026-11-28T17:40:00.000Z",
+    "2026-11-28T21:10:00.000Z"
   ],
-  "pendientes": {},
+  "pendientes": {
+    "CheerfulNimbleNightingalePJSalt-EH_omPasiUVNVG_U": [
+      "youtube",
+      "instagram"
+    ],
+    "AggressiveColdOryxMikeHogu-z1KoofWHrmoy-dva": [
+      "youtube",
+      "instagram"
+    ],
+    "SpicyFinePheasantAliens-idteAyctmeCRdgvd": [
+      "youtube",
+      "instagram"
+    ]
+  },
   "otras_programadas": [
     "2026-11-23T17:00:00.000Z",
     "2026-11-23T20:00:00.000Z",
@@ -132,6 +196,8 @@
     "2026-11-26T17:30:00.000Z",
     "2026-11-26T20:50:00.000Z",
     "2026-11-27T17:30:00.000Z",
-    "2026-11-27T21:00:00.000Z"
+    "2026-11-27T21:00:00.000Z",
+    "2026-11-28T17:40:00.000Z",
+    "2026-11-28T21:10:00.000Z"
   ]
 }
