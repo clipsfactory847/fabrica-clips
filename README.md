@@ -1,24 +1,24 @@
 # 🎬 Clipéalo · Panel de control
 
-_Actualizado: 24/11/2026 20:01 UTC · se actualiza solo cada pocos minutos_
+_Actualizado: 24/11/2026 20:10 UTC · se actualiza solo cada pocos minutos_
 
 ## Resumen
 
 | | Últimas 24 h | Últimos 7 días |
 |---|---|---|
-| 🔎 Clips revisados por la IA | 37 | 141 |
-| 📩 Enviados a tu Telegram | 14 | 37 |
+| 🔎 Clips revisados por la IA | 42 | 151 |
+| 📩 Enviados a tu Telegram | 16 | 41 |
 | ✅ Aprobados | 8 | 19 |
 | ❌ Descartados | 7 | 11 |
 | 🚀 Enviados a publicar | 7 | 17 |
 
-**Pendientes de revisar en Telegram:** 1
+**Pendientes de revisar en Telegram:** 5
 
 ## Últimas rondas automáticas
 
 | Estado | Cuándo (UTC) | Detalle |
 |---|---|---|
-| ⏳ | 2026-11-24 20:00 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/45476240869) |
+| ✅ | 2026-11-24 20:00 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/45476240869) |
 | ✅ | 2026-11-24 16:00 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/45432146852) |
 | ✅ | 2026-11-24 12:00 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/45389447617) |
 | ✅ | 2026-11-24 08:00 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/45352466541) |
@@ -29,6 +29,10 @@ _Actualizado: 24/11/2026 20:01 UTC · se actualiza solo cada pocos minutos_
 
 | Fecha (UTC) | Streamer | Título | Nota | Vistas Twitch | Estado |
 |---|---|---|---|---|---|
+| 2026-11-24 20:05 | paache_ | ¡EL MOMENTO MÁS ABSURDO DE PAACHE EN GTA! 😂 | 10/10 | 361 | ⏳ pendiente |
+| 2026-11-24 20:05 | Staryuuki | STARYUUKI INTENTA SER AMABLE Y SALE MAL 😅 | 7/10 | 826 | ⏳ pendiente |
+| 2026-11-24 20:05 | deusamir | ¡EL PERSONAJE MÁS DOTADO DE GTA VI! 🐍 | 8/10 | 383 | ⏳ pendiente |
+| 2026-11-24 20:05 | DjMaRiiO | EL NUEVO TRABAJO DE DJMARIIO: ¿UN SAPO? 🐸 | 9/10 | 336 | ⏳ pendiente |
 | 2026-11-24 16:07 | DjMaRiiO | DjMaRiiO se vuelve loco con el “pezón” en GTA VI 😂 | 7/10 | 777 | ⏳ pendiente |
 | 2026-11-24 08:04 | Rubius | Rubius y su tecnica para el gym en GTA VI 😂 | 9/10 | 308 | ❌ descartado |
 | 2026-11-24 08:04 | Ache | Ache explota jugando a Fortnite: ESTOY HASTA LOS HUEVOS 🤬 | 7/10 | 334 | 🚀 publicado |
@@ -40,10 +44,6 @@ _Actualizado: 24/11/2026 20:01 UTC · se actualiza solo cada pocos minutos_
 | 2026-11-24 00:04 | auronplay | La nueva funda de AURONPLAY en GTA VI 😂📱 | 8/10 | 1274 | ❌ descartado |
 | 2026-11-24 00:04 | Rubius | ¡RUBIUS se vuelve LOCO con los detalles de GTA VI! 🍑😂 | 10/10 | 476 | 🚀 publicado |
 | 2026-11-24 00:04 | IlloJuan | ILLOJUAN borra el GTA VI por este motivo 😱🚫 | 9/10 | 355 | 🚀 publicado |
-| 2026-11-24 00:04 | Rubius | RUBIUS no se cree las FÍSICAS de GTA VI 🤯🚗 | 8/10 | 513 | 🚀 publicado |
-| 2026-11-23 20:03 | Rubius | Rubius y su momento mas loco en GTA VI 😂 | 9/10 | 312 | 🚀 publicado |
-| 2026-11-23 20:03 | marinaifx | La indirecta mas inesperada de marinaifx 😳 | 7/10 | 314 | ❌ descartado |
-| 2026-11-23 18:21 | IlloJuan | IlloJuan se encuentra con un caimán en GTA VI 😱 | 8/10 | 348 | 🚀 publicado |
 
 ## Configuración actual
 
