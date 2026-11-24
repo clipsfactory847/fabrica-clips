@@ -1,6 +1,6 @@
 # 🎬 Clipéalo · Panel de control
 
-_Actualizado: 24/11/2026 12:58 UTC · se actualiza solo cada pocos minutos_
+_Actualizado: 24/11/2026 13:01 UTC · se actualiza solo cada pocos minutos_
 
 ## Resumen
 
