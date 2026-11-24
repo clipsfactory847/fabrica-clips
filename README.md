@@ -1,24 +1,24 @@
 # 🎬 Clipéalo · Panel de control
 
-_Actualizado: 24/11/2026 04:20 UTC · se actualiza solo cada pocos minutos_
+_Actualizado: 24/11/2026 04:30 UTC · se actualiza solo cada pocos minutos_
 
 ## Resumen
 
 | | Últimas 24 h | Últimos 7 días |
 |---|---|---|
-| 🔎 Clips revisados por la IA | 32 | 119 |
-| 📩 Enviados a tu Telegram | 12 | 30 |
+| 🔎 Clips revisados por la IA | 41 | 128 |
+| 📩 Enviados a tu Telegram | 16 | 34 |
 | ✅ Aprobados | 9 | 14 |
 | ❌ Descartados | 4 | 5 |
 | 🚀 Enviados a publicar | 7 | 12 |
 
-**Pendientes de revisar en Telegram:** 5
+**Pendientes de revisar en Telegram:** 9
 
 ## Últimas rondas automáticas
 
 | Estado | Cuándo (UTC) | Detalle |
 |---|---|---|
-| ⏳ | 2026-11-24 04:00 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/45323403252) |
+| ✅ | 2026-11-24 04:00 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/45323403252) |
 | ✅ | 2026-11-24 00:00 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/45293633836) |
 | ✅ | 2026-11-23 20:00 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/45254872248) |
 | ✅ | 2026-11-23 18:15 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/45236388208) |
@@ -29,6 +29,10 @@ _Actualizado: 24/11/2026 04:20 UTC · se actualiza solo cada pocos minutos_
 
 | Fecha (UTC) | Streamer | Título | Nota | Vistas Twitch | Estado |
 |---|---|---|---|---|---|
+| 2026-11-24 04:20 | Rubius | ¡Rubius no ve nada! El bug más descarado de GTA VI con @Rubius 🤫 | 9/10 | 419 | ⏳ pendiente |
+| 2026-11-24 04:20 | juansguarnizo | El accidente más tonto de @juansguarnizo en GTA VI 🛵 | 10/10 | 379 | ⏳ pendiente |
+| 2026-11-24 04:20 | IlloJuan | ¡IlloJuan encuentra algo MUY RARO en GTA VI! 🛸 @IlloJuan | 8/10 | 326 | ⏳ pendiente |
+| 2026-11-24 04:20 | Staryuuki | Staryuuki pierde los nervios jugando GTA VI 🤬 @Staryuuki | 7/10 | 696 | ⏳ pendiente |
 | 2026-11-24 00:04 | IlloJuan | ¡ILLOJUAN flipa con esta CANCIÓN en GTA VI! 🇪🇸🔥 | 8/10 | 580 | ⏳ pendiente |
 | 2026-11-24 00:04 | auronplay | La nueva funda de AURONPLAY en GTA VI 😂📱 | 8/10 | 1274 | ⏳ pendiente |
 | 2026-11-24 00:04 | Rubius | ¡RUBIUS se vuelve LOCO con los detalles de GTA VI! 🍑😂 | 10/10 | 476 | ⏳ pendiente |
@@ -40,10 +44,6 @@ _Actualizado: 24/11/2026 04:20 UTC · se actualiza solo cada pocos minutos_
 | 2026-11-23 08:04 | Rubius | El momento más tierno de Rubius en GTA VI 🐶 | 7/10 | 374 | 🚀 publicado |
 | 2026-11-23 08:04 | IlloJuan | El FAIL de IlloJuan con su bici en GTA VI 😂 | 9/10 | 329 | 🚀 publicado |
 | 2026-11-23 08:04 | iaaraS2 | La razón definitiva para ir al gimnasio 💀 | 8/10 | 470 | 🚀 publicado |
-| 2026-11-23 08:04 | Esluki_ | Casi acaba en la cárcel en pleno directo 👮‍♂️ | 8/10 | 457 | 🚀 publicado |
-| 2026-11-23 04:08 | Shadoune666 | ¡SHADOUNE666 SE LA JUEGA CON ESTE WATER DROP! 💧 | 7/10 | 1335 | 🚀 publicado |
-| 2026-11-23 04:08 | IlloJuan | ¡A ILLOJUAN LE SALE CARO EL REALISMO EN GTA VI! 😱 | 9/10 | 475 | ❌ descartado |
-| 2026-11-23 00:05 | IlloJuan | ¡IlloJuan encuentra un secreto turbio en GTA VI! 🦀 | 7/10 | 519 | ❌ descartado |
 
 ## Configuración actual
 
