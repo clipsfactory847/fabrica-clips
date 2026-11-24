@@ -76,6 +76,10 @@ publicacion:
   margen_minutos: 5                   # margen de seguridad sobre las 24 h de YouTube
   horas_entre_videos: 3
   hora_limite: "23:00"                # nunca más tarde de esta hora
+  # Instagram y TikTok (sin el límite de YouTube): 3 al día, a la misma hora en las dos
+  horas_otras: ["14:00", "18:30", "22:00"]
+  otras_max_24h: 3
+  otras_horas_entre: 3
   # Redes donde Buffer te manda un aviso al móvil para terminar tú la publicación
   # (TikTok, porque tu cuenta es personal)
   con_aviso: [tiktok]
