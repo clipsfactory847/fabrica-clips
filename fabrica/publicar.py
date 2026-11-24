@@ -130,6 +130,7 @@ def hueco_youtube(registro: list, config_pub: dict, ahora: datetime = None, dias
     separacion = timedelta(hours=float(config_pub.get("horas_entre_videos", 5)))
     ocupados = sorted(_leer(x) for x in registro)
     dias_llenos = dias_llenos or set()
+    solo_por_dia = bool(config_pub.get("solo_limite_por_dia", False))
     lh, lm = (int(v) for v in str(config_pub.get("hora_limite", "23:00")).split(":"))
 
     def dia(t: datetime):
@@ -142,6 +143,8 @@ def hueco_youtube(registro: list, config_pub: dict, ahora: datetime = None, dias
             return False
         if any(abs(t - o) < separacion for o in ocupados):
             return False
+        if solo_por_dia:
+            return True
         todos = sorted(ocupados + [t])
         # solo miramos los periodos de 24 h que incluyen la hora nueva
         return all(sum(1 for y in todos if x - ventana < y <= x) <= maximo
@@ -150,14 +153,18 @@ def hueco_youtube(registro: list, config_pub: dict, ahora: datetime = None, dias
     hoy = dia(ahora)
     for d in range(0, 60):
         fecha = hoy + timedelta(days=d)
-        for h in horas:
-            hh, mm = (int(v) for v in h.split(":"))
-            base = datetime(fecha.year, fecha.month, fecha.day, hh, mm, tzinfo=MADRID)
-            # si la hora justa no cabe, probamos a retrasarla un poco (hasta 3 h, sin pasar de medianoche)
-            for extra in range(0, 181, 10):
-                local = base + timedelta(minutes=extra)
+        # Instagram/TikTok: primero las horas exactas y luego retrasos.
+        # YouTube: cada hora con sus retrasos (así se reparte mejor con la regla de las 24 h).
+        if solo_por_dia:
+            orden = [(extra, h) for extra in range(0, 181, 10) for h in horas]
+        else:
+            orden = [(extra, h) for h in horas for extra in range(0, 181, 10)]
+        for extra, h in orden:
+            if True:
+                hh, mm = (int(v) for v in h.split(":"))
+                local = datetime(fecha.year, fecha.month, fecha.day, hh, mm, tzinfo=MADRID) + timedelta(minutes=extra)
                 if local.date() != fecha or (local.hour, local.minute) > (lh, lm):
-                    break
+                    continue
                 t = local.astimezone(timezone.utc)
                 if t >= ahora + timedelta(minutes=15) and cabe(t):
                     return t
@@ -188,6 +195,16 @@ def _entrada(servicio: str, canal_id: str, info: dict, cuando: datetime, avisos:
 
 
 NOMBRES = {"youtube": "YouTube", "tiktok": "TikTok", "instagram": "Instagram"}
+
+
+def config_otras(config_pub: dict) -> dict:
+    """Las mismas reglas de calendario, pero con los valores de Instagram/TikTok."""
+    c = dict(config_pub)
+    c["horas_youtube"] = config_pub.get("horas_otras", config_pub.get("horas_youtube", ["13:30", "21:30"]))
+    c["youtube_max_24h"] = config_pub.get("otras_max_24h", config_pub.get("youtube_max_24h", 2))
+    c["horas_entre_videos"] = config_pub.get("otras_horas_entre", config_pub.get("horas_entre_videos", 3))
+    c["solo_limite_por_dia"] = True  # Instagram/TikTok: basta con no pasar de N por día
+    return c
 
 
 def _es_limite_diario(error: str) -> bool:
@@ -234,31 +251,31 @@ def publicar_en_buffer(info: dict, config_pub: dict, registro: list = None, solo
             fallidas.append("youtube")
             cuando = None
 
-    # 2) El resto de redes, a la misma hora que YouTube. Si esta vez no va a YouTube,
-    #    usamos su propio calendario (mismas reglas: 2 al día, separados) para no amontonarlos.
+    # 2) Instagram y TikTok van con su propio calendario (pueden publicar más al día que YouTube,
+    #    que en Buffer gratis está limitado a 2). Las dos salen a la misma hora.
     otras = [c for c in canales if c["service"].lower() != "youtube"]
-    if cuando is None and otras:
-        propio = registro_otras if registro_otras is not None else registro
-        cuando = hueco_youtube(propio, config_pub)
-    if cuando is None:
-        return {"lineas": lineas, "fallidas": fallidas}
-    hora = cuando.astimezone(MADRID).strftime("%d/%m a las %H:%M")
-    for c in canales:
-        servicio = c["service"].lower()
-        if servicio == "youtube":
-            continue
-        entrada = _entrada(servicio, c["id"], info, cuando, avisos)
-        try:
-            _crear_post(entrada)
-            if servicio == "instagram" and registro_otras is not None:
-                registro_otras.append(_iso(cuando))
-            if entrada["schedulingType"] == "notification":
-                lineas.append(f"📲 {NOMBRES[servicio]}: el {hora} te llegará un aviso de Buffer para terminarlo")
-            else:
-                lineas.append(f"🗓 {NOMBRES[servicio]}: se publicará solo el {hora}")
-        except Exception as e:
-            lineas.append(f"❌ {NOMBRES[servicio]}: {str(e)[:150]}")
-            fallidas.append(servicio)
+    if not otras:
+        cuando = None
+    else:
+        propio = registro_otras if registro_otras is not None else []
+        cuando = hueco_youtube(propio, config_otras(config_pub))
+        hora = cuando.astimezone(MADRID).strftime("%d/%m a las %H:%M")
+        alguna_bien = False
+        for c in otras:
+            servicio = c["service"].lower()
+            entrada = _entrada(servicio, c["id"], info, cuando, avisos)
+            try:
+                _crear_post(entrada)
+                alguna_bien = True
+                if entrada["schedulingType"] == "notification":
+                    lineas.append(f"📲 {NOMBRES[servicio]}: el {hora} te llegará un aviso de Buffer para terminarlo")
+                else:
+                    lineas.append(f"🗓 {NOMBRES[servicio]}: se publicará solo el {hora}")
+            except Exception as e:
+                lineas.append(f"❌ {NOMBRES[servicio]}: {str(e)[:150]}")
+                fallidas.append(servicio)
+        if alguna_bien and registro_otras is not None:
+            registro_otras.append(_iso(cuando))
 
     # guardamos solo lo de los últimos días (las horas futuras se quedan)
     limite = datetime.now(timezone.utc) - timedelta(days=3)
