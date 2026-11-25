@@ -1,6 +1,6 @@
 # 🎬 Clipéalo · Panel de control
 
-_Actualizado: 25/11/2026 06:50 UTC · se actualiza solo cada pocos minutos_
+_Actualizado: 25/11/2026 07:01 UTC · se actualiza solo cada pocos minutos_
 
 ## Resumen
 
@@ -8,11 +8,11 @@ _Actualizado: 25/11/2026 06:50 UTC · se actualiza solo cada pocos minutos_
 |---|---|---|
 | 🔎 Clips revisados por la IA | 42 | 170 |
 | 📩 Enviados a tu Telegram | 16 | 50 |
-| ✅ Aprobados | 5 | 19 |
-| ❌ Descartados | 6 | 11 |
-| 🚀 Enviados a publicar | 5 | 17 |
+| ✅ Aprobados | 6 | 20 |
+| ❌ Descartados | 8 | 13 |
+| 🚀 Enviados a publicar | 6 | 18 |
 
-**Pendientes de revisar en Telegram:** 14
+**Pendientes de revisar en Telegram:** 11
 
 ## Últimas rondas automáticas
 
@@ -30,9 +30,9 @@ _Actualizado: 25/11/2026 06:50 UTC · se actualiza solo cada pocos minutos_
 | Fecha (UTC) | Streamer | Título | Nota | Vistas Twitch | Estado |
 |---|---|---|---|---|---|
 | 2026-11-25 04:04 | Rubius | ¡Rubius alucina con los detalles de GTA VI! 🐍 | 10/10 | 1578 | ⏳ pendiente |
-| 2026-11-25 04:04 | Rubius | Rubius y el momento más tenso en GTA VI 💎 | 9/10 | 409 | ⏳ pendiente |
-| 2026-11-25 04:04 | aldo_geo | El momento más random de Aldo Geo en GTA VI 🤣 | 7/10 | 382 | ⏳ pendiente |
-| 2026-11-25 04:04 | juansguarnizo | JuanSGuarnizo lee los mensajes de OnlyFans en GTA VI 💸 | 9/10 | 322 | ⏳ pendiente |
+| 2026-11-25 04:04 | Rubius | Rubius y el momento más tenso en GTA VI 💎 | 9/10 | 409 | 🚀 publicado |
+| 2026-11-25 04:04 | aldo_geo | El momento más random de Aldo Geo en GTA VI 🤣 | 7/10 | 382 | ❌ descartado |
+| 2026-11-25 04:04 | juansguarnizo | JuanSGuarnizo lee los mensajes de OnlyFans en GTA VI 💸 | 9/10 | 322 | ❌ descartado |
 | 2026-11-25 00:11 | Peereira7 | ¡Peereira7 entra en pánico por un descuido! 😂 | 10/10 | 1469 | ⏳ pendiente |
 | 2026-11-25 00:11 | AriGameplays | AriGameplays y su problema con los gatos en GTA 🐱 | 7/10 | 442 | ⏳ pendiente |
 | 2026-11-25 00:11 | marinaifx | La teoría más loca de MarinaIFX 🧠 | 8/10 | 399 | ⏳ pendiente |

@@ -137,9 +137,22 @@
       "decision": "aprobado",
       "fecha": "2026-11-24 15:31",
       "publicado": true
+    },
+    "HeartlessHonorableTrufflePanicVis-xQdrtBarGl_OgbQB": {
+      "decision": "descartado",
+      "fecha": "2026-11-25 07:01"
+    },
+    "RelievedFriendlyOtterBloodTrail-FHpFzbyVZMfXcpER": {
+      "decision": "aprobado",
+      "fecha": "2026-11-25 07:01",
+      "publicado": true
+    },
+    "AdventurousObservantCormorantNomNom-_uG0cClZAphVGDLJ": {
+      "decision": "descartado",
+      "fecha": "2026-11-25 07:01"
     }
   },
-  "telegram_offset": 495937895,
+  "telegram_offset": 495937914,
   "reintentados": [
     "DeafComfortablePizzaPraiseIt-dLNZKryPccdzHwer",
     "PreciousVenomousKoupreyPipeHype-fYIqv-_bI91THlDG",
@@ -178,6 +191,10 @@
     "SpicyFinePheasantAliens-idteAyctmeCRdgvd": [
       "youtube",
       "instagram"
+    ],
+    "RelievedFriendlyOtterBloodTrail-FHpFzbyVZMfXcpER": [
+      "youtube",
+      "instagram"
     ]
   },
   "otras_programadas": [
@@ -191,6 +208,7 @@
     "2026-11-26T13:00:00.000Z",
     "2026-11-26T17:30:00.000Z",
     "2026-11-26T20:50:00.000Z",
+    "2026-11-27T13:00:00.000Z",
     "2026-11-27T17:30:00.000Z",
     "2026-11-27T21:00:00.000Z",
     "2026-11-28T17:40:00.000Z",
