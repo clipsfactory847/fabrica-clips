@@ -1,24 +1,24 @@
 # 🎬 Clipéalo · Panel de control
 
-_Actualizado: 25/11/2026 00:10 UTC · se actualiza solo cada pocos minutos_
+_Actualizado: 25/11/2026 00:20 UTC · se actualiza solo cada pocos minutos_
 
 ## Resumen
 
 | | Últimas 24 h | Últimos 7 días |
 |---|---|---|
-| 🔎 Clips revisados por la IA | 32 | 151 |
-| 📩 Enviados a tu Telegram | 11 | 41 |
+| 🔎 Clips revisados por la IA | 45 | 164 |
+| 📩 Enviados a tu Telegram | 16 | 46 |
 | ✅ Aprobados | 5 | 19 |
 | ❌ Descartados | 6 | 11 |
 | 🚀 Enviados a publicar | 5 | 17 |
 
-**Pendientes de revisar en Telegram:** 5
+**Pendientes de revisar en Telegram:** 10
 
 ## Últimas rondas automáticas
 
 | Estado | Cuándo (UTC) | Detalle |
 |---|---|---|
-| ⏳ | 2026-11-25 00:00 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/45514663261) |
+| ✅ | 2026-11-25 00:00 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/45514663261) |
 | ✅ | 2026-11-24 20:00 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/45476240869) |
 | ✅ | 2026-11-24 16:00 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/45432146852) |
 | ✅ | 2026-11-24 12:00 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/45389447617) |
@@ -29,6 +29,11 @@ _Actualizado: 25/11/2026 00:10 UTC · se actualiza solo cada pocos minutos_
 
 | Fecha (UTC) | Streamer | Título | Nota | Vistas Twitch | Estado |
 |---|---|---|---|---|---|
+| 2026-11-25 00:11 | Peereira7 | ¡Peereira7 entra en pánico por un descuido! 😂 | 10/10 | 1469 | ⏳ pendiente |
+| 2026-11-25 00:11 | AriGameplays | AriGameplays y su problema con los gatos en GTA 🐱 | 7/10 | 442 | ⏳ pendiente |
+| 2026-11-25 00:11 | marinaifx | La teoría más loca de MarinaIFX 🧠 | 8/10 | 399 | ⏳ pendiente |
+| 2026-11-25 00:11 | IlloJuan | IlloJuan y el secreto de la felicidad 🤣 | 9/10 | 300 | ⏳ pendiente |
+| 2026-11-25 00:11 | marinaifx | MarinaIFX y un comentario muy peligroso 💀 | 9/10 | 320 | ⏳ pendiente |
 | 2026-11-24 20:05 | paache_ | ¡EL MOMENTO MÁS ABSURDO DE PAACHE EN GTA! 😂 | 10/10 | 361 | ⏳ pendiente |
 | 2026-11-24 20:05 | Staryuuki | STARYUUKI INTENTA SER AMABLE Y SALE MAL 😅 | 7/10 | 826 | ⏳ pendiente |
 | 2026-11-24 20:05 | deusamir | ¡EL PERSONAJE MÁS DOTADO DE GTA VI! 🐍 | 8/10 | 383 | ⏳ pendiente |
@@ -39,11 +44,6 @@ _Actualizado: 25/11/2026 00:10 UTC · se actualiza solo cada pocos minutos_
 | 2026-11-24 04:20 | Rubius | ¡Rubius no ve nada! El bug más descarado de GTA VI con @Rubius 🤫 | 9/10 | 419 | ❌ descartado |
 | 2026-11-24 04:20 | juansguarnizo | El accidente más tonto de @juansguarnizo en GTA VI 🛵 | 10/10 | 379 | 🚀 publicado |
 | 2026-11-24 04:20 | IlloJuan | ¡IlloJuan encuentra algo MUY RARO en GTA VI! 🛸 @IlloJuan | 8/10 | 326 | ❌ descartado |
-| 2026-11-24 04:20 | Staryuuki | Staryuuki pierde los nervios jugando GTA VI 🤬 @Staryuuki | 7/10 | 696 | ❌ descartado |
-| 2026-11-24 00:04 | IlloJuan | ¡ILLOJUAN flipa con esta CANCIÓN en GTA VI! 🇪🇸🔥 | 8/10 | 580 | ❌ descartado |
-| 2026-11-24 00:04 | auronplay | La nueva funda de AURONPLAY en GTA VI 😂📱 | 8/10 | 1274 | ❌ descartado |
-| 2026-11-24 00:04 | Rubius | ¡RUBIUS se vuelve LOCO con los detalles de GTA VI! 🍑😂 | 10/10 | 476 | 🚀 publicado |
-| 2026-11-24 00:04 | IlloJuan | ILLOJUAN borra el GTA VI por este motivo 😱🚫 | 9/10 | 355 | 🚀 publicado |
 
 ## Configuración actual
 
