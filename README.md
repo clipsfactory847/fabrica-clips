@@ -1,24 +1,24 @@
 # 🎬 Clipéalo · Panel de control
 
-_Actualizado: 25/11/2026 08:01 UTC · se actualiza solo cada pocos minutos_
+_Actualizado: 25/11/2026 08:10 UTC · se actualiza solo cada pocos minutos_
 
 ## Resumen
 
 | | Últimas 24 h | Últimos 7 días |
 |---|---|---|
-| 🔎 Clips revisados por la IA | 42 | 170 |
-| 📩 Enviados a tu Telegram | 16 | 50 |
+| 🔎 Clips revisados por la IA | 49 | 180 |
+| 📩 Enviados a tu Telegram | 16 | 52 |
 | ✅ Aprobados | 6 | 20 |
 | ❌ Descartados | 8 | 13 |
 | 🚀 Enviados a publicar | 6 | 18 |
 
-**Pendientes de revisar en Telegram:** 11
+**Pendientes de revisar en Telegram:** 12
 
 ## Últimas rondas automáticas
 
 | Estado | Cuándo (UTC) | Detalle |
 |---|---|---|
-| ⏳ | 2026-11-25 08:00 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/45572633944) |
+| ✅ | 2026-11-25 08:00 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/45572633944) |
 | ✅ | 2026-11-25 04:00 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/45543844645) |
 | ✅ | 2026-11-25 00:00 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/45514663261) |
 | ✅ | 2026-11-24 20:00 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/45476240869) |
@@ -29,6 +29,8 @@ _Actualizado: 25/11/2026 08:01 UTC · se actualiza solo cada pocos minutos_
 
 | Fecha (UTC) | Streamer | Título | Nota | Vistas Twitch | Estado |
 |---|---|---|---|---|---|
+| 2026-11-25 08:05 | Delt4Forc3 | ¡Delt4Forc3 se vuelve loco con GTA VI! 😂 | 9/10 | 464 | ⏳ pendiente |
+| 2026-11-25 08:05 | DanielaAzuaje_ | ¡El plan de Daniela Azuaje sale fatal! 😂 | 8/10 | 343 | ⏳ pendiente |
 | 2026-11-25 04:04 | Rubius | ¡Rubius alucina con los detalles de GTA VI! 🐍 | 10/10 | 1578 | ⏳ pendiente |
 | 2026-11-25 04:04 | Rubius | Rubius y el momento más tenso en GTA VI 💎 | 9/10 | 409 | 🚀 publicado |
 | 2026-11-25 04:04 | aldo_geo | El momento más random de Aldo Geo en GTA VI 🤣 | 7/10 | 382 | ❌ descartado |
@@ -42,8 +44,6 @@ _Actualizado: 25/11/2026 08:01 UTC · se actualiza solo cada pocos minutos_
 | 2026-11-24 20:05 | Staryuuki | STARYUUKI INTENTA SER AMABLE Y SALE MAL 😅 | 7/10 | 826 | ⏳ pendiente |
 | 2026-11-24 20:05 | deusamir | ¡EL PERSONAJE MÁS DOTADO DE GTA VI! 🐍 | 8/10 | 383 | ⏳ pendiente |
 | 2026-11-24 20:05 | DjMaRiiO | EL NUEVO TRABAJO DE DJMARIIO: ¿UN SAPO? 🐸 | 9/10 | 336 | ⏳ pendiente |
-| 2026-11-24 16:07 | DjMaRiiO | DjMaRiiO se vuelve loco con el “pezón” en GTA VI 😂 | 7/10 | 777 | ⏳ pendiente |
-| 2026-11-24 08:04 | Rubius | Rubius y su tecnica para el gym en GTA VI 😂 | 9/10 | 308 | ❌ descartado |
 
 ## Configuración actual
 
