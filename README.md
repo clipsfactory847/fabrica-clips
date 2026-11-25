@@ -1,13 +1,13 @@
 # 🎬 Clipéalo · Panel de control
 
-_Actualizado: 25/11/2026 20:01 UTC · se actualiza solo cada pocos minutos_
+_Actualizado: 25/11/2026 20:10 UTC · se actualiza solo cada pocos minutos_
 
 ## Resumen
 
 | | Últimas 24 h | Últimos 7 días |
 |---|---|---|
-| 🔎 Clips revisados por la IA | 44 | 185 |
-| 📩 Enviados a tu Telegram | 17 | 54 |
+| 🔎 Clips revisados por la IA | 56 | 207 |
+| 📩 Enviados a tu Telegram | 14 | 55 |
 | ✅ Aprobados | 1 | 20 |
 | ❌ Descartados | 2 | 13 |
 | 🚀 Enviados a publicar | 1 | 18 |
@@ -18,7 +18,7 @@ _Actualizado: 25/11/2026 20:01 UTC · se actualiza solo cada pocos minutos_
 
 | Estado | Cuándo (UTC) | Detalle |
 |---|---|---|
-| ⏳ | 2026-11-25 20:00 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/45690794393) |
+| ✅ | 2026-11-25 20:00 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/45690794393) |
 | ✅ | 2026-11-25 12:00 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/45609722433) |
 | ✅ | 2026-11-25 08:00 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/45572633944) |
 | ✅ | 2026-11-25 04:00 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/45543844645) |
@@ -29,6 +29,7 @@ _Actualizado: 25/11/2026 20:01 UTC · se actualiza solo cada pocos minutos_
 
 | Fecha (UTC) | Streamer | Título | Nota | Vistas Twitch | Estado |
 |---|---|---|---|---|---|
+| 2026-11-25 20:09 | Rubius | Rubius sufre un fail épico en el atraco de GTA VI 😱 | 8/10 | 386 | ⏳ pendiente |
 | 2026-11-25 12:04 | TheGrefg | TheGrefg pierde los nervios con el GTA VI 🤬 | 9/10 | 305 | ⏳ pendiente |
 | 2026-11-25 12:04 | juansguarnizo | JuanSGuarnizo alucina con los diálogos de GTA VI 😂 | 8/10 | 302 | ⏳ pendiente |
 | 2026-11-25 08:05 | Delt4Forc3 | ¡Delt4Forc3 se vuelve loco con GTA VI! 😂 | 9/10 | 464 | ⏳ pendiente |
@@ -43,7 +44,6 @@ _Actualizado: 25/11/2026 20:01 UTC · se actualiza solo cada pocos minutos_
 | 2026-11-25 00:11 | IlloJuan | IlloJuan y el secreto de la felicidad 🤣 | 9/10 | 300 | ⏳ pendiente |
 | 2026-11-25 00:11 | marinaifx | MarinaIFX y un comentario muy peligroso 💀 | 9/10 | 320 | ⏳ pendiente |
 | 2026-11-24 20:05 | paache_ | ¡EL MOMENTO MÁS ABSURDO DE PAACHE EN GTA! 😂 | 10/10 | 361 | ⏳ pendiente |
-| 2026-11-24 20:05 | Staryuuki | STARYUUKI INTENTA SER AMABLE Y SALE MAL 😅 | 7/10 | 826 | ⏳ pendiente |
 
 ## Configuración actual
 
