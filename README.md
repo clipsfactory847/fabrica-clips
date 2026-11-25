@@ -1,24 +1,24 @@
 # 🎬 Clipéalo · Panel de control
 
-_Actualizado: 25/11/2026 04:01 UTC · se actualiza solo cada pocos minutos_
+_Actualizado: 25/11/2026 04:10 UTC · se actualiza solo cada pocos minutos_
 
 ## Resumen
 
 | | Últimas 24 h | Últimos 7 días |
 |---|---|---|
-| 🔎 Clips revisados por la IA | 45 | 164 |
-| 📩 Enviados a tu Telegram | 16 | 46 |
+| 🔎 Clips revisados por la IA | 51 | 170 |
+| 📩 Enviados a tu Telegram | 20 | 50 |
 | ✅ Aprobados | 5 | 19 |
 | ❌ Descartados | 6 | 11 |
 | 🚀 Enviados a publicar | 5 | 17 |
 
-**Pendientes de revisar en Telegram:** 10
+**Pendientes de revisar en Telegram:** 14
 
 ## Últimas rondas automáticas
 
 | Estado | Cuándo (UTC) | Detalle |
 |---|---|---|
-| ⏳ | 2026-11-25 04:00 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/45543844645) |
+| ✅ | 2026-11-25 04:00 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/45543844645) |
 | ✅ | 2026-11-25 00:00 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/45514663261) |
 | ✅ | 2026-11-24 20:00 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/45476240869) |
 | ✅ | 2026-11-24 16:00 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/45432146852) |
@@ -29,6 +29,10 @@ _Actualizado: 25/11/2026 04:01 UTC · se actualiza solo cada pocos minutos_
 
 | Fecha (UTC) | Streamer | Título | Nota | Vistas Twitch | Estado |
 |---|---|---|---|---|---|
+| 2026-11-25 04:04 | Rubius | ¡Rubius alucina con los detalles de GTA VI! 🐍 | 10/10 | 1578 | ⏳ pendiente |
+| 2026-11-25 04:04 | Rubius | Rubius y el momento más tenso en GTA VI 💎 | 9/10 | 409 | ⏳ pendiente |
+| 2026-11-25 04:04 | aldo_geo | El momento más random de Aldo Geo en GTA VI 🤣 | 7/10 | 382 | ⏳ pendiente |
+| 2026-11-25 04:04 | juansguarnizo | JuanSGuarnizo lee los mensajes de OnlyFans en GTA VI 💸 | 9/10 | 322 | ⏳ pendiente |
 | 2026-11-25 00:11 | Peereira7 | ¡Peereira7 entra en pánico por un descuido! 😂 | 10/10 | 1469 | ⏳ pendiente |
 | 2026-11-25 00:11 | AriGameplays | AriGameplays y su problema con los gatos en GTA 🐱 | 7/10 | 442 | ⏳ pendiente |
 | 2026-11-25 00:11 | marinaifx | La teoría más loca de MarinaIFX 🧠 | 8/10 | 399 | ⏳ pendiente |
@@ -40,10 +44,6 @@ _Actualizado: 25/11/2026 04:01 UTC · se actualiza solo cada pocos minutos_
 | 2026-11-24 20:05 | DjMaRiiO | EL NUEVO TRABAJO DE DJMARIIO: ¿UN SAPO? 🐸 | 9/10 | 336 | ⏳ pendiente |
 | 2026-11-24 16:07 | DjMaRiiO | DjMaRiiO se vuelve loco con el “pezón” en GTA VI 😂 | 7/10 | 777 | ⏳ pendiente |
 | 2026-11-24 08:04 | Rubius | Rubius y su tecnica para el gym en GTA VI 😂 | 9/10 | 308 | ❌ descartado |
-| 2026-11-24 08:04 | Ache | Ache explota jugando a Fortnite: ESTOY HASTA LOS HUEVOS 🤬 | 7/10 | 334 | 🚀 publicado |
-| 2026-11-24 04:20 | Rubius | ¡Rubius no ve nada! El bug más descarado de GTA VI con @Rubius 🤫 | 9/10 | 419 | ❌ descartado |
-| 2026-11-24 04:20 | juansguarnizo | El accidente más tonto de @juansguarnizo en GTA VI 🛵 | 10/10 | 379 | 🚀 publicado |
-| 2026-11-24 04:20 | IlloJuan | ¡IlloJuan encuentra algo MUY RARO en GTA VI! 🛸 @IlloJuan | 8/10 | 326 | ❌ descartado |
 
 ## Configuración actual
 
