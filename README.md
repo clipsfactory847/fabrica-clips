@@ -1,13 +1,13 @@
 # 🎬 Clipéalo · Panel de control
 
-_Actualizado: 25/11/2026 12:01 UTC · se actualiza solo cada pocos minutos_
+_Actualizado: 25/11/2026 12:10 UTC · se actualiza solo cada pocos minutos_
 
 ## Resumen
 
 | | Últimas 24 h | Últimos 7 días |
 |---|---|---|
-| 🔎 Clips revisados por la IA | 49 | 180 |
-| 📩 Enviados a tu Telegram | 16 | 52 |
+| 🔎 Clips revisados por la IA | 49 | 185 |
+| 📩 Enviados a tu Telegram | 18 | 54 |
 | ✅ Aprobados | 6 | 20 |
 | ❌ Descartados | 8 | 13 |
 | 🚀 Enviados a publicar | 6 | 18 |
@@ -18,7 +18,7 @@ _Actualizado: 25/11/2026 12:01 UTC · se actualiza solo cada pocos minutos_
 
 | Estado | Cuándo (UTC) | Detalle |
 |---|---|---|
-| ⏳ | 2026-11-25 12:00 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/45609722433) |
+| ✅ | 2026-11-25 12:00 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/45609722433) |
 | ✅ | 2026-11-25 08:00 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/45572633944) |
 | ✅ | 2026-11-25 04:00 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/45543844645) |
 | ✅ | 2026-11-25 00:00 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/45514663261) |
@@ -29,6 +29,8 @@ _Actualizado: 25/11/2026 12:01 UTC · se actualiza solo cada pocos minutos_
 
 | Fecha (UTC) | Streamer | Título | Nota | Vistas Twitch | Estado |
 |---|---|---|---|---|---|
+| 2026-11-25 12:04 | TheGrefg | TheGrefg pierde los nervios con el GTA VI 🤬 | 9/10 | 305 | ⏳ pendiente |
+| 2026-11-25 12:04 | juansguarnizo | JuanSGuarnizo alucina con los diálogos de GTA VI 😂 | 8/10 | 302 | ⏳ pendiente |
 | 2026-11-25 08:05 | Delt4Forc3 | ¡Delt4Forc3 se vuelve loco con GTA VI! 😂 | 9/10 | 464 | ⏳ pendiente |
 | 2026-11-25 08:05 | DanielaAzuaje_ | ¡El plan de Daniela Azuaje sale fatal! 😂 | 8/10 | 343 | ⏳ pendiente |
 | 2026-11-25 04:04 | Rubius | ¡Rubius alucina con los detalles de GTA VI! 🐍 | 10/10 | 1578 | ⏳ pendiente |
@@ -42,8 +44,6 @@ _Actualizado: 25/11/2026 12:01 UTC · se actualiza solo cada pocos minutos_
 | 2026-11-25 00:11 | marinaifx | MarinaIFX y un comentario muy peligroso 💀 | 9/10 | 320 | ⏳ pendiente |
 | 2026-11-24 20:05 | paache_ | ¡EL MOMENTO MÁS ABSURDO DE PAACHE EN GTA! 😂 | 10/10 | 361 | ⏳ pendiente |
 | 2026-11-24 20:05 | Staryuuki | STARYUUKI INTENTA SER AMABLE Y SALE MAL 😅 | 7/10 | 826 | ⏳ pendiente |
-| 2026-11-24 20:05 | deusamir | ¡EL PERSONAJE MÁS DOTADO DE GTA VI! 🐍 | 8/10 | 383 | ⏳ pendiente |
-| 2026-11-24 20:05 | DjMaRiiO | EL NUEVO TRABAJO DE DJMARIIO: ¿UN SAPO? 🐸 | 9/10 | 336 | ⏳ pendiente |
 
 ## Configuración actual
 
