@@ -1,13 +1,13 @@
 # 🎬 Clipéalo · Panel de control
 
-_Actualizado: 26/11/2026 00:01 UTC · se actualiza solo cada pocos minutos_
+_Actualizado: 26/11/2026 00:10 UTC · se actualiza solo cada pocos minutos_
 
 ## Resumen
 
 | | Últimas 24 h | Últimos 7 días |
 |---|---|---|
-| 🔎 Clips revisados por la IA | 55 | 207 |
-| 📩 Enviados a tu Telegram | 14 | 55 |
+| 🔎 Clips revisados por la IA | 68 | 220 |
+| 📩 Enviados a tu Telegram | 16 | 57 |
 | ✅ Aprobados | 1 | 20 |
 | ❌ Descartados | 2 | 13 |
 | 🚀 Enviados a publicar | 1 | 18 |
@@ -18,7 +18,7 @@ _Actualizado: 26/11/2026 00:01 UTC · se actualiza solo cada pocos minutos_
 
 | Estado | Cuándo (UTC) | Detalle |
 |---|---|---|
-| ⏳ | 2026-11-26 00:00 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/45725617768) |
+| ✅ | 2026-11-26 00:00 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/45725617768) |
 | ✅ | 2026-11-25 20:00 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/45690794393) |
 | ✅ | 2026-11-25 12:00 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/45609722433) |
 | ✅ | 2026-11-25 08:00 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/45572633944) |
@@ -29,6 +29,8 @@ _Actualizado: 26/11/2026 00:01 UTC · se actualiza solo cada pocos minutos_
 
 | Fecha (UTC) | Streamer | Título | Nota | Vistas Twitch | Estado |
 |---|---|---|---|---|---|
+| 2026-11-26 00:08 | IlloJuan | ¡Le roban el coche a IlloJuan en GTA! 🚗 | 9/10 | 645 | ⏳ pendiente |
+| 2026-11-26 00:08 | CrystalMolly | ¡CrystalMolly no aguanta los gritos en GTA! 😱 | 7/10 | 660 | ⏳ pendiente |
 | 2026-11-25 20:09 | Rubius | Rubius sufre un fail épico en el atraco de GTA VI 😱 | 8/10 | 386 | ⏳ pendiente |
 | 2026-11-25 12:04 | TheGrefg | TheGrefg pierde los nervios con el GTA VI 🤬 | 9/10 | 305 | ⏳ pendiente |
 | 2026-11-25 12:04 | juansguarnizo | JuanSGuarnizo alucina con los diálogos de GTA VI 😂 | 8/10 | 302 | ⏳ pendiente |
@@ -42,8 +44,6 @@ _Actualizado: 26/11/2026 00:01 UTC · se actualiza solo cada pocos minutos_
 | 2026-11-25 00:11 | AriGameplays | AriGameplays y su problema con los gatos en GTA 🐱 | 7/10 | 442 | ⏳ pendiente |
 | 2026-11-25 00:11 | marinaifx | La teoría más loca de MarinaIFX 🧠 | 8/10 | 399 | ⏳ pendiente |
 | 2026-11-25 00:11 | IlloJuan | IlloJuan y el secreto de la felicidad 🤣 | 9/10 | 300 | ⏳ pendiente |
-| 2026-11-25 00:11 | marinaifx | MarinaIFX y un comentario muy peligroso 💀 | 9/10 | 320 | ⏳ pendiente |
-| 2026-11-24 20:05 | paache_ | ¡EL MOMENTO MÁS ABSURDO DE PAACHE EN GTA! 😂 | 10/10 | 361 | ⏳ pendiente |
 
 ## Configuración actual
 
