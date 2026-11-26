@@ -1,6 +1,6 @@
 # 🎬 Clipéalo · Panel de control
 
-_Actualizado: 26/11/2026 19:50 UTC · se actualiza solo cada pocos minutos_
+_Actualizado: 26/11/2026 20:01 UTC · se actualiza solo cada pocos minutos_
 
 ## Resumen
 
@@ -18,12 +18,12 @@ _Actualizado: 26/11/2026 19:50 UTC · se actualiza solo cada pocos minutos_
 
 | Estado | Cuándo (UTC) | Detalle |
 |---|---|---|
+| ⏳ | 2026-11-26 20:00 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/45887877276) |
 | ✅ | 2026-11-26 16:00 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/45854699810) |
 | ✅ | 2026-11-26 12:00 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/45815700879) |
 | ✅ | 2026-11-26 08:00 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/45779628696) |
 | ✅ | 2026-11-26 04:00 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/45752482682) |
 | ✅ | 2026-11-26 00:00 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/45725617768) |
-| ✅ | 2026-11-25 20:00 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/45690794393) |
 
 ## Últimos clips enviados
 
