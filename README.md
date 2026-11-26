@@ -1,13 +1,13 @@
 # 🎬 Clipéalo · Panel de control
 
-_Actualizado: 26/11/2026 20:01 UTC · se actualiza solo cada pocos minutos_
+_Actualizado: 26/11/2026 20:09 UTC · se actualiza solo cada pocos minutos_
 
 ## Resumen
 
 | | Últimas 24 h | Últimos 7 días |
 |---|---|---|
-| 🔎 Clips revisados por la IA | 75 | 260 |
-| 📩 Enviados a tu Telegram | 20 | 74 |
+| 🔎 Clips revisados por la IA | 56 | 263 |
+| 📩 Enviados a tu Telegram | 21 | 76 |
 | ✅ Aprobados | 0 | 20 |
 | ❌ Descartados | 0 | 13 |
 | 🚀 Enviados a publicar | 0 | 18 |
@@ -18,7 +18,7 @@ _Actualizado: 26/11/2026 20:01 UTC · se actualiza solo cada pocos minutos_
 
 | Estado | Cuándo (UTC) | Detalle |
 |---|---|---|
-| ⏳ | 2026-11-26 20:00 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/45887877276) |
+| ✅ | 2026-11-26 20:00 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/45887877276) |
 | ✅ | 2026-11-26 16:00 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/45854699810) |
 | ✅ | 2026-11-26 12:00 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/45815700879) |
 | ✅ | 2026-11-26 08:00 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/45779628696) |
@@ -29,6 +29,8 @@ _Actualizado: 26/11/2026 20:01 UTC · se actualiza solo cada pocos minutos_
 
 | Fecha (UTC) | Streamer | Título | Nota | Vistas Twitch | Estado |
 |---|---|---|---|---|---|
+| 2026-11-26 20:04 | Staryuuki | Staryuuki tiene la peor suerte del mundo en GTA VI 🚗 | 8/10 | 600 | ⏳ pendiente |
+| 2026-11-26 20:04 | IlloJuan | El timing perfecto de IlloJuan en GTA VI 😂 | 9/10 | 305 | ⏳ pendiente |
 | 2026-11-26 16:06 | DjMaRiiO | ¡DjMaRiiO alucina con los detalles de GTA VI! 😱 | 10/10 | 1046 | ⏳ pendiente |
 | 2026-11-26 16:06 | IlloJuan | ¡La reacción de IlloJuan a este detalle de GTA VI! 😲 | 9/10 | 333 | ⏳ pendiente |
 | 2026-11-26 16:06 | VEGETTA777 | Vegetta777 y el detalle del bañador en GTA VI 🤣 | 8/10 | 470 | ⏳ pendiente |
@@ -42,8 +44,6 @@ _Actualizado: 26/11/2026 20:01 UTC · se actualiza solo cada pocos minutos_
 | 2026-11-26 08:14 | ElMariana | ¡Se volvio loco! El Mariana y el pimbolo humano 😱 @ElMariana | 8/10 | 493 | ⏳ pendiente |
 | 2026-11-26 08:14 | IlloJuan | IlloJuan no se cree lo que ve en GTA VI 🤣 @IlloJuan | 10/10 | 327 | ⏳ pendiente |
 | 2026-11-26 08:14 | IlloJuan | El momento mas absurdo de IlloJuan en GTA VI 🚗 @IlloJuan | 8/10 | 340 | ⏳ pendiente |
-| 2026-11-26 04:09 | IlloJuan | IlloJuan flipa con las físicas del juego 🤣 | 9/10 | 905 | ⏳ pendiente |
-| 2026-11-26 04:09 | ElMariana | ¡A ElMariana se le rompe todo en directo! 💥 | 9/10 | 395 | ⏳ pendiente |
 
 ## Configuración actual
 
