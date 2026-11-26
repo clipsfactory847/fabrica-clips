@@ -1,13 +1,13 @@
 # 🎬 Clipéalo · Panel de control
 
-_Actualizado: 26/11/2026 00:10 UTC · se actualiza solo cada pocos minutos_
+_Actualizado: 26/11/2026 00:20 UTC · se actualiza solo cada pocos minutos_
 
 ## Resumen
 
 | | Últimas 24 h | Últimos 7 días |
 |---|---|---|
-| 🔎 Clips revisados por la IA | 68 | 220 |
-| 📩 Enviados a tu Telegram | 16 | 57 |
+| 🔎 Clips revisados por la IA | 56 | 220 |
+| 📩 Enviados a tu Telegram | 11 | 57 |
 | ✅ Aprobados | 1 | 20 |
 | ❌ Descartados | 2 | 13 |
 | 🚀 Enviados a publicar | 1 | 18 |
