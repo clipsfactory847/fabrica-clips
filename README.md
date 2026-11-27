@@ -1,13 +1,13 @@
 # 🎬 Clipéalo · Panel de control
 
-_Actualizado: 27/11/2026 08:01 UTC · se actualiza solo cada pocos minutos_
+_Actualizado: 27/11/2026 08:10 UTC · se actualiza solo cada pocos minutos_
 
 ## Resumen
 
 | | Últimas 24 h | Últimos 7 días |
 |---|---|---|
-| 🔎 Clips revisados por la IA | 40 | 277 |
-| 📩 Enviados a tu Telegram | 20 | 81 |
+| 🔎 Clips revisados por la IA | 47 | 284 |
+| 📩 Enviados a tu Telegram | 24 | 85 |
 | ✅ Aprobados | 0 | 20 |
 | ❌ Descartados | 0 | 13 |
 | 🚀 Enviados a publicar | 0 | 18 |
@@ -18,7 +18,7 @@ _Actualizado: 27/11/2026 08:01 UTC · se actualiza solo cada pocos minutos_
 
 | Estado | Cuándo (UTC) | Detalle |
 |---|---|---|
-| ⏳ | 2026-11-27 08:01 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/45962457052) |
+| ✅ | 2026-11-27 08:01 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/45962457052) |
 | ✅ | 2026-11-27 04:00 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/45937432193) |
 | ✅ | 2026-11-27 00:00 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/45914231801) |
 | ✅ | 2026-11-26 20:00 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/45887877276) |
@@ -29,6 +29,10 @@ _Actualizado: 27/11/2026 08:01 UTC · se actualiza solo cada pocos minutos_
 
 | Fecha (UTC) | Streamer | Título | Nota | Vistas Twitch | Estado |
 |---|---|---|---|---|---|
+| 2026-11-27 08:04 | Rubius | El fail más físico de Rubius en GTA 🚀 | 10/10 | 394 | ⏳ pendiente |
+| 2026-11-27 08:04 | juansguarnizo | JuanSGuarnizo y su peor inversión en GTA 💸 | 9/10 | 465 | ⏳ pendiente |
+| 2026-11-27 08:04 | DjMaRiiO | DjMaRiiO pierde los papeles con los NPCs 😡 | 8/10 | 590 | ⏳ pendiente |
+| 2026-11-27 08:04 | auronplay | Auronplay escapa de la policia de milagro 🚓 | 9/10 | 346 | ⏳ pendiente |
 | 2026-11-27 04:06 | rivers_gg | El SUSTO de Rivers con un trailer 😱 | 8/10 | 1171 | ⏳ pendiente |
 | 2026-11-27 04:06 | IlloJuan | El GTA VI de IlloJuan está ROTO 😂 | 10/10 | 318 | ⏳ pendiente |
 | 2026-11-27 00:03 | IlloJuan | ¡A IlloJuan le pasa lo más injusto en GTA! 💀 | 8/10 | 425 | ⏳ pendiente |
@@ -40,10 +44,6 @@ _Actualizado: 27/11/2026 08:01 UTC · se actualiza solo cada pocos minutos_
 | 2026-11-26 16:06 | IlloJuan | ¡La reacción de IlloJuan a este detalle de GTA VI! 😲 | 9/10 | 333 | ⏳ pendiente |
 | 2026-11-26 16:06 | VEGETTA777 | Vegetta777 y el detalle del bañador en GTA VI 🤣 | 8/10 | 470 | ⏳ pendiente |
 | 2026-11-26 16:06 | auronplay | Auronplay y el sticker con sonido más inesperado 😂 | 9/10 | 327 | ⏳ pendiente |
-| 2026-11-26 16:06 | auronplay | ¡Auronplay pierde la paciencia con una mosca! 🪰 | 7/10 | 325 | ⏳ pendiente |
-| 2026-11-26 12:03 | DjMaRiiO | ¡DjMaRiiO alucina con los detalles de GTA VI! 😱 | 10/10 | 595 | ⏳ pendiente |
-| 2026-11-26 12:03 | Rubius | ¡La tensión de Rubius en GTA VI! 😰 | 8/10 | 303 | ⏳ pendiente |
-| 2026-11-26 12:03 | marinaifx | ¡El susto de marinaifx en Minecraft! 💀 | 7/10 | 338 | ⏳ pendiente |
 
 ## Configuración actual
 
