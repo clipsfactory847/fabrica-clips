@@ -1,6 +1,6 @@
 # 🎬 Clipéalo · Panel de control
 
-_Actualizado: 27/11/2026 22:33 UTC · se actualiza solo cada pocos minutos_
+_Actualizado: 27/11/2026 22:40 UTC · se actualiza solo cada pocos minutos_
 
 ## Resumen
 
@@ -8,11 +8,11 @@ _Actualizado: 27/11/2026 22:33 UTC · se actualiza solo cada pocos minutos_
 |---|---|---|
 | 🔎 Clips revisados por la IA | 35 | 298 |
 | 📩 Enviados a tu Telegram | 15 | 91 |
-| ✅ Aprobados | 0 | 20 |
+| ✅ Aprobados | 4 | 24 |
 | ❌ Descartados | 0 | 13 |
-| 🚀 Enviados a publicar | 0 | 18 |
+| 🚀 Enviados a publicar | 4 | 22 |
 
-**Pendientes de revisar en Telegram:** 15
+**Pendientes de revisar en Telegram:** 11
 
 ## Últimas rondas automáticas
 
@@ -29,16 +29,16 @@ _Actualizado: 27/11/2026 22:33 UTC · se actualiza solo cada pocos minutos_
 
 | Fecha (UTC) | Streamer | Título | Nota | Vistas Twitch | Estado |
 |---|---|---|---|---|---|
-| 2026-11-27 20:09 | Rubius | El épico fail de Rubius intentando un truco 🤣 | 9/10 | 335 | ⏳ pendiente |
+| 2026-11-27 20:09 | Rubius | El épico fail de Rubius intentando un truco 🤣 | 9/10 | 335 | 🚀 publicado |
 | 2026-11-27 16:06 | skain | El momento de pánico de @skain en Minecraft 😱 | 9/10 | 511 | ⏳ pendiente |
-| 2026-11-27 16:06 | IlloJuan | IlloJuan no puede con esta canción en GTA VI 😂 | 10/10 | 334 | ⏳ pendiente |
+| 2026-11-27 16:06 | IlloJuan | IlloJuan no puede con esta canción en GTA VI 😂 | 10/10 | 334 | 🚀 publicado |
 | 2026-11-27 12:10 | jennsanli | El momento más romántico de @jennsanli en GTA VI 😂 | 9/10 | 490 | ⏳ pendiente |
 | 2026-11-27 12:10 | IlloJuan | La reacción de @IlloJuan a la física de GTA VI 💀 | 9/10 | 382 | ⏳ pendiente |
 | 2026-11-27 12:10 | aldo_geo | @aldo_geo sufriendo con el tutorial de GTA VI 🤣 | 7/10 | 490 | ⏳ pendiente |
 | 2026-11-27 08:04 | Rubius | El fail más físico de Rubius en GTA 🚀 | 10/10 | 394 | ⏳ pendiente |
-| 2026-11-27 08:04 | juansguarnizo | JuanSGuarnizo y su peor inversión en GTA 💸 | 9/10 | 465 | ⏳ pendiente |
+| 2026-11-27 08:04 | juansguarnizo | JuanSGuarnizo y su peor inversión en GTA 💸 | 9/10 | 465 | 🚀 publicado |
 | 2026-11-27 08:04 | DjMaRiiO | DjMaRiiO pierde los papeles con los NPCs 😡 | 8/10 | 590 | ⏳ pendiente |
-| 2026-11-27 08:04 | auronplay | Auronplay escapa de la policia de milagro 🚓 | 9/10 | 346 | ⏳ pendiente |
+| 2026-11-27 08:04 | auronplay | Auronplay escapa de la policia de milagro 🚓 | 9/10 | 346 | 🚀 publicado |
 | 2026-11-27 04:06 | rivers_gg | El SUSTO de Rivers con un trailer 😱 | 8/10 | 1171 | ⏳ pendiente |
 | 2026-11-27 04:06 | IlloJuan | El GTA VI de IlloJuan está ROTO 😂 | 10/10 | 318 | ⏳ pendiente |
 | 2026-11-27 00:03 | IlloJuan | ¡A IlloJuan le pasa lo más injusto en GTA! 💀 | 8/10 | 425 | ⏳ pendiente |
