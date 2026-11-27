@@ -1,13 +1,13 @@
 # 🎬 Clipéalo · Panel de control
 
-_Actualizado: 27/11/2026 20:01 UTC · se actualiza solo cada pocos minutos_
+_Actualizado: 27/11/2026 20:10 UTC · se actualiza solo cada pocos minutos_
 
 ## Resumen
 
 | | Últimas 24 h | Últimos 7 días |
 |---|---|---|
-| 🔎 Clips revisados por la IA | 35 | 295 |
-| 📩 Enviados a tu Telegram | 16 | 90 |
+| 🔎 Clips revisados por la IA | 35 | 298 |
+| 📩 Enviados a tu Telegram | 15 | 91 |
 | ✅ Aprobados | 0 | 20 |
 | ❌ Descartados | 0 | 13 |
 | 🚀 Enviados a publicar | 0 | 18 |
@@ -18,7 +18,7 @@ _Actualizado: 27/11/2026 20:01 UTC · se actualiza solo cada pocos minutos_
 
 | Estado | Cuándo (UTC) | Detalle |
 |---|---|---|
-| ⏳ | 2026-11-27 20:00 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/46060660172) |
+| ✅ | 2026-11-27 20:00 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/46060660172) |
 | ✅ | 2026-11-27 16:00 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/46029925925) |
 | ✅ | 2026-11-27 12:00 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/45995112649) |
 | ✅ | 2026-11-27 08:01 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/45962457052) |
@@ -29,6 +29,7 @@ _Actualizado: 27/11/2026 20:01 UTC · se actualiza solo cada pocos minutos_
 
 | Fecha (UTC) | Streamer | Título | Nota | Vistas Twitch | Estado |
 |---|---|---|---|---|---|
+| 2026-11-27 20:09 | Rubius | El épico fail de Rubius intentando un truco 🤣 | 9/10 | 335 | ⏳ pendiente |
 | 2026-11-27 16:06 | skain | El momento de pánico de @skain en Minecraft 😱 | 9/10 | 511 | ⏳ pendiente |
 | 2026-11-27 16:06 | IlloJuan | IlloJuan no puede con esta canción en GTA VI 😂 | 10/10 | 334 | ⏳ pendiente |
 | 2026-11-27 12:10 | jennsanli | El momento más romántico de @jennsanli en GTA VI 😂 | 9/10 | 490 | ⏳ pendiente |
@@ -43,7 +44,6 @@ _Actualizado: 27/11/2026 20:01 UTC · se actualiza solo cada pocos minutos_
 | 2026-11-27 00:03 | IlloJuan | ¡A IlloJuan le pasa lo más injusto en GTA! 💀 | 8/10 | 425 | ⏳ pendiente |
 | 2026-11-27 00:03 | aldo_geo | ¡Aldo_geo sufre el accidente más loco en GTA! 😂 | 9/10 | 536 | ⏳ pendiente |
 | 2026-11-27 00:03 | marinaifx | El troleo más inesperado a marinaifx en Minecraft 😭 | 7/10 | 312 | ⏳ pendiente |
-| 2026-11-26 20:04 | Staryuuki | Staryuuki tiene la peor suerte del mundo en GTA VI 🚗 | 8/10 | 600 | ⏳ pendiente |
 
 ## Configuración actual
 
