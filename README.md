@@ -1,13 +1,13 @@
 # 🎬 Clipéalo · Panel de control
 
-_Actualizado: 27/11/2026 04:06 UTC · se actualiza solo cada pocos minutos_
+_Actualizado: 27/11/2026 04:10 UTC · se actualiza solo cada pocos minutos_
 
 ## Resumen
 
 | | Últimas 24 h | Últimos 7 días |
 |---|---|---|
-| 🔎 Clips revisados por la IA | 51 | 271 |
-| 📩 Enviados a tu Telegram | 22 | 79 |
+| 🔎 Clips revisados por la IA | 40 | 277 |
+| 📩 Enviados a tu Telegram | 20 | 81 |
 | ✅ Aprobados | 0 | 20 |
 | ❌ Descartados | 0 | 13 |
 | 🚀 Enviados a publicar | 0 | 18 |
@@ -18,7 +18,7 @@ _Actualizado: 27/11/2026 04:06 UTC · se actualiza solo cada pocos minutos_
 
 | Estado | Cuándo (UTC) | Detalle |
 |---|---|---|
-| ⏳ | 2026-11-27 04:00 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/45937432193) |
+| ✅ | 2026-11-27 04:00 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/45937432193) |
 | ✅ | 2026-11-27 00:00 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/45914231801) |
 | ✅ | 2026-11-26 20:00 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/45887877276) |
 | ✅ | 2026-11-26 16:00 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/45854699810) |
@@ -29,6 +29,8 @@ _Actualizado: 27/11/2026 04:06 UTC · se actualiza solo cada pocos minutos_
 
 | Fecha (UTC) | Streamer | Título | Nota | Vistas Twitch | Estado |
 |---|---|---|---|---|---|
+| 2026-11-27 04:06 | rivers_gg | El SUSTO de Rivers con un trailer 😱 | 8/10 | 1171 | ⏳ pendiente |
+| 2026-11-27 04:06 | IlloJuan | El GTA VI de IlloJuan está ROTO 😂 | 10/10 | 318 | ⏳ pendiente |
 | 2026-11-27 00:03 | IlloJuan | ¡A IlloJuan le pasa lo más injusto en GTA! 💀 | 8/10 | 425 | ⏳ pendiente |
 | 2026-11-27 00:03 | aldo_geo | ¡Aldo_geo sufre el accidente más loco en GTA! 😂 | 9/10 | 536 | ⏳ pendiente |
 | 2026-11-27 00:03 | marinaifx | El troleo más inesperado a marinaifx en Minecraft 😭 | 7/10 | 312 | ⏳ pendiente |
@@ -42,8 +44,6 @@ _Actualizado: 27/11/2026 04:06 UTC · se actualiza solo cada pocos minutos_
 | 2026-11-26 12:03 | DjMaRiiO | ¡DjMaRiiO alucina con los detalles de GTA VI! 😱 | 10/10 | 595 | ⏳ pendiente |
 | 2026-11-26 12:03 | Rubius | ¡La tensión de Rubius en GTA VI! 😰 | 8/10 | 303 | ⏳ pendiente |
 | 2026-11-26 12:03 | marinaifx | ¡El susto de marinaifx en Minecraft! 💀 | 7/10 | 338 | ⏳ pendiente |
-| 2026-11-26 08:14 | Peereira7 | ¡FIANZO JANKINS! El momento mas loco de @Peereira7 en GTA 🤣 | 8/10 | 926 | ⏳ pendiente |
-| 2026-11-26 08:14 | ElMariana | El Mariana no puede con Humberto 🤣 @ElMariana | 9/10 | 546 | ⏳ pendiente |
 
 ## Configuración actual
 
