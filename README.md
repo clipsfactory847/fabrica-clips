@@ -1,13 +1,13 @@
 # 🎬 Clipéalo · Panel de control
 
-_Actualizado: 27/11/2026 12:10 UTC · se actualiza solo cada pocos minutos_
+_Actualizado: 27/11/2026 12:20 UTC · se actualiza solo cada pocos minutos_
 
 ## Resumen
 
 | | Últimas 24 h | Últimos 7 días |
 |---|---|---|
-| 🔎 Clips revisados por la IA | 35 | 284 |
-| 📩 Enviados a tu Telegram | 16 | 85 |
+| 🔎 Clips revisados por la IA | 40 | 289 |
+| 📩 Enviados a tu Telegram | 19 | 88 |
 | ✅ Aprobados | 0 | 20 |
 | ❌ Descartados | 0 | 13 |
 | 🚀 Enviados a publicar | 0 | 18 |
@@ -18,7 +18,7 @@ _Actualizado: 27/11/2026 12:10 UTC · se actualiza solo cada pocos minutos_
 
 | Estado | Cuándo (UTC) | Detalle |
 |---|---|---|
-| ⏳ | 2026-11-27 12:00 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/45995112649) |
+| ✅ | 2026-11-27 12:00 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/45995112649) |
 | ✅ | 2026-11-27 08:01 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/45962457052) |
 | ✅ | 2026-11-27 04:00 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/45937432193) |
 | ✅ | 2026-11-27 00:00 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/45914231801) |
@@ -29,6 +29,9 @@ _Actualizado: 27/11/2026 12:10 UTC · se actualiza solo cada pocos minutos_
 
 | Fecha (UTC) | Streamer | Título | Nota | Vistas Twitch | Estado |
 |---|---|---|---|---|---|
+| 2026-11-27 12:10 | jennsanli | El momento más romántico de @jennsanli en GTA VI 😂 | 9/10 | 490 | ⏳ pendiente |
+| 2026-11-27 12:10 | IlloJuan | La reacción de @IlloJuan a la física de GTA VI 💀 | 9/10 | 382 | ⏳ pendiente |
+| 2026-11-27 12:10 | aldo_geo | @aldo_geo sufriendo con el tutorial de GTA VI 🤣 | 7/10 | 490 | ⏳ pendiente |
 | 2026-11-27 08:04 | Rubius | El fail más físico de Rubius en GTA 🚀 | 10/10 | 394 | ⏳ pendiente |
 | 2026-11-27 08:04 | juansguarnizo | JuanSGuarnizo y su peor inversión en GTA 💸 | 9/10 | 465 | ⏳ pendiente |
 | 2026-11-27 08:04 | DjMaRiiO | DjMaRiiO pierde los papeles con los NPCs 😡 | 8/10 | 590 | ⏳ pendiente |
@@ -41,9 +44,6 @@ _Actualizado: 27/11/2026 12:10 UTC · se actualiza solo cada pocos minutos_
 | 2026-11-26 20:04 | Staryuuki | Staryuuki tiene la peor suerte del mundo en GTA VI 🚗 | 8/10 | 600 | ⏳ pendiente |
 | 2026-11-26 20:04 | IlloJuan | El timing perfecto de IlloJuan en GTA VI 😂 | 9/10 | 305 | ⏳ pendiente |
 | 2026-11-26 16:06 | DjMaRiiO | ¡DjMaRiiO alucina con los detalles de GTA VI! 😱 | 10/10 | 1046 | ⏳ pendiente |
-| 2026-11-26 16:06 | IlloJuan | ¡La reacción de IlloJuan a este detalle de GTA VI! 😲 | 9/10 | 333 | ⏳ pendiente |
-| 2026-11-26 16:06 | VEGETTA777 | Vegetta777 y el detalle del bañador en GTA VI 🤣 | 8/10 | 470 | ⏳ pendiente |
-| 2026-11-26 16:06 | auronplay | Auronplay y el sticker con sonido más inesperado 😂 | 9/10 | 327 | ⏳ pendiente |
 
 ## Configuración actual
 
