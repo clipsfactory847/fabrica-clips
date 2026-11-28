@@ -3682,6 +3682,84 @@
       "nota": null,
       "resultado": "revisado",
       "fecha": "2026-11-28 00:06"
+    },
+    "StrangeDarlingSushiPJSalt-DYnhi-RK498dkZgJ": {
+      "streamer": "rivers_gg",
+      "titulo": "1",
+      "vistas": 396,
+      "nota": null,
+      "resultado": "revisado",
+      "fecha": "2026-11-28 04:03"
+    },
+    "AdventurousChillyAxePunchTrees-J8scgRO80WZDGxqE": {
+      "streamer": "juansguarnizo",
+      "titulo": "una foto que?",
+      "vistas": 341,
+      "nota": 9.0,
+      "resultado": "enviado",
+      "fecha": "2026-11-28 04:03",
+      "publicar": {
+        "titulo": "La confusión más loca de Juansguarnizo 😂",
+        "descripcion": "Juan Guarnizo vive un momento surrealista al confundirse de foto en pleno directo de Twitch.\n\n🎥 Clip del directo de juansguarnizo: twitch.tv/juansguarnizo",
+        "hashtags": [
+          "juansguarnizo",
+          "humor",
+          "clips",
+          "twitch",
+          "gracioso",
+          "#shorts",
+          "#twitch",
+          "#streamer"
+        ],
+        "video_url": "https://github.com/clipsfactory847/fabrica-clips/releases/download/clips/AdventurousChillyAxePunchTrees-J8scgRO80WZDGxqE.mp4"
+      }
+    },
+    "AmericanBreakableWerewolfLitFam-3-mU7l_NWna_KZrY": {
+      "streamer": "PattyMeza",
+      "titulo": "cuarto secreto de rivers",
+      "vistas": 626,
+      "nota": null,
+      "resultado": "revisado",
+      "fecha": "2026-11-28 04:03"
+    },
+    "BashfulReliableButterflyCorgiDerp-OY8t21FjDTFeIhUf": {
+      "streamer": "tvandeR",
+      "titulo": "Mono pegajoso",
+      "vistas": 310,
+      "nota": null,
+      "resultado": "revisado",
+      "fecha": "2026-11-28 04:03"
+    },
+    "ConfidentAcceptableSkirretNerfBlueBlaster-9C-4HhFz4EZvWaM3": {
+      "streamer": "marinaifx",
+      "titulo": "La música de Minecraft me da una rabia",
+      "vistas": 317,
+      "nota": null,
+      "resultado": "revisado",
+      "fecha": "2026-11-28 04:03"
+    },
+    "DistinctLitigiousCucumberJebaited-LVfdbAEATG6iqf6l": {
+      "streamer": "IlloJuan",
+      "titulo": ":(",
+      "vistas": 301,
+      "nota": 8.0,
+      "resultado": "enviado",
+      "fecha": "2026-11-28 04:03",
+      "publicar": {
+        "titulo": "IlloJuan no perdona este insulto 😂",
+        "descripcion": "El streamer IlloJuan reacciona de forma exagerada y divertida cuando un seguidor se mete con él.\n\n🎥 Clip del directo de IlloJuan: twitch.tv/illojuan",
+        "hashtags": [
+          "illojuan",
+          "humor",
+          "gta",
+          "reaccion",
+          "twitch",
+          "#shorts",
+          "#twitch",
+          "#streamer"
+        ],
+        "video_url": "https://github.com/clipsfactory847/fabrica-clips/releases/download/clips/DistinctLitigiousCucumberJebaited-LVfdbAEATG6iqf6l.mp4"
+      }
     }
   },
   "telegram_offset": 495937786,
