@@ -1,13 +1,13 @@
 # 🎬 Clipéalo · Panel de control
 
-_Actualizado: 28/11/2026 12:01 UTC · se actualiza solo cada pocos minutos_
+_Actualizado: 28/11/2026 12:10 UTC · se actualiza solo cada pocos minutos_
 
 ## Resumen
 
 | | Últimas 24 h | Últimos 7 días |
 |---|---|---|
-| 🔎 Clips revisados por la IA | 27 | 311 |
-| 📩 Enviados a tu Telegram | 9 | 94 |
+| 🔎 Clips revisados por la IA | 24 | 313 |
+| 📩 Enviados a tu Telegram | 8 | 96 |
 | ✅ Aprobados | 4 | 24 |
 | ❌ Descartados | 0 | 13 |
 | 🚀 Enviados a publicar | 4 | 22 |
@@ -18,7 +18,7 @@ _Actualizado: 28/11/2026 12:01 UTC · se actualiza solo cada pocos minutos_
 
 | Estado | Cuándo (UTC) | Detalle |
 |---|---|---|
-| ⏳ | 2026-11-28 12:00 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/46142560228) |
+| ✅ | 2026-11-28 12:00 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/46142560228) |
 | ✅ | 2026-11-28 08:01 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/46123818929) |
 | ✅ | 2026-11-28 04:00 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/46105525947) |
 | ✅ | 2026-11-28 00:00 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/46085586468) |
@@ -29,6 +29,8 @@ _Actualizado: 28/11/2026 12:01 UTC · se actualiza solo cada pocos minutos_
 
 | Fecha (UTC) | Streamer | Título | Nota | Vistas Twitch | Estado |
 |---|---|---|---|---|---|
+| 2026-11-28 12:06 | marinaifx | El momento más traumático de @marinaifx en Sevilla 😂 | 8/10 | 389 | ⏳ pendiente |
+| 2026-11-28 12:06 | VEGETTA777 | La cruda realidad de @VEGETTA777 en GTA VI 💸 | 9/10 | 500 | ⏳ pendiente |
 | 2026-11-28 08:06 | DjMaRiiO | ¡DjMaRiiO se vuelve LOCO por un coche en GTA VI! 🚗 | 9/10 | 522 | ⏳ pendiente |
 | 2026-11-28 04:03 | juansguarnizo | La confusión más loca de Juansguarnizo 😂 | 9/10 | 341 | ⏳ pendiente |
 | 2026-11-28 04:03 | IlloJuan | IlloJuan no perdona este insulto 😂 | 8/10 | 301 | ⏳ pendiente |
@@ -42,8 +44,6 @@ _Actualizado: 28/11/2026 12:01 UTC · se actualiza solo cada pocos minutos_
 | 2026-11-27 08:04 | juansguarnizo | JuanSGuarnizo y su peor inversión en GTA 💸 | 9/10 | 465 | 🚀 publicado |
 | 2026-11-27 08:04 | DjMaRiiO | DjMaRiiO pierde los papeles con los NPCs 😡 | 8/10 | 590 | ⏳ pendiente |
 | 2026-11-27 08:04 | auronplay | Auronplay escapa de la policia de milagro 🚓 | 9/10 | 346 | 🚀 publicado |
-| 2026-11-27 04:06 | rivers_gg | El SUSTO de Rivers con un trailer 😱 | 8/10 | 1171 | ⏳ pendiente |
-| 2026-11-27 04:06 | IlloJuan | El GTA VI de IlloJuan está ROTO 😂 | 10/10 | 318 | ⏳ pendiente |
 
 ## Configuración actual
 
