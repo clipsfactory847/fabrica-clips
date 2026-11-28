@@ -3815,6 +3815,52 @@
       "nota": null,
       "resultado": "revisado",
       "fecha": "2026-11-28 08:06"
+    },
+    "EsteemedOpenRaccoonPicoMause-19VlLQon-I0X97Zd": {
+      "streamer": "marinaifx",
+      "titulo": "Las caras xdd",
+      "vistas": 389,
+      "nota": 8.0,
+      "resultado": "enviado",
+      "fecha": "2026-11-28 12:06",
+      "publicar": {
+        "titulo": "El momento más traumático de @marinaifx en Sevilla 😂",
+        "descripcion": "Marina nos cuenta su experiencia más extrema recorriendo las afueras de Sevilla en un Dacia. Clip extraído de su directo en Twitch.\n\n🎥 Clip del directo de marinaifx: twitch.tv/marinaifx",
+        "hashtags": [
+          "marinaifx",
+          "humor",
+          "sevilla",
+          "minecraft",
+          "clipsdetwitch",
+          "#shorts",
+          "#twitch",
+          "#streamer"
+        ],
+        "video_url": "https://github.com/clipsfactory847/fabrica-clips/releases/download/clips/EsteemedOpenRaccoonPicoMause-19VlLQon-I0X97Zd.mp4"
+      }
+    },
+    "ClearDrabScallionRickroll-jFu_kd-ifTWZVTwD": {
+      "streamer": "VEGETTA777",
+      "titulo": "Muchos problemas",
+      "vistas": 500,
+      "nota": 9.0,
+      "resultado": "enviado",
+      "fecha": "2026-11-28 12:06",
+      "publicar": {
+        "titulo": "La cruda realidad de @VEGETTA777 en GTA VI 💸",
+        "descripcion": "Vegetta777 resume perfectamente la situación económica en el nuevo GTA. Clip de su directo en Twitch.\n\n🎥 Clip del directo de VEGETTA777: twitch.tv/vegetta777",
+        "hashtags": [
+          "vegetta777",
+          "gtavi",
+          "gta6",
+          "humor",
+          "videojuegos",
+          "#shorts",
+          "#twitch",
+          "#streamer"
+        ],
+        "video_url": "https://github.com/clipsfactory847/fabrica-clips/releases/download/clips/ClearDrabScallionRickroll-jFu_kd-ifTWZVTwD.mp4"
+      }
     }
   },
   "telegram_offset": 495937786,
