@@ -1,13 +1,13 @@
 # 🎬 Clipéalo · Panel de control
 
-_Actualizado: 28/11/2026 04:00 UTC · se actualiza solo cada pocos minutos_
+_Actualizado: 28/11/2026 04:10 UTC · se actualiza solo cada pocos minutos_
 
 ## Resumen
 
 | | Últimas 24 h | Últimos 7 días |
 |---|---|---|
-| 🔎 Clips revisados por la IA | 29 | 300 |
-| 📩 Enviados a tu Telegram | 12 | 91 |
+| 🔎 Clips revisados por la IA | 29 | 306 |
+| 📩 Enviados a tu Telegram | 12 | 93 |
 | ✅ Aprobados | 4 | 24 |
 | ❌ Descartados | 0 | 13 |
 | 🚀 Enviados a publicar | 4 | 22 |
@@ -18,7 +18,7 @@ _Actualizado: 28/11/2026 04:00 UTC · se actualiza solo cada pocos minutos_
 
 | Estado | Cuándo (UTC) | Detalle |
 |---|---|---|
-| ⏳ | 2026-11-28 04:00 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/46105525947) |
+| ✅ | 2026-11-28 04:00 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/46105525947) |
 | ✅ | 2026-11-28 00:00 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/46085586468) |
 | ✅ | 2026-11-27 20:00 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/46060660172) |
 | ✅ | 2026-11-27 16:00 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/46029925925) |
@@ -29,6 +29,8 @@ _Actualizado: 28/11/2026 04:00 UTC · se actualiza solo cada pocos minutos_
 
 | Fecha (UTC) | Streamer | Título | Nota | Vistas Twitch | Estado |
 |---|---|---|---|---|---|
+| 2026-11-28 04:03 | juansguarnizo | La confusión más loca de Juansguarnizo 😂 | 9/10 | 341 | ⏳ pendiente |
+| 2026-11-28 04:03 | IlloJuan | IlloJuan no perdona este insulto 😂 | 8/10 | 301 | ⏳ pendiente |
 | 2026-11-27 20:09 | Rubius | El épico fail de Rubius intentando un truco 🤣 | 9/10 | 335 | 🚀 publicado |
 | 2026-11-27 16:06 | skain | El momento de pánico de @skain en Minecraft 😱 | 9/10 | 511 | ⏳ pendiente |
 | 2026-11-27 16:06 | IlloJuan | IlloJuan no puede con esta canción en GTA VI 😂 | 10/10 | 334 | 🚀 publicado |
@@ -42,8 +44,6 @@ _Actualizado: 28/11/2026 04:00 UTC · se actualiza solo cada pocos minutos_
 | 2026-11-27 04:06 | rivers_gg | El SUSTO de Rivers con un trailer 😱 | 8/10 | 1171 | ⏳ pendiente |
 | 2026-11-27 04:06 | IlloJuan | El GTA VI de IlloJuan está ROTO 😂 | 10/10 | 318 | ⏳ pendiente |
 | 2026-11-27 00:03 | IlloJuan | ¡A IlloJuan le pasa lo más injusto en GTA! 💀 | 8/10 | 425 | ⏳ pendiente |
-| 2026-11-27 00:03 | aldo_geo | ¡Aldo_geo sufre el accidente más loco en GTA! 😂 | 9/10 | 536 | ⏳ pendiente |
-| 2026-11-27 00:03 | marinaifx | El troleo más inesperado a marinaifx en Minecraft 😭 | 7/10 | 312 | ⏳ pendiente |
 
 ## Configuración actual
 
