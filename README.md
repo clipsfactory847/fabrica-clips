@@ -1,13 +1,13 @@
 # 🎬 Clipéalo · Panel de control
 
-_Actualizado: 28/11/2026 00:01 UTC · se actualiza solo cada pocos minutos_
+_Actualizado: 28/11/2026 00:10 UTC · se actualiza solo cada pocos minutos_
 
 ## Resumen
 
 | | Últimas 24 h | Últimos 7 días |
 |---|---|---|
-| 🔎 Clips revisados por la IA | 35 | 298 |
-| 📩 Enviados a tu Telegram | 15 | 91 |
+| 🔎 Clips revisados por la IA | 29 | 300 |
+| 📩 Enviados a tu Telegram | 12 | 91 |
 | ✅ Aprobados | 4 | 24 |
 | ❌ Descartados | 0 | 13 |
 | 🚀 Enviados a publicar | 4 | 22 |
@@ -18,7 +18,7 @@ _Actualizado: 28/11/2026 00:01 UTC · se actualiza solo cada pocos minutos_
 
 | Estado | Cuándo (UTC) | Detalle |
 |---|---|---|
-| ⏳ | 2026-11-28 00:00 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/46085586468) |
+| ✅ | 2026-11-28 00:00 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/46085586468) |
 | ✅ | 2026-11-27 20:00 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/46060660172) |
 | ✅ | 2026-11-27 16:00 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/46029925925) |
 | ✅ | 2026-11-27 12:00 | [ver](https://github.com/clipsfactory847/fabrica-clips/actions/runs/45995112649) |
